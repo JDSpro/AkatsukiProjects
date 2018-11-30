@@ -119,5 +119,11 @@
   <ItemGroup>
     <Resource Include="milli.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="loginPic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="loginPictures.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
