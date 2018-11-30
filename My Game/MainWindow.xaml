@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:My_Game"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="#200B70">
+        <Image Source="milli.png"></Image>
     </Grid>
 </Window>

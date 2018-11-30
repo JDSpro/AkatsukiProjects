@@ -116,5 +116,8 @@
   <ItemGroup>
     <Resource Include="SettingsImage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="milli.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
