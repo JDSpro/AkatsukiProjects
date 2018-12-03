@@ -9,16 +9,15 @@
         Title="MainWindow" Height="450" Width="800">
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button Click="Button_Click">
+            <Button Name="LoginButton" Click="LoginButton_Click">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <Ellipse Width="17" Height="17">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="loginPictures.png" Stretch="Uniform"></ImageBrush> 
+                                <ImageBrush ImageSource="Images\loginPictures.png" Stretch="Uniform"></ImageBrush>
                             </Ellipse.Fill>
                         </Ellipse>
-                       
-                        <Label Name="LabelInLoginButton" Content="Login" Foreground="White"/>
+                        <Label Name="LabelInLoginButton" Content="Войти" Foreground="White"/>
                     </StackPanel>
                 </Button.Content>
             </Button>
@@ -26,15 +25,34 @@
     </Controls:MetroWindow.RightWindowCommands>
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
-            <Controls:Flyout Header="Flyout" Position="Right" Width="200">
-                <StackPanel>
-                    <!--<Image Source=""></Image>-->
-                    <TextBox Width="100" />
-                </StackPanel>
+            <Controls:Flyout Background="#41B1E1" Header="Flayout" Position="Right" Width="200">
+                <TabControl Background="Transparent">
+                    <TabItem Width="100" FontSize="10">
+                        <TabItem.Header>
+                            <TextBlock Text="Вход" Foreground="Black" FontSize="20" />
+                        </TabItem.Header>
+                        <StackPanel Background="#41B1E1">
+                            <!--<Image Source=""></Image>-->
+                            <TextBox Controls:TextBoxHelper.Watermark="Логин" Foreground="Black" Width="150" Background="White"/>
+                            <PasswordBox Margin="0, 30, 0, 0" Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock" Width="150" Background="White" Foreground="Black"></PasswordBox>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Width="100">
+                        <TabItem.Header>
+                            <TextBlock Text="Регистрация" Foreground="Black" FontSize="20" />
+                        </TabItem.Header>
+                        <StackPanel Background="#41B1E1">
+                            <!--<Image Source=""></Image>-->
+                            <TextBox Controls:TextBoxHelper.Watermark="Логин" Foreground="Black" Width="150" Background="White"/>
+                            <PasswordBox Margin="0, 30, 0, 0" Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock" Width="150" Background="White" Foreground="Black"></PasswordBox>
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
+                
             </Controls:Flyout>
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
     <Grid Background="#200B70">
-        <Image Source="milli.png"></Image>
+        <Image Source="Images\milli.png"></Image>
     </Grid>
 </Controls:MetroWindow>

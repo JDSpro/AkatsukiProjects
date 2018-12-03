@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,16 +22,27 @@ namespace My_Game
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            CloseCommand comm = new CloseCommand(this);
             var flyout = Flyouts.Items[0] as Flyout;
             flyout.IsOpen = true;
+            flyout.CloseCommand = comm;
 
+            LoginButton.Visibility = System.Windows.Visibility.Hidden;
+            //DialogManager.ShowLoginAsync(this, "", "");
+        }
+
+        private void Flyout_ContextMenuClosing(object sender, RoutedEventArgs e)
+        {
+            LoginButton.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }
