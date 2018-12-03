@@ -23,35 +23,44 @@
             </Button>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
+    
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
-            <Controls:Flyout Background="#41B1E1" Header="Flayout" Position="Right" Width="200">
-                <TabControl Background="Transparent">
-                    <TabItem Width="100" FontSize="10">
+            <Controls:Flyout Name="SignInUpFlayout" Background="#41B1E1" Header="Flayout" Position="Right" Width="205">
+
+                <TabControl Margin="0, 10, 0, 0" Name="FlayoutTabCotrol" Controls:TabControlHelper.UnderlineSelectedBrush="Transparent" Background="#41B1E1">
+                    <!--1-->
+                    <TabItem Name="SignInTabItem" Width="100">
                         <TabItem.Header>
-                            <TextBlock Text="Вход" Foreground="Black" FontSize="20" />
+                            <Label HorizontalAlignment="Center" Name="SignInLabel" Content="Вход" Foreground="Black" FontSize="14" BorderBrush="Transparent"/>
                         </TabItem.Header>
+                        
                         <StackPanel Background="#41B1E1">
-                            <!--<Image Source=""></Image>-->
-                            <TextBox Controls:TextBoxHelper.Watermark="Логин" Foreground="Black" Width="150" Background="White"/>
-                            <PasswordBox Margin="0, 30, 0, 0" Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock" Width="150" Background="White" Foreground="Black"></PasswordBox>
+                            <TextBox Margin="0, 20, 0, 0" Controls:TextBoxHelper.Watermark="Логин" Foreground="Black" Width="150" Background="White"/>
+                            <PasswordBox Margin="0, 20, 0, 0" Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock" Width="150" Background="White" Foreground="Black"></PasswordBox>
+                            <Button Name="EnterButton" BorderBrush="#41b1e1" Foreground="Black" Background="White" Width="75" Margin="0, 20, 0, 0" Content="Войти"></Button>
                         </StackPanel>
                     </TabItem>
-                    <TabItem Width="100">
+                    <!--2-->
+                    <TabItem Name="SignUpTabItem" Width="105">
                         <TabItem.Header>
-                            <TextBlock Text="Регистрация" Foreground="Black" FontSize="20" />
+                            <Label HorizontalAlignment="Center" Name="SignUpLabel" Content="Регистрация" Foreground="Black" FontSize="14" BorderBrush="Transparent"/>
                         </TabItem.Header>
+                        
                         <StackPanel Background="#41B1E1">
-                            <!--<Image Source=""></Image>-->
-                            <TextBox Controls:TextBoxHelper.Watermark="Логин" Foreground="Black" Width="150" Background="White"/>
-                            <PasswordBox Margin="0, 30, 0, 0" Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock" Width="150" Background="White" Foreground="Black"></PasswordBox>
+                            <TextBox Margin="0, 20, 0, 0" Controls:TextBoxHelper.Watermark="Логин" Foreground="Black" Width="150" Background="White"/>
+                            <PasswordBox Margin="0, 20, 0, 0" Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock" Width="150" Background="White" Foreground="Black"></PasswordBox>
+                            <Image Name="SignUpPicture" Source="Images\NoImage.png" Width="100" Height="150" Margin="0, 20, 0, 0"></Image>
+                            <Button Name="RegButton" BorderBrush="#41b1e1" Foreground="Black" Background="White" Width="75" Margin="0, 20, 0, 0" Content="Создать"></Button>
                         </StackPanel>
                     </TabItem>
+                    
                 </TabControl>
                 
             </Controls:Flyout>
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
+    
     <Grid Background="#200B70">
         <Image Source="Images\milli.png"></Image>
     </Grid>
