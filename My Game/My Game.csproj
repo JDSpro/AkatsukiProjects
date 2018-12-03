@@ -90,11 +90,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< HEAD
+
     <Compile Include="Classes\CloseCommand.cs" />
-=======
+
     <Compile Include="Game_History.cs" />
->>>>>>> 5a968eb396450f23d3df28816f39368309dae3a7
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
