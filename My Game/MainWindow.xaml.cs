@@ -2,6 +2,7 @@
 using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,6 @@ namespace My_Game
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
