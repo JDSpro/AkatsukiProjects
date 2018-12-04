@@ -53,3 +53,4 @@ C:\Users\student\Desktop\rabota\AkatsukiProjects\My Game\bin\Debug\EntityFramewo
 C:\Users\student\Desktop\rabota\AkatsukiProjects\My Game\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\student\Desktop\rabota\AkatsukiProjects\My Game\bin\Debug\EntityFramework.xml
 C:\Users\student\Desktop\rabota\AkatsukiProjects\My Game\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\student\Desktop\rabota\AkatsukiProjects\My Game\obj\Debug\My Game.csprojAssemblyReference.cache

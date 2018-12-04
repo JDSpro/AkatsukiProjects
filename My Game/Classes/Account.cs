@@ -11,6 +11,7 @@ namespace My_Game
         public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public byte[] Photo { get; set; }
         public List<Personal_Data_Acc> Personal { get; set; }
     }
 }

@@ -12,7 +12,6 @@ namespace My_Game
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Patronymic { get; set; }
-        public byte[] Photo { get; set; }
         public DateTime DateOfBirth { get; set; }
     }
 }
