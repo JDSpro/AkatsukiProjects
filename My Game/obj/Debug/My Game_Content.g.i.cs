@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("loginpictures.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/capslockactiveicon.jpg")]
 
 

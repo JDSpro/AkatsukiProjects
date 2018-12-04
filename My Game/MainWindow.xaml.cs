@@ -41,7 +41,20 @@ namespace My_Game
 
             SignUpPicture.MouseDown += SignUpPicture_MouseDown;
 
+            EnterButton.MouseDown += EnterButton_MouseDown;
+            RegButton.MouseDown += RegButton_MouseDown;
+
             FlayoutTabCotrol.SelectionChanged += FlayoutTabCotrol_SelectionChanged;
+        }
+
+        private void RegButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void EnterButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
         }
 
         private void SignUpPicture_MouseDown(object sender, MouseButtonEventArgs e)
