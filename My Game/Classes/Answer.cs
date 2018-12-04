@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace My_Game
 {
-    class Account
+    class Answer
     {
         public int Id { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public List<Personal_Data_Acc> Personal { get; set; }
+        public string Text { get; set; }
+
+        public bool IsCorrect { get; set; }
     }
 }

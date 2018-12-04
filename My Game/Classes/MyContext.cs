@@ -16,7 +16,7 @@ namespace My_Game
         }
         public DbSet<Account> Accounts{ get; set; }
         public DbSet<Personal_Data_Acc> Personal_Data_Accs{ get; set; }
-        public DbSet<Game_History> Game_Histories{ get; set; }
+        //public DbSet<GameHistory> Game_Histories{ get; set; }
         public DbSet<Question> Questions{ get; set; }
         public DbSet<Answer> Answers{ get; set; }
     }

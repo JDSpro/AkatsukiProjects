@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,6 +29,62 @@ namespace My_Game
         public MainWindow()
         {
             InitializeComponent();
+            //----------------------ALEX TEST--------------------
+            //----------------------ALEX TEST--------------------
+            //----------------------ALEX TEST--------------------
+
+            using (MyContext db = new MyContext())
+            {
+                // создаем два объекта User
+                Account JmixAcc = new Account
+                {
+                    Login = "TEST login",
+                    //128-битный алгоритм хеширования md5
+                    Password = MD5Hash.GetMd5Hash("somepass"),
+                    Photo = File.ReadAllBytes("C:\\Users\\student\\Desktop\\Course\\AkatsukiProjects\\My Game\\Images\\loginPic.png"),
+                    Personal = new List<Personal_Data_Acc>
+                    {
+                        new Personal_Data_Acc
+                        {
+
+                             Surname="Жмышенко",
+                             Name="Валерий",
+                             Patronymic="Альбертович",
+                             // год - месяц - день - час - минута - секунда
+                             DateOfBirth=new DateTime(1960, 08, 14, 12, 00, 00)
+                        }
+                    }
+                };
+                //128-битный алгоритм хеширования md5
+                MD5Hash.GetMd5Hash("sdf");
+                //128-битный алгоритм хеширования md5
+
+                // добавляю его в бд
+                db.Entry(JmixAcc).State = System.Data.Entity.EntityState.Added;
+                db.SaveChanges();
+
+            }
+
+            ////128-битный алгоритм хеширования md5
+            ////типо пароль
+            //string s1;
+
+            //MD5 md5 = new MD5CryptoServiceProvider();
+            //s1 = "somePassword";
+            //byte[] checkSum1 = md5.ComputeHash(Encoding.UTF8.GetBytes(s1));
+            //s1 = BitConverter.ToString(checkSum1).Replace("-", String.Empty);
+            //string[] sr = new string[1];
+
+            ////128-битный алгоритм хеширования md5
+
+
+
+            //----------------------ALEX TEST--------------------
+            //----------------------ALEX TEST--------------------
+            //----------------------ALEX TEST--------------------
+
+
+
 
             //SignInTabItemHeaderButton.MouseDown += SignInTabItemHeaderButton_MouseDown;
             //SignUpTabItemHeaderButton.MouseDown += SignUpTabItemHeaderButton_MouseDown;

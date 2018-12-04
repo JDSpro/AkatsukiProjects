@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace My_Game
+namespace My_Game.Classes
 {
-    class Game_History
+    class GameHistory
     {
         public int Id { get; set; }
         public List<Account> Acc { get; set; }
