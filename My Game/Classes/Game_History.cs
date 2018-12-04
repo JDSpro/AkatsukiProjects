@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace My_Game
+namespace My_Game.Classes
 {
     class Game_History
     {

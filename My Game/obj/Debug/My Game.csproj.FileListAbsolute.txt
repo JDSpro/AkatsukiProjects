@@ -53,3 +53,10 @@ C:\Users\student\Desktop\rabota\AkatsukiProjects\My Game\bin\Debug\EntityFramewo
 C:\Users\student\Desktop\rabota\AkatsukiProjects\My Game\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\student\Desktop\rabota\AkatsukiProjects\My Game\bin\Debug\EntityFramework.xml
 C:\Users\student\Desktop\rabota\AkatsukiProjects\My Game\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game.csprojAssemblyReference.cache
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\LoginWindow.g.cs
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\MainWindow.g.cs
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\App.g.cs
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game_MarkupCompile.cache
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game_MarkupCompile.lref
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game.pdb

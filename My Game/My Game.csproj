@@ -74,6 +74,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Answer.cs" />
+    <Compile Include="Classes\Game_History.cs" />
     <Compile Include="Classes\MillionerDBInitializer.cs" />
     <Compile Include="Classes\MyContext.cs" />
     <Compile Include="Classes\Question.cs" />
@@ -91,8 +92,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\CloseCommand.cs" />
-
-    <Compile Include="Game_History.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
