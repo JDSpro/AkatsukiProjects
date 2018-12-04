@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Kirill\Desktop\1488\AkatsukiProjects\My Game\obj\Debug\
+C:\Users\Kirill\Desktop\1488\AkatsukiProjects\My Game\obj\Release\
 My_Game
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\Kirill\Desktop\1488\AkatsukiProjects\My Game\App.xaml
 22037783069
 
-611046803
-17915338082
+141578829384
+20-574056945
 LoginWindow.xaml;MainWindow.xaml;
 
-False
+True
 

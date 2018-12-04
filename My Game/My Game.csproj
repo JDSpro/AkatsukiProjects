@@ -91,7 +91,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\CloseCommand.cs" />
-    <Compile Include="Classes\Game_History.cs" />
+
+    <Compile Include="Game_History.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -139,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\loginPictures.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NoImage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
