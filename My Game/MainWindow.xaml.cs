@@ -129,37 +129,59 @@ namespace My_Game
         //public DateTime DateOfBirth { get; set; }
 
         private void SetNewFlyout()
-        {
+        { 
             FlayoutSignInUp.IsOpen = false;
             FlayoutSignInUp.Content = null;
 
-            FlayoutSignInUp.Header = "JDS";
+            //StackPanel panel = new StackPanel();
 
+            //FlayoutSignInUp.Header = panel;
+
+            //panel.Orientation = Orientation.Horizontal;
+
+            //Image image = new Image();
+            ////image.Source = 
+
+            //Label label = new Label();
+            ////label.Content =
+
+            #region TextBoxName
             TextBox TextBoxName = new TextBox();
-            TextBoxName.Width = 150;
+            TextBoxName.Width = 125;
             TextBoxHelper.SetWatermark(TextBoxName, "Ваше имя");
             TextBoxName.CaretBrush = new SolidColorBrush(Colors.Black);
             TextBoxName.Background = new SolidColorBrush(Colors.White);
             TextBoxName.Foreground = new SolidColorBrush(Colors.Black);
-            TextBoxName.Margin = new Thickness(0, 20, 0, 0);
+            TextBoxName.Margin = new Thickness(0, 25, 0, 0);
+            #endregion
 
+            #region TextBoxSurname
             TextBox TextBoxSurname = new TextBox();
-            TextBoxName.Width = 150;
-            TextBoxHelper.SetWatermark(TextBoxName, "Ваше имя");
-            TextBoxName.CaretBrush = new SolidColorBrush(Colors.Black);
-            TextBoxName.Background = new SolidColorBrush(Colors.White);
-            TextBoxName.Foreground = new SolidColorBrush(Colors.Black);
-            TextBoxName.Margin = new Thickness(0, 20, 0, 0);
+            TextBoxSurname.Width = 125;
+            TextBoxHelper.SetWatermark(TextBoxSurname, "Ваша фамилия");
+            TextBoxSurname.CaretBrush = new SolidColorBrush(Colors.Black);
+            TextBoxSurname.Background = new SolidColorBrush(Colors.White);
+            TextBoxSurname.Foreground = new SolidColorBrush(Colors.Black);
+            TextBoxSurname.Margin = new Thickness(0, 25, 0, 0);
+            #endregion
 
+            #region TextBoxPatronymic
             TextBox TextBoxPatronymic = new TextBox();
-            TextBoxName.Width = 150;
-            TextBoxHelper.SetWatermark(TextBoxName, "Ваше имя");
-            TextBoxName.CaretBrush = new SolidColorBrush(Colors.Black);
-            TextBoxName.Background = new SolidColorBrush(Colors.White);
-            TextBoxName.Foreground = new SolidColorBrush(Colors.Black);
-            TextBoxName.Margin = new Thickness(0, 20, 0, 0);
+            TextBoxPatronymic.Width = 125;
+            TextBoxHelper.SetWatermark(TextBoxPatronymic, "Ваше отчество");
+            TextBoxPatronymic.CaretBrush = new SolidColorBrush(Colors.Black);
+            TextBoxPatronymic.Background = new SolidColorBrush(Colors.White);
+            TextBoxPatronymic.Foreground = new SolidColorBrush(Colors.Black);
+            TextBoxPatronymic.Margin = new Thickness(0, 25, 0, 0);
+            #endregion
 
-            
+            StackPanel stack = new StackPanel();
+
+            FlayoutSignInUp.Content = stack;
+
+            stack.Children.Add(TextBoxName);
+            stack.Children.Add(TextBoxSurname);
+            stack.Children.Add(TextBoxPatronymic);
         }
     }
 }
