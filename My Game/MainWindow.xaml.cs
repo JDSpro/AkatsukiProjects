@@ -32,6 +32,8 @@ namespace My_Game
             //----------------------ALEX TEST--------------------
             //----------------------ALEX TEST--------------------
             //----------------------ALEX TEST--------------------
+            
+            //БАЗА ДАННЫХ СОЗДАЕТЬСЯ В LOCALDB->Millioner
 
             using (MyContext db = new MyContext())
             {
