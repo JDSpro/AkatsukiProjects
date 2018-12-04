@@ -74,7 +74,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Answer.cs" />
-    <Compile Include="Classes\Game_History.cs" />
+    <Compile Include="Classes\GameHistory.cs" />
     <Compile Include="Classes\MillionerDBInitializer.cs" />
     <Compile Include="Classes\MyContext.cs" />
     <Compile Include="Classes\Question.cs" />
@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Personal_Data_Acc.cs" />
+    <Compile Include="Classes\MD5Hash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
