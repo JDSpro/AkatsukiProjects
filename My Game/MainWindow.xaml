@@ -43,7 +43,7 @@
                         
                         <StackPanel Background="#41B1E1">
                             <TextBox CaretBrush="Black" Margin="0, 20, 0, 0" Controls:TextBoxHelper.Watermark="Логин" Foreground="Black" Width="150" Background="White"/>
-                            <PasswordBox CaretBrush="Black" Margin="0, 20, 0, 0" Controls:PasswordBoxHelper.CapsLockIcon="" Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock" Width="150" Background="White" Foreground="Black"></PasswordBox>
+                            <PasswordBox CaretBrush="Black" Margin="0, 20, 0, 0"  Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock." Width="150" Background="White" Foreground="Black"></PasswordBox>
                             <Button Style="{StaticResource ButtonStyle}" Name="EnterButton" BorderBrush="#41b1e1" Foreground="Black" Background="White" Width="75" Margin="0, 20, 0, 0" Content="Войти"></Button>
                         </StackPanel>
                     </TabItem>
