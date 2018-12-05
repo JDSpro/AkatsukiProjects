@@ -5,8 +5,12 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:My_Game"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" StateChanged="MetroWindow_StateChanged">
+    <!--UseNoneWindowStyle="True"
+                      WindowState="Maximized"
+                      IgnoreTaskbarOnMaximize="True"-->
     <Controls:MetroWindow.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="14"></Setter>
@@ -43,7 +47,11 @@
                         
                         <StackPanel Background="#41B1E1">
                             <TextBox Name="SignInTextBox" CaretBrush="Black" Margin="0, 20, 0, 0" Controls:TextBoxHelper.Watermark="Логин" Foreground="Black" Width="150" Background="White"/>
-                            <PasswordBox Name="SignInPasswordBox" CaretBrush="Black" Margin="0, 20, 0, 0" Controls:PasswordBoxHelper.CapsLockIcon="Caps Lock" Controls:PasswordBoxHelper.CapsLockWarningToolTip="hi"  Width="150" Background="White" Foreground="Black"></PasswordBox>
+                            <PasswordBox Name="SignInPasswordBox" CaretBrush="Black" Margin="0, 20, 0, 0" Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock"  Width="150" Background="White" Foreground="Black">
+                                <Controls:PasswordBoxHelper.CapsLockIcon>
+                                    <Image Source="Images\CapsLockActiveIcon.jpg" Width="14" Height="14"/>
+                                </Controls:PasswordBoxHelper.CapsLockIcon>
+                            </PasswordBox>
                             <Button Style="{StaticResource ButtonStyle}" Name="SignInButton" BorderBrush="#41b1e1" Foreground="Black" Background="White" Width="75" Margin="0, 20, 0, 0" Content="Войти"></Button>
                             <Label HorizontalAlignment="Center" Visibility="Hidden" Name="LabelSignInError" Foreground="Red" FontSize="14"></Label>
                         </StackPanel>
@@ -56,8 +64,11 @@
                         
                         <StackPanel Background="#41B1E1">
                             <TextBox Name="SignUpTextBox" CaretBrush="Black" Margin="0, 15, 0, 0" Controls:TextBoxHelper.Watermark="Логин" Foreground="Black" Width="150" Background="White"/>
-                            <PasswordBox Name="SignUpPasswordBox" CaretBrush="Black" Margin="0, 15, 0, 0" Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock" Width="150" Background="White" Foreground="Black"></PasswordBox>
-                            <Image Name="SignUpPicture" Source="Images\NoImage.png" Width="100" Height="150" Margin="0, 15, 0, 0"></Image>
+                            <PasswordBox Name="SignUpPasswordBox" CaretBrush="Black" Margin="0, 15, 0, 0" Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock" Width="150" Background="White" Foreground="Black">
+                                <Controls:PasswordBoxHelper.CapsLockIcon>
+                                    <Image Source="Images\CapsLockActiveIcon.jpg" Width="14" Height="14"/>
+                                </Controls:PasswordBoxHelper.CapsLockIcon>
+                            </PasswordBox>
                             <Button Style="{StaticResource ButtonStyle}" Name="SignUpButton" BorderBrush="#41b1e1" Foreground="Black" Background="White" Width="75" Margin="0, 15, 0, 0" Content="Создать"></Button>
                             <Label HorizontalAlignment="Center" Visibility="Hidden" Name="LabelSignUpError" Foreground="Red" FontSize="14"></Label>
                         </StackPanel>
