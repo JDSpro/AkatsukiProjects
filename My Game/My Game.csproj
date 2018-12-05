@@ -75,7 +75,6 @@
     </ApplicationDefinition>
     <Compile Include="Classes\Answer.cs" />
     <Compile Include="Classes\GameHistory.cs" />
-    <Compile Include="Classes\MillionerDBInitializer.cs" />
     <Compile Include="Classes\MyContext.cs" />
     <Compile Include="Classes\Question.cs" />
     <Page Include="LoginWindow.xaml">

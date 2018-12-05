@@ -9,7 +9,9 @@ namespace My_Game
 {
     class Account
     {
-        public int Id { get; set; }
+        public int AccountId { get; set; }
+
+        //[Index(IsUnique = true)]
         public string Login { get; set; }
         public string Password { get; set; }
         public byte[] Photo { get; set; }
