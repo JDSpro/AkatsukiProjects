@@ -30,8 +30,8 @@ namespace My_Game
         public MainWindow()
         {
             InitializeComponent();
-
-            //SignUpPicture.MouseDown += SignUpPicture_MouseDown;
+            
+            SignUpPicture.MouseDown += SignUpPicture_MouseDown;
 
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;

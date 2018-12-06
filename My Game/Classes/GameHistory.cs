@@ -9,7 +9,7 @@ namespace My_Game.Classes
     class GameHistory
     {
         public int Id { get; set; }
-        public List<Account> Acc { get; set; }
+        public Account Acc { get; set; }
         public int Points { get; set; }
         public DateTime DateOfPlay { get; set; }
     }
