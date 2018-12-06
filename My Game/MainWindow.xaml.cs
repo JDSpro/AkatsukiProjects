@@ -30,20 +30,8 @@ namespace My_Game
         public MainWindow()
         {
             InitializeComponent();
-            Utilities.Registration("admin", "admin");
-           int id= Utilities.Enter("admin", "admin");
-            //Utilities.Registration("qwe", "admewin");
-            //отдельный класс initializer и перегрузить seed для тесто
-            //  DBHelper.GetInstance().InsertIntoAccQuery("admin", "admin");
-
-            //Utilities.Registration("admin", "admin");
-            //Utilities.Registration("qwerty", "12345678");
-
-            //int a1 = Utilities.Enter("admin", "admin");
-            //int a3 = Utilities.Enter("qwerty", "12345678");
-
-            //int a2 = Utilities.Enter("admin", "qdqw");
-
+            
+            SignUpPicture.MouseDown += SignUpPicture_MouseDown;
 
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
@@ -57,11 +45,8 @@ namespace My_Game
         {
             if (SignInTextBox.Text != "" && SignInPasswordBox.Password != "")
             {
-                if(Utilities.Registration(SignInTextBox.Text, SignInPasswordBox.Password) == -1)
-                {
-                    SetNewFlyout();
-                    LabelSignInError.Visibility = Visibility.Hidden;
-                }
+                SetNewFlyout();
+                LabelSignInError.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -70,12 +55,22 @@ namespace My_Game
             }
         }
 
-        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        private async void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
             if (SignUpTextBox.Text != "" && SignUpPasswordBox.Password != "")
             {
-                SetNewFlyout();
-                LabelSignInError.Visibility = Visibility.Hidden;
+                int res = await Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
+                
+                if (res == -1)
+                {
+                    LabelSignUpError.Content = "Логин уже используется.";
+                    LabelSignUpError.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    //SetNewFlyout();
+                    //LabelSignUpError.Visibility = Visibility.Hidden;
+                }
             }
             else
             {

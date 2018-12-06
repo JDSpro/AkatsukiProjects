@@ -14,37 +14,49 @@ namespace My_Game
     {
 
         //РЕГИСТРАЦИЯ
-        public static int Registration(string login, string password)
+        public static Task<int> Registration(string login, string password)
         {
 
-            int id = -1;
-            var db = Db.GetInstance().Context;
-            try
+            using (MyContext db = new MyContext())
             {
-                // создаю аккаунт
-                Account JmixAcc = new Account
+                try
                 {
-                    Login = login,
-                    //128-битный алгоритм хеширования md5
-                    Password = MD5Hash.GetMd5Hash(password),
-                    Personal = new Personal_Data_Acc { }
-                };
-                // добавляю в бд
-                db.Accounts.Add(JmixAcc);
-                // db.Entry(JmixAcc).State = EntityState.Added;
-                db.SaveChanges();
-                id = JmixAcc.Id;
-            }
-            catch (DbUpdateException ex)
-            {
+                    // создаю аккаунт
+                    Account JmixAcc = new Account
+                    {
+                        Login = login,
+                        //128-битный алгоритм хеширования md5
+                        Password = MD5Hash.GetMd5Hash(password),
+                        Personal = new Personal_Data_Acc { }
+                    };
+                    // добавляю в бд
+                    db.Accounts.Add(JmixAcc);
+                    // db.Entry(JmixAcc).State = EntityState.Added;
+                    db.SaveChanges();
+                    return JmixAcc.Id;
+                }
 
+
+                catch (DbUpdateException ex)
+                {
+                    //WebId = Guid.Empty;
+                    return -1;
+                }
             }
-            return id;
+          
         }
-
-
-
-       
+            //using (MyContext db = new MyContext())
+            //{
+            //    Account JmixAcc = new Account
+            //    {
+            //        Login = login,
+            //        //128-битный алгоритм хеширования md5
+            //        Password = MD5Hash.GetMd5Hash(password),
+            //        //Photo = File.ReadAllBytes(path)
+            //        //Personal = new List<Personal_Data_Acc>
+            //        //{
+            //        //    new Personal_Data_Acc
+            //        //    {
 
 
         //ВХОД
