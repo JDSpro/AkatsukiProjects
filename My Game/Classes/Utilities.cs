@@ -14,7 +14,7 @@ namespace My_Game
     {
 
         //РЕГИСТРАЦИЯ
-        public static int Registration(string login, string password)
+        public static Task<int> Registration(string login, string password)
         {
 
             using (MyContext db = new MyContext())
@@ -33,14 +33,14 @@ namespace My_Game
                     db.Accounts.Add(JmixAcc);
                     // db.Entry(JmixAcc).State = EntityState.Added;
                     db.SaveChanges();
-                    return JmixAcc.Id;
+                    return Task.FromResult<int>(JmixAcc.Id);
                 }
 
 
                 catch (DbUpdateException ex)
                 {
                     //WebId = Guid.Empty;
-                    return -1;
+                    return Task.FromResult<int>(-1);
                 }
             }
           

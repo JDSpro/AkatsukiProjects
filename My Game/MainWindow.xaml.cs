@@ -31,8 +31,6 @@ namespace My_Game
         {
             InitializeComponent();
             
-            SignUpPicture.MouseDown += SignUpPicture_MouseDown;
-
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
 
@@ -45,16 +43,8 @@ namespace My_Game
         {
             if (SignInTextBox.Text != "" && SignInPasswordBox.Password != "")
             {
-                if(Utilities.Registration(SignInTextBox.Text, SignInPasswordBox.Password) == -1)
-                {
-                    LabelSignInError.Content = "Логин уже используется.";
-                    LabelSignInError.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    SetNewFlyout();
-                    LabelSignInError.Visibility = Visibility.Hidden;
-                }
+                SetNewFlyout();
+                LabelSignInError.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -63,12 +53,22 @@ namespace My_Game
             }
         }
 
-        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        private async void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
             if (SignUpTextBox.Text != "" && SignUpPasswordBox.Password != "")
             {
-                SetNewFlyout();
-                LabelSignInError.Visibility = Visibility.Hidden;
+                int res = await Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
+                
+                if (res == -1)
+                {
+                    LabelSignUpError.Content = "Логин уже используется.";
+                    LabelSignUpError.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    //SetNewFlyout();
+                    //LabelSignUpError.Visibility = Visibility.Hidden;
+                }
             }
             else
             {
