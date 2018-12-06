@@ -63,13 +63,13 @@
                         </TabItem.Header>
                         
                         <StackPanel Background="#41B1E1">
-                            <TextBox Name="SignUpTextBox" CaretBrush="Black" Margin="0, 15, 0, 0" Controls:TextBoxHelper.Watermark="Логин" Foreground="Black" Width="150" Background="White"/>
-                            <PasswordBox Name="SignUpPasswordBox" CaretBrush="Black" Margin="0, 15, 0, 0" Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock" Width="150" Background="White" Foreground="Black">
+                            <TextBox Name="SignUpTextBox" CaretBrush="Black" Margin="0, 20, 0, 0" Controls:TextBoxHelper.Watermark="Логин" Foreground="Black" Width="150" Background="White"/>
+                            <PasswordBox Name="SignUpPasswordBox" CaretBrush="Black" Margin="0, 20, 0, 0" Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock" Width="150" Background="White" Foreground="Black">
                                 <Controls:PasswordBoxHelper.CapsLockIcon>
                                     <Image Source="Images\CapsLockActiveIcon.jpg" Width="14" Height="14"/>
                                 </Controls:PasswordBoxHelper.CapsLockIcon>
                             </PasswordBox>
-                            <Button Style="{StaticResource ButtonStyle}" Name="SignUpButton" BorderBrush="#41b1e1" Foreground="Black" Background="White" Width="75" Margin="0, 15, 0, 0" Content="Создать"></Button>
+                            <Button Style="{StaticResource ButtonStyle}" Name="SignUpButton" BorderBrush="#41b1e1" Foreground="Black" Background="White" Width="75" Margin="0, 20, 0, 0" Content="Создать"></Button>
                             <Label HorizontalAlignment="Center" Visibility="Hidden" Name="LabelSignUpError" Foreground="Red" FontSize="14"></Label>
                         </StackPanel>
                     </TabItem>

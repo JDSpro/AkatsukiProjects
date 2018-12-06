@@ -45,8 +45,11 @@ namespace My_Game
         {
             if (SignInTextBox.Text != "" && SignInPasswordBox.Password != "")
             {
-                SetNewFlyout();
-                LabelSignInError.Visibility = Visibility.Hidden;
+                if(Utilities.Registration(SignInTextBox.Text, SignInPasswordBox.Password) == -1)
+                {
+                    SetNewFlyout();
+                    LabelSignInError.Visibility = Visibility.Hidden;
+                }
             }
             else
             {
@@ -228,9 +231,7 @@ namespace My_Game
                     stack.Children.Add(TextBoxEmail);
                     stack.Children.Add(AccPicture);
                     stack.Children.Add(ButtonSaveAccChanges);
-
-
-
+                    
                     FlayoutSignInUp.IsOpen = true;
                 }));
             }));
