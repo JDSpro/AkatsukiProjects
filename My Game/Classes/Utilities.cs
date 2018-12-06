@@ -17,59 +17,35 @@ namespace My_Game
         public static int Registration(string login, string password)
         {
 
-            using (MyContext db = new MyContext())
+            int id = -1;
+            var db = Db.GetInstance().Context;
+            try
             {
-                try
+                // создаю аккаунт
+                Account JmixAcc = new Account
                 {
-                    // создаю аккаунт
-                    Account JmixAcc = new Account
-                    {
-                        Login = login,
-                        //128-битный алгоритм хеширования md5
-                        Password = MD5Hash.GetMd5Hash(password),
-                        Personal = new Personal_Data_Acc { }
-                    };
-                    // добавляю в бд
-                    db.Accounts.Add(JmixAcc);
-                    // db.Entry(JmixAcc).State = EntityState.Added;
-                    db.SaveChanges();
-                    return JmixAcc.Id;
-                }
-
-
-                catch (DbUpdateException ex)
-                {
-                    //WebId = Guid.Empty;
-                    return -1;
-                }
+                    Login = login,
+                    //128-битный алгоритм хеширования md5
+                    Password = MD5Hash.GetMd5Hash(password),
+                    Personal = new Personal_Data_Acc { }
+                };
+                // добавляю в бд
+                db.Accounts.Add(JmixAcc);
+                // db.Entry(JmixAcc).State = EntityState.Added;
+                db.SaveChanges();
+                id = JmixAcc.Id;
             }
-          
-        }
-            //using (MyContext db = new MyContext())
-            //{
-            //    Account JmixAcc = new Account
-            //    {
-            //        Login = login,
-            //        //128-битный алгоритм хеширования md5
-            //        Password = MD5Hash.GetMd5Hash(password),
-            //        //Photo = File.ReadAllBytes(path)
-            //        //Personal = new List<Personal_Data_Acc>
-            //        //{
-            //        //    new Personal_Data_Acc
-            //        //    {
+            catch (DbUpdateException ex)
+            {
 
-            //        //         Surname="Жмышенко",
-            //        //         Name="Валерий",
-            //        //         Patronymic="Альбертович",
-            //        //         // год - месяц - день - час - минута - секунда
-            //        //         DateOfBirth=new DateTime(1960, 08, 14, 12, 00, 00)
-            //        //    }
-            //        //}
-            //    };
-            //    // добавляю его в бд
-            //    db.Entry(JmixAcc).State = System.Data.Entity.EntityState.Added;
-            //    db.SaveChanges();
-            //}
+            }
+            return id;
+        }
+
+
+
+       
+
 
         //ВХОД
         public static int Enter(string login, string password)
@@ -87,8 +63,14 @@ namespace My_Game
                     //если и пароль у этого пользвателя совпал то return true
                     return student.Id;
             }
-
+            
+            //если нет такого пользователя
             return -1;
+
+            //если неверный пароль
+//            return -2;
+
+
         }
 
         //СМЕНА ПАРОЛЯ

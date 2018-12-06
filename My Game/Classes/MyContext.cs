@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace My_Game
 {
-    class MyContext : DbContext
+    public class MyContext : DbContext
     {
         public MyContext() : base("Millioner")
         {

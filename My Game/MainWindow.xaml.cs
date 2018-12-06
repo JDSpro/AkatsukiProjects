@@ -30,8 +30,20 @@ namespace My_Game
         public MainWindow()
         {
             InitializeComponent();
-            
-            SignUpPicture.MouseDown += SignUpPicture_MouseDown;
+            Utilities.Registration("admin", "admin");
+           int id= Utilities.Enter("admin", "admin");
+            //Utilities.Registration("qwe", "admewin");
+            //отдельный класс initializer и перегрузить seed для тесто
+            //  DBHelper.GetInstance().InsertIntoAccQuery("admin", "admin");
+
+            //Utilities.Registration("admin", "admin");
+            //Utilities.Registration("qwerty", "12345678");
+
+            //int a1 = Utilities.Enter("admin", "admin");
+            //int a3 = Utilities.Enter("qwerty", "12345678");
+
+            //int a2 = Utilities.Enter("admin", "qdqw");
+
 
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
