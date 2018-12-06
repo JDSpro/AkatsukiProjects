@@ -30,6 +30,7 @@ namespace My_Game
         {
             InitializeComponent();
             
+            
             SignUpPicture.MouseDown += SignUpPicture_MouseDown;
 
             SignInButton.Click += SignInButton_Click;

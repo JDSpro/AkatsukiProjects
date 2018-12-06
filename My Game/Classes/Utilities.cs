@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,28 +14,39 @@ namespace My_Game
     {
 
         //РЕГИСТРАЦИЯ
-        public static void Registration(string login, string password, string path)
+        public static int Registration(string login, string password)
         {
+
             using (MyContext db = new MyContext())
             {
-                // создаю аккаунт
-                Account JmixAcc = new Account
+                try
                 {
-                    Login = login,
-                    //128-битный алгоритм хеширования md5
-                    Password = MD5Hash.GetMd5Hash(password),
-                    //Photo = File.ReadAllBytes(path)
-                };
+                    // создаю аккаунт
+                    Account JmixAcc = new Account
+                    {
+                        Login = login,
+                        //128-битный алгоритм хеширования md5
+                        Password = MD5Hash.GetMd5Hash(password),
+                        Personal = new Personal_Data_Acc { }
+                    };
+                    // добавляю в бд
+                    db.Accounts.Add(JmixAcc);
+                    // db.Entry(JmixAcc).State = EntityState.Added;
+                    db.SaveChanges();
+                    return JmixAcc.Id;
+                }
 
-                // добавляю в бд
-                db.Entry(JmixAcc).State = EntityState.Added;
-                db.SaveChanges();
+
+                catch (DbUpdateException ex)
+                {
+                    //WebId = Guid.Empty;
+                    return -1;
+                }
             }
-
-
+          
+        }
             //using (MyContext db = new MyContext())
             //{
-            //    // создаем два объекта User
             //    Account JmixAcc = new Account
             //    {
             //        Login = login,
@@ -57,59 +70,112 @@ namespace My_Game
             //    db.Entry(JmixAcc).State = System.Data.Entity.EntityState.Added;
             //    db.SaveChanges();
             //}
-        }
 
         //ВХОД
-        public static bool Enter(string login, string password)
+        public static int Enter(string login, string password)
         {
-            if (true)
+            MyContext context = new MyContext();
+
+            using (var ctx = new MyContext())
             {
-                MyContext context = new MyContext();
+                //Выборка из базы данных, пользователя с логином, принимаемым в функции
+                var student = (from s in ctx.Accounts
+                               where s.Login == login
+                               select s).FirstOrDefault<Account>();
 
-                using (var ctx = new MyContext())
-                {
-                    //Выборка из базы данных, пользователя с логином, принимаемым в функции
-                    var student = (from s in ctx.Accounts
-                                   where s.Login == login
-                                   select s).FirstOrDefault<Account>();
-
-                    if (student.Password == MD5Hash.GetMd5Hash(password))
-                        //если и пароль у этого пользвателя совпал то return true
-                        return true;
-                }
+                if (student.Password == MD5Hash.GetMd5Hash(password))
+                    //если и пароль у этого пользвателя совпал то return true
+                    return student.Id;
             }
-            return false;
+
+            return -1;
         }
 
         //СМЕНА ПАРОЛЯ
-        public static bool ChangePassword(string login, string newPass)
+        public static bool ChangePassword(int id, string newPass)
         {
-            if (true)
-            {
-                MyContext context = new MyContext();
+            string OldPass = "";
 
-                IEnumerable<Account> acc = context.Accounts
-                    // Загрузить всех покупателей с фамилией "Иванов"
-                    .Where(c => c.Login == login)
-                    .AsEnumerable()
-                    // Поменять им всем фамилию
-                    .Select(c =>
-                    {
-                        c.Password = MD5Hash.GetMd5Hash(newPass);
-                        return c;
-                    });
+            MyContext context = new MyContext();
 
-                foreach (Account customer in acc)
+            IEnumerable<Account> acc = context.Accounts
+                // Загрузить всех пользователей по id
+                .Where(c => c.Id == id)
+                .AsEnumerable()
+                // Поменять пароль
+                .Select(c =>
                 {
-                    // Указать, что запись изменилась
-                    context.Entry(customer).State = EntityState.Modified;
-                }
+                    OldPass = c.Password;
+                    c.Password = MD5Hash.GetMd5Hash(newPass);
+                    return c;
+                });
+            foreach (Account customer in acc)
+                // Указать, что запись изменилась
+                context.Entry(customer).State = EntityState.Modified;
 
-                context.SaveChanges();
+            context.SaveChanges();
+
+            if (OldPass == MD5Hash.GetMd5Hash(newPass))
                 return true;
-            }
-            return false;
 
+            return false;
         }
+
+        //Добавление и Сохранение дополнительных данных
+        public static bool SaveAdditionalInfo(int id, byte[] imagePath, string name = "", string surname = "", string patronymic = "", string email = "")
+        {
+
+            MyContext context = new MyContext();
+
+            IEnumerable<Account> acc = context.Accounts
+                // Загрузить всех пользователей с Логином "login"
+                .Where(c => c.Id == id)
+                .AsEnumerable()
+                // Поменять пароль
+                .Select(c =>
+                {
+                    c.Personal.Name = name;
+                    c.Personal.Surname = surname;
+                    c.Personal.Patronymic = patronymic;
+                    c.Personal.Email = email;
+                    if (imagePath.Length>0)
+                        c.Personal.Photo = imagePath;
+                    
+                    return c;
+                });
+            foreach (Account customer in acc)
+                // Указать, что запись изменилась
+                context.Entry(customer).State = EntityState.Modified;
+
+            context.SaveChanges();
+
+            //
+            return false;
+        }
+
+        //получить картинку
+        public static byte[] GetImage(int id)
+        {
+            //memorystreams-преобразовать из байтов в картинку
+            MyContext context = new MyContext();
+
+            var acc = context.Accounts
+                // Загрузить всех пользователей с Логином "login"
+                .Where(c => c.Id == id).First();
+
+            return acc.Personal.Photo;
+        }
+        
+        //полчучить логин
+        public static string GetLogin(int id)
+        {
+            MyContext context = new MyContext();
+            Account account = context.Accounts.Find(id);
+            if (account != null)
+                return account.Login;
+            else
+                return "";
+        }
+
     }
 }
