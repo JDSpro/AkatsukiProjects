@@ -47,6 +47,11 @@ namespace My_Game
             {
                 if(Utilities.Registration(SignInTextBox.Text, SignInPasswordBox.Password) == -1)
                 {
+                    LabelSignInError.Content = "Логин уже используется.";
+                    LabelSignInError.Visibility = Visibility.Visible;
+                }
+                else
+                {
                     SetNewFlyout();
                     LabelSignInError.Visibility = Visibility.Hidden;
                 }
