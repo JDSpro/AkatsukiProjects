@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace My_Game
 {
-    class DBHelper : IDisposable
+    public class DBHelper : IDisposable
     {
         private static DBHelper instance;
         private SqlConnection connection;

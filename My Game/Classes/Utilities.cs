@@ -14,9 +14,9 @@ namespace My_Game
     {
 
         //РЕГИСТРАЦИЯ
-        public static Task<int> Registration(string login, string password)
+        public static int Registration(string login, string password)
         {
-
+            
             using (MyContext db = new MyContext())
             {
                 try

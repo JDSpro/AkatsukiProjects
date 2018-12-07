@@ -3,6 +3,7 @@ using MahApps.Metro.Controls.Dialogs;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -30,8 +31,19 @@ namespace My_Game
         public MainWindow()
         {
             InitializeComponent();
+
+            //первое подключение
+            Task.Run(new Action(() => {
+                Db.GetInstance().Context.Accounts.FirstOrDefault();
+            }));
+
+
+           //DBHelper.GetInstance().InsertIntoAccQuery("alexey", "qwerty");
+
             
-            SignUpPicture.MouseDown += SignUpPicture_MouseDown;
+
+
+           // SignUpPicture.MouseDown += SignUpPicture_MouseDown;
 
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
@@ -43,6 +55,8 @@ namespace My_Game
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
+            int res = Utilities.Enter(SignInTextBox.Text,SignInPasswordBox.Password);
+
             if (SignInTextBox.Text != "" && SignInPasswordBox.Password != "")
             {
                 SetNewFlyout();
@@ -55,12 +69,12 @@ namespace My_Game
             }
         }
 
-        private async void SignUpButton_Click(object sender, RoutedEventArgs e)
+        private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
             if (SignUpTextBox.Text != "" && SignUpPasswordBox.Password != "")
             {
-                int res = await Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
-                
+                int res = Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
+
                 if (res == -1)
                 {
                     LabelSignUpError.Content = "Логин уже используется.";
@@ -68,8 +82,8 @@ namespace My_Game
                 }
                 else
                 {
-                    //SetNewFlyout();
-                    //LabelSignUpError.Visibility = Visibility.Hidden;
+                    SetNewFlyout();
+                    LabelSignUpError.Visibility = Visibility.Hidden;
                 }
             }
             else
