@@ -1,23 +1,14 @@
 ﻿using MahApps.Metro.Controls;
-using MahApps.Metro.Controls.Dialogs;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace My_Game
 {
@@ -26,24 +17,25 @@ namespace My_Game
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        Account user;
 
         public MainWindow()
         {
             InitializeComponent();
-            
+
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
 
             TabCotrol.SelectionChanged += FlayoutTabCotrol_SelectionChanged;
 
-            FlayoutSignInUp.IsOpenChanged += FlayoutSignInUp_IsOpenChanged;
+            FlyoutSignInUp.IsOpenChanged += FlayoutSignInUp_IsOpenChanged;
         }
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
             if (SignInTextBox.Text != "" && SignInPasswordBox.Password != "")
             {
-                SetNewFlyout();
+                SetAccInfoFlyout();
                 LabelSignInError.Visibility = Visibility.Hidden;
             }
             else
@@ -53,21 +45,19 @@ namespace My_Game
             }
         }
 
-        private async void SignUpButton_Click(object sender, RoutedEventArgs e)
+        private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
             if (SignUpTextBox.Text != "" && SignUpPasswordBox.Password != "")
             {
-                int res = await Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
-                
-                if (res == -1)
+                if (user == null)
                 {
                     LabelSignUpError.Content = "Логин уже используется.";
                     LabelSignUpError.Visibility = Visibility.Visible;
                 }
                 else
                 {
-                    //SetNewFlyout();
-                    //LabelSignUpError.Visibility = Visibility.Hidden;
+                    SetAccInfoFlyout();
+                    LabelSignUpError.Visibility = Visibility.Hidden;
                 }
             }
             else
@@ -103,22 +93,30 @@ namespace My_Game
             {
                 SignInTabItem.Background = new SolidColorBrush(Colors.White);
                 SignUpTabItem.Background = (System.Windows.Media.Brush)new BrushConverter().ConvertFrom("#41B1E1");
-                FlayoutSignInUp.Header = "Вход";
+                FlyoutSignInUp.Header = "Вход";
 
             }
             else if (TabCotrol.SelectedIndex == 1)
             {
                 SignUpTabItem.Background = new SolidColorBrush(Colors.White);
                 SignInTabItem.Background = (System.Windows.Media.Brush)new BrushConverter().ConvertFrom("#41B1E1");
-                FlayoutSignInUp.Header = "Регистрация";
+                FlyoutSignInUp.Header = "Регистрация";
             }
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            var flyout = Flyouts.Items[0] as Flyout;
-            flyout.IsOpen = true;
-
+            if (user == null)
+            {
+                FlyoutSignInUp.IsOpen = true;
+            }
+            else
+            {
+                FlyoutSignInUp.Visibility = Visibility.Hidden;
+                var flyout = Flyouts.Items[1] as Flyout;
+                flyout.IsOpen = true;
+            }
+            
             //DialogManager.ShowLoginAsync(this, "", "");
         }
 
@@ -134,33 +132,16 @@ namespace My_Game
             }
         }
 
-        //public string Name { get; set; }
-        //public string Surname { get; set; }
-        //public string Patronymic { get; set; }
-        //public DateTime DateOfBirth { get; set; }
-
-        private void SetNewFlyout()
+        private void SetAccInfoFlyout()
         {
-            FlayoutSignInUp.IsOpen = false;
-            
-            //StackPanel panel = new StackPanel();
-
-            //FlayoutSignInUp.Header = panel;
-
-            //panel.Orientation = Orientation.Horizontal;
-
-            //Image image = new Image();
-            ////image.Source = 
-
-            //Label label = new Label();
-            ////label.Content =
+            FlyoutSignInUp.IsOpen = false;
 
             Task.Run(new Action(() =>
             {
                 Thread.Sleep(500);
                 Dispatcher.Invoke(new Action(() =>
                 {
-                    FlayoutSignInUp.Content = null;
+                    Flyout accInfoFlyout = new Flyout();
 
                     #region TextBoxName
                     TextBox TextBoxName = new TextBox();
@@ -209,7 +190,8 @@ namespace My_Game
                     AccPicture.Height = 150;
                     AccPicture.Margin = new Thickness(0, 15, 0, 0);
                     AccPicture.MouseDown += AccPicture_MouseDown;
-                    AccPicture.Source = new BitmapImage(new Uri(@"C:\Users\student\Desktop\My Game\AkatsukiProjects\My Game\Images\NoImage.png"));
+                    FileInfo fi = new FileInfo("../../Images/NoImage.png");
+                    AccPicture.Source = new BitmapImage(new Uri(fi.FullName));
                     #endregion
 
                     #region ButtonSaveAccChanges
@@ -224,12 +206,15 @@ namespace My_Game
                     ButtonSaveAccChanges.Style = FindResource("ButtonStyle") as Style;
                     #endregion
 
-                    //< Button Style = "{StaticResource ButtonStyle}" Name = "SignUpButton" BorderBrush = "#41b1e1" Foreground = "Black" Background = "White" Width = "75" Margin = "0, 15, 0, 0" Content = "Создать" ></ Button >
-
                     StackPanel stack = new StackPanel();
+                    stack.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#41B1E1"));
 
-                    FlayoutSignInUp.Content = stack;
+                    accInfoFlyout.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#41B1E1"));
+                    accInfoFlyout.Content = stack;
+                    accInfoFlyout.Width = 205;
+                    accInfoFlyout.Header = user.Login;
 
+                    
                     stack.Children.Add(TextBoxName);
                     stack.Children.Add(TextBoxSurname);
                     stack.Children.Add(TextBoxPatronymic);
@@ -237,7 +222,9 @@ namespace My_Game
                     stack.Children.Add(AccPicture);
                     stack.Children.Add(ButtonSaveAccChanges);
                     
-                    FlayoutSignInUp.IsOpen = true;
+                    Flyouts.Items.Add(accInfoFlyout);
+                    
+                    accInfoFlyout.IsOpen = true;
                 }));
             }));
 
@@ -246,20 +233,20 @@ namespace My_Game
 
         private void ButtonSaveAccChanges_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void MetroWindow_StateChanged(object sender, EventArgs e)
         {
-        //    if(WindowState == WindowState.Normal)
-        //    {
-        //        FlayoutSignInUp.Width = 205;
-        //    }
-        //    else if(WindowState == WindowState.Maximized)
-        //    {
-        //        FlayoutSignInUp.Width = 350;
-        //        FlayoutSignInUp.Height = 450;
-        //    }
+            //    if(WindowState == WindowState.Normal)
+            //    {
+            //        FlayoutSignInUp.Width = 205;
+            //    }
+            //    else if(WindowState == WindowState.Maximized)
+            //    {
+            //        FlayoutSignInUp.Width = 350;
+            //        FlayoutSignInUp.Height = 450;
+            //    }
         }
     }
 }

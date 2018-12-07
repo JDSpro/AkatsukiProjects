@@ -36,7 +36,7 @@
     
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
-            <Controls:Flyout x:Name="FlayoutSignInUp" Background="#41B1E1" Header="Flayout" Position="Right" Width="205">
+            <Controls:Flyout x:Name="FlyoutSignInUp" Background="#41B1E1" Header="Flayout" Position="Right" Width="205">
 
                 <TabControl Margin="0, 10, 0, 0" Name="TabCotrol" Background="#41B1E1">
                     <!--1-->
@@ -44,7 +44,7 @@
                         <TabItem.Header>
                             <Label HorizontalAlignment="Center" Name="SignInLabel" Content="Вход" Foreground="Black" FontSize="14" BorderBrush="Transparent"/>
                         </TabItem.Header>
-                        
+
                         <StackPanel Background="#41B1E1">
                             <TextBox Name="SignInTextBox" CaretBrush="Black" Margin="0, 20, 0, 0" Controls:TextBoxHelper.Watermark="Логин" Foreground="Black" Width="150" Background="White"/>
                             <PasswordBox Name="SignInPasswordBox" CaretBrush="Black" Margin="0, 20, 0, 0" Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock"  Width="150" Background="White" Foreground="Black">
@@ -61,7 +61,7 @@
                         <TabItem.Header>
                             <Label HorizontalAlignment="Center" Name="SignUpLabel" Content="Регистрация" Foreground="Black" FontSize="14" BorderBrush="Transparent"/>
                         </TabItem.Header>
-                        
+
                         <StackPanel Background="#41B1E1">
                             <TextBox Name="SignUpTextBox" CaretBrush="Black" Margin="0, 20, 0, 0" Controls:TextBoxHelper.Watermark="Логин" Foreground="Black" Width="150" Background="White"/>
                             <PasswordBox Name="SignUpPasswordBox" CaretBrush="Black" Margin="0, 20, 0, 0" Controls:PasswordBoxHelper.CapsLockWarningToolTip="Нажата клавиша Caps Lock" Width="150" Background="White" Foreground="Black">
@@ -73,14 +73,15 @@
                             <Label HorizontalAlignment="Center" Visibility="Hidden" Name="LabelSignUpError" Foreground="Red" FontSize="14"></Label>
                         </StackPanel>
                     </TabItem>
-                    
+
                 </TabControl>
-                
+
             </Controls:Flyout>
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
-    
-    <Grid Background="#200B70">
+
+
+    <Grid Background="#00082F">
         <Image Source="Images\milli.png"></Image>
     </Grid>
 </Controls:MetroWindow>
