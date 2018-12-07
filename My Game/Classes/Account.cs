@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace My_Game
 {
-    class Account
+    public class Account
     {
         public int Id { get; set; }
         [Index(IsUnique = true)]
@@ -19,6 +19,5 @@ namespace My_Game
 
         [Required]
         public Personal_Data_Acc Personal { get; set; }
-
     }
 }

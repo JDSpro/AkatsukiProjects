@@ -79,9 +79,8 @@
             </Controls:Flyout>
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
-
-
-    <Grid Background="#00082F">
+    
+    <Grid Background="#200B70">
         <Image Source="Images\milli.png"></Image>
     </Grid>
 </Controls:MetroWindow>

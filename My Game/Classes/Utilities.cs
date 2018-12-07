@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace My_Game
 {
     public static class Utilities
     {
-
         //РЕГИСТРАЦИЯ
-        public static Task<int> Registration(string login, string password)
+        public static Account Registration(string login, string password)
         {
-
             using (MyContext db = new MyContext())
             {
                 try
@@ -33,49 +34,20 @@ namespace My_Game
                     db.Accounts.Add(JmixAcc);
                     // db.Entry(JmixAcc).State = EntityState.Added;
                     db.SaveChanges();
-                    return Task.FromResult<int>(JmixAcc.Id);
+                    return JmixAcc;
                 }
-
 
                 catch (DbUpdateException ex)
                 {
                     //WebId = Guid.Empty;
-                    return Task.FromResult<int>(-1);
+                    return null;
                 }
             }
-          
         }
-            //using (MyContext db = new MyContext())
-            //{
-            //    Account JmixAcc = new Account
-            //    {
-            //        Login = login,
-            //        //128-битный алгоритм хеширования md5
-            //        Password = MD5Hash.GetMd5Hash(password),
-            //        //Photo = File.ReadAllBytes(path)
-            //        //Personal = new List<Personal_Data_Acc>
-            //        //{
-            //        //    new Personal_Data_Acc
-            //        //    {
-
-            //        //         Surname="Жмышенко",
-            //        //         Name="Валерий",
-            //        //         Patronymic="Альбертович",
-            //        //         // год - месяц - день - час - минута - секунда
-            //        //         DateOfBirth=new DateTime(1960, 08, 14, 12, 00, 00)
-            //        //    }
-            //        //}
-            //    };
-            //    // добавляю его в бд
-            //    db.Entry(JmixAcc).State = System.Data.Entity.EntityState.Added;
-            //    db.SaveChanges();
-            //}
 
         //ВХОД
-        public static int Enter(string login, string password)
+        public static Account Enter(string login, string password)
         {
-            MyContext context = new MyContext();
-
             using (var ctx = new MyContext())
             {
                 //Выборка из базы данных, пользователя с логином, принимаемым в функции
@@ -84,11 +56,10 @@ namespace My_Game
                                select s).FirstOrDefault<Account>();
 
                 if (student.Password == MD5Hash.GetMd5Hash(password))
-                    //если и пароль у этого пользвателя совпал то return true
-                    return student.Id;
+                    //пароль совпал
+                    return student;
             }
-
-            return -1;
+            return null;
         }
 
         //СМЕНА ПАРОЛЯ
@@ -122,14 +93,12 @@ namespace My_Game
         }
 
         //Добавление и Сохранение дополнительных данных
-        public static bool SaveAdditionalInfo(int id, byte[] imagePath, string name = "", string surname = "", string patronymic = "", string email = "")
+        public static bool SaveAdditionalInfo(int id, string path, string name = "", string surname = "", string patronymic = "", string email = "")
         {
-
             MyContext context = new MyContext();
-
             IEnumerable<Account> acc = context.Accounts
-                // Загрузить всех пользователей с Логином "login"
                 .Where(c => c.Id == id)
+                .Include(a => a.Personal)
                 .AsEnumerable()
                 // Поменять пароль
                 .Select(c =>
@@ -138,9 +107,7 @@ namespace My_Game
                     c.Personal.Surname = surname;
                     c.Personal.Patronymic = patronymic;
                     c.Personal.Email = email;
-                    if (imagePath.Length>0)
-                        c.Personal.Photo = imagePath;
-                    
+                    c.Personal.Photo = ImageToByte(path);
                     return c;
                 });
             foreach (Account customer in acc)
@@ -150,32 +117,44 @@ namespace My_Game
             context.SaveChanges();
 
             //
-            return false;
+            return true;
+        }
+
+        public static byte[] ImageToByte(string path)
+        {
+            byte[] data;
+            using (FileStream fs = new FileStream(path, FileMode.Open))
+            {
+                data = new byte[fs.Length];
+                fs.Write(data, 0, data.Length);
+            }
+
+            return data;
         }
 
         //получить картинку
-        public static byte[] GetImage(int id)
-        {
-            //memorystreams-преобразовать из байтов в картинку
-            MyContext context = new MyContext();
+        //public static byte[] GetImage(int id)
+        //{
+        //    //memorystreams-преобразовать из байтов в картинку
+        //    MyContext context = new MyContext();
 
-            var acc = context.Accounts
-                // Загрузить всех пользователей с Логином "login"
-                .Where(c => c.Id == id).First();
+        //    var acc = context.Accounts
+        //        // Загрузить всех пользователей с Логином "login"
+        //        .Where(c => c.Id == id).First();
 
-            return acc.Personal.Photo;
-        }
-        
-        //полчучить логин
-        public static string GetLogin(int id)
-        {
-            MyContext context = new MyContext();
-            Account account = context.Accounts.Find(id);
-            if (account != null)
-                return account.Login;
-            else
-                return "";
-        }
+        //    return acc.Personal.Photo;
+        //}
+
+        ////полчучить логин
+        //public static string GetLogin(int id)
+        //{
+        //    MyContext context = new MyContext();
+        //    Account account = context.Accounts.Find(id);
+        //    if (account != null)
+        //        return account.Login;
+        //    else
+        //        return "";
+        //}
 
     }
 }

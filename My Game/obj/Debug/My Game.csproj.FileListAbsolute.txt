@@ -82,7 +82,33 @@ C:\Users\Kirill\Desktop\1488\AkatsukiProjects\My Game\obj\Debug\My Game.csproj.G
 C:\Users\Kirill\Desktop\1488\AkatsukiProjects\My Game\obj\Debug\My Game.csproj.CoreCompileInputs.cache
 C:\Users\Kirill\Desktop\1488\AkatsukiProjects\My Game\obj\Debug\My Game.exe
 C:\Users\Kirill\Desktop\1488\AkatsukiProjects\My Game\obj\Debug\My Game.pdb
-C:\Users\student\Desktop\My Game\AkatsukiProjects\My Game\bin\Debug\EntityFramework.dll
-C:\Users\student\Desktop\My Game\AkatsukiProjects\My Game\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\student\Desktop\My Game\AkatsukiProjects\My Game\bin\Debug\EntityFramework.xml
-C:\Users\student\Desktop\My Game\AkatsukiProjects\My Game\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\LoginWindow.g.cs
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\MainWindow.g.cs
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\App.g.cs
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game_MarkupCompile.cache
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game_MarkupCompile.lref
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game.exe
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game.pdb
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\bin\Debug\My Game.exe.config
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\bin\Debug\My Game.exe
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\bin\Debug\My Game.pdb
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\bin\Debug\ControlzEx.dll
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\bin\Debug\EntityFramework.dll
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\bin\Debug\MahApps.Extra.dll
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\bin\Debug\MahApps.Metro.dll
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\bin\Debug\ControlzEx.pdb
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\bin\Debug\EntityFramework.xml
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\bin\Debug\MahApps.Metro.pdb
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\bin\Debug\MahApps.Metro.xml
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\App.baml
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\LoginWindow.baml
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\MainWindow.baml
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game.g.resources
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My_Game.Properties.Resources.resources
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game.csproj.GenerateResource.cache
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game.csproj.CoreCompileInputs.cache
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game.csproj.CopyComplete
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game.csprojAssemblyReference.cache

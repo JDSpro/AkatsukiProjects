@@ -1,6 +1,7 @@
 ﻿using MahApps.Metro.Controls;
 using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace My_Game
         public MainWindow()
         {
             InitializeComponent();
-
+            
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
 
@@ -33,6 +34,8 @@ namespace My_Game
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
+           // int res = Utilities.Enter(SignInTextBox.Text,SignInPasswordBox.Password);
+
             if (SignInTextBox.Text != "" && SignInPasswordBox.Password != "")
             {
                 SetAccInfoFlyout();
@@ -47,17 +50,22 @@ namespace My_Game
 
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
+            //Готовый рабочий метод 08.12.2018
+            //var res2 = Utilities.SaveAdditionalInfo(.Id, "../../Images/milli.png", "Alexey", "Pilipenko", "Dmitrievich", "al00xey@gmail.com");
+
             if (SignUpTextBox.Text != "" && SignUpPasswordBox.Password != "")
             {
-                if (user == null)
+                int res = await Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
+                
+                if (res == -1)
                 {
                     LabelSignUpError.Content = "Логин уже используется.";
                     LabelSignUpError.Visibility = Visibility.Visible;
                 }
                 else
                 {
-                    SetAccInfoFlyout();
-                    LabelSignUpError.Visibility = Visibility.Hidden;
+                    //SetNewFlyout();
+                    //LabelSignUpError.Visibility = Visibility.Hidden;
                 }
             }
             else

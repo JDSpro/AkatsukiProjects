@@ -51,7 +51,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -74,6 +76,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Answer.cs" />
+    <Compile Include="Classes\DBHelper.cs" />
     <Compile Include="Classes\GameHistory.cs" />
     <Compile Include="Classes\MyContext.cs" />
     <Compile Include="Classes\Question.cs" />
@@ -91,6 +94,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\Utilities.cs" />
+    <Compile Include="Db.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace My_Game
 {
-    class MyContext : DbContext
+    public class MyContext : DbContext
     {
         public MyContext() : base("Millioner")
         {
-            //Database.SetInitializer<MyContext>(new DropCreateDatabaseAlways<MyContext>());
+            Database.SetInitializer<MyContext>(new CreateDatabaseIfNotExists<MyContext>());
         }
         public DbSet<Account> Accounts{ get; set; }
         public DbSet<Personal_Data_Acc> Personal_Data_Accs{ get; set; }
