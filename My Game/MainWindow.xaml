@@ -81,6 +81,6 @@
     </Controls:MetroWindow.Flyouts>
     
     <Grid Background="#200B70">
-        <Image Source="Images\milli.png"></Image>
+        <Image Name="MilliBackGround" Source="Images\milli.png"></Image>
     </Grid>
 </Controls:MetroWindow>

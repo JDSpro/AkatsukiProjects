@@ -35,15 +35,9 @@ namespace My_Game
             //первое подключение
             Task.Run(new Action(() => {
                 Db.GetInstance().Context.Accounts.FirstOrDefault();
-            }));
+            })); 
 
-
-           //DBHelper.GetInstance().InsertIntoAccQuery("alexey", "qwerty");
-
-            
-
-
-           // SignUpPicture.MouseDown += SignUpPicture_MouseDown;
+            // SignUpPicture.MouseDown += SignUpPicture_MouseDown;
 
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
@@ -55,7 +49,7 @@ namespace My_Game
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-            int res = Utilities.Enter(SignInTextBox.Text,SignInPasswordBox.Password);
+           // int res = Utilities.Enter(SignInTextBox.Text,SignInPasswordBox.Password);
 
             if (SignInTextBox.Text != "" && SignInPasswordBox.Password != "")
             {
@@ -71,20 +65,23 @@ namespace My_Game
 
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
+            //Готовый рабочий метод 08.12.2018
+            //var res2 = Utilities.SaveAdditionalInfo(.Id, "../../Images/milli.png", "Alexey", "Pilipenko", "Dmitrievich", "al00xey@gmail.com");
+
             if (SignUpTextBox.Text != "" && SignUpPasswordBox.Password != "")
             {
-                int res = Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
+                //int res = Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
 
-                if (res == -1)
-                {
-                    LabelSignUpError.Content = "Логин уже используется.";
-                    LabelSignUpError.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    SetNewFlyout();
-                    LabelSignUpError.Visibility = Visibility.Hidden;
-                }
+                //if (res == -1)
+                //{
+                //    LabelSignUpError.Content = "Логин уже используется.";
+                //    LabelSignUpError.Visibility = Visibility.Visible;
+                //}
+                //else
+                //{
+                //    SetNewFlyout();
+                //    LabelSignUpError.Visibility = Visibility.Hidden;
+                //}
             }
             else
             {

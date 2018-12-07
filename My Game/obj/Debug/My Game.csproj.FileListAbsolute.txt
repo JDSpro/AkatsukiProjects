@@ -111,3 +111,4 @@ C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My_Game.Prope
 C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game.csproj.GenerateResource.cache
 C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game.csproj.CoreCompileInputs.cache
 C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game.csproj.CopyComplete
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\My Game.csprojAssemblyReference.cache
