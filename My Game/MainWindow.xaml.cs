@@ -23,7 +23,7 @@ namespace My_Game
         public MainWindow()
         {
             InitializeComponent();
-            
+
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
 
@@ -34,12 +34,19 @@ namespace My_Game
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-           // int res = Utilities.Enter(SignInTextBox.Text,SignInPasswordBox.Password);
-
             if (SignInTextBox.Text != "" && SignInPasswordBox.Password != "")
             {
-                SetAccInfoFlyout();
-                LabelSignInError.Visibility = Visibility.Hidden;
+                user = Utilities.Enter(SignInTextBox.Text, SignInPasswordBox.Password);
+                if (user != null)
+                {
+                    SetAccInfoFlyout();
+                    LabelSignInError.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    LabelSignInError.Content = "Неверный логи или пароль!";
+                    LabelSignInError.Visibility = Visibility.Visible;
+                }
             }
             else
             {
@@ -55,17 +62,17 @@ namespace My_Game
 
             if (SignUpTextBox.Text != "" && SignUpPasswordBox.Password != "")
             {
-                int res = await Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
-                
-                if (res == -1)
+                user = Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
+
+                if (user == null)
                 {
                     LabelSignUpError.Content = "Логин уже используется.";
                     LabelSignUpError.Visibility = Visibility.Visible;
                 }
                 else
                 {
-                    //SetNewFlyout();
-                    //LabelSignUpError.Visibility = Visibility.Hidden;
+                    SetAccInfoFlyout();
+                    LabelSignUpError.Visibility = Visibility.Hidden;
                 }
             }
             else
@@ -124,19 +131,19 @@ namespace My_Game
                 var flyout = Flyouts.Items[1] as Flyout;
                 flyout.IsOpen = true;
             }
-            
+
             //DialogManager.ShowLoginAsync(this, "", "");
         }
 
         private void FlayoutSignInUp_IsOpenChanged(object sender, RoutedEventArgs e)
         {
-            if (LoginButton.IsVisible == true)
+            if (loginButton.IsVisible == true)
             {
-                LoginButton.Visibility = System.Windows.Visibility.Hidden;
+                loginButton.Visibility = System.Windows.Visibility.Hidden;
             }
-            else if (LoginButton.IsVisible == false)
+            else if (loginButton.IsVisible == false)
             {
-                LoginButton.Visibility = System.Windows.Visibility.Visible;
+                loginButton.Visibility = System.Windows.Visibility.Visible;
             }
         }
 
@@ -146,7 +153,7 @@ namespace My_Game
 
             Task.Run(new Action(() =>
             {
-                Thread.Sleep(500);
+                //Thread.Sleep(500);
                 Dispatcher.Invoke(new Action(() =>
                 {
                     Flyout accInfoFlyout = new Flyout();
@@ -194,9 +201,9 @@ namespace My_Game
                     #region AccPicture
                     Image AccPicture = new Image();
 
-                    AccPicture.Width = 100;
+                    AccPicture.Width = 175;
                     AccPicture.Height = 150;
-                    AccPicture.Margin = new Thickness(0, 15, 0, 0);
+                    AccPicture.Margin = new Thickness(0, 0, 0, 0);
                     AccPicture.MouseDown += AccPicture_MouseDown;
                     FileInfo fi = new FileInfo("../../Images/NoImage.png");
                     AccPicture.Source = new BitmapImage(new Uri(fi.FullName));
@@ -220,23 +227,43 @@ namespace My_Game
                     accInfoFlyout.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#41B1E1"));
                     accInfoFlyout.Content = stack;
                     accInfoFlyout.Width = 205;
-                    accInfoFlyout.Header = user.Login;
+                    accInfoFlyout.Position = Position.Left;
+                    accInfoFlyout.IsVisibleChanged += AccInfoFlyout_IsVisibleChanged;
 
+                    Label lable = new Label();
+                    lable.Content = user.Login;
+                    lable.FontSize = 20;
+                    lable.Foreground = new SolidColorBrush(Colors.Pink);
+                    accInfoFlyout.Header = lable;
+
+                    //EllipseInLoginButton.Fill = 
                     
+                    stack.Children.Add(AccPicture);
                     stack.Children.Add(TextBoxName);
                     stack.Children.Add(TextBoxSurname);
                     stack.Children.Add(TextBoxPatronymic);
                     stack.Children.Add(TextBoxEmail);
-                    stack.Children.Add(AccPicture);
                     stack.Children.Add(ButtonSaveAccChanges);
-                    
+
                     Flyouts.Items.Add(accInfoFlyout);
-                    
+
                     accInfoFlyout.IsOpen = true;
                 }));
             }));
 
 
+        }
+
+        private void AccInfoFlyout_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (loginButton.IsVisible == true)
+            {
+                loginButton.Visibility = System.Windows.Visibility.Hidden;
+            }
+            else if (loginButton.IsVisible == false)
+            {
+                loginButton.Visibility = System.Windows.Visibility.Visible;
+            }
         }
 
         private void ButtonSaveAccChanges_Click(object sender, RoutedEventArgs e)

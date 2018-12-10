@@ -19,10 +19,10 @@
     </Controls:MetroWindow.Resources>
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button Name="LoginButton" Click="LoginButton_Click">
+            <Button Name="loginButton" Click="LoginButton_Click">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
-                        <Ellipse Width="17" Height="17">
+                        <Ellipse Name="EllipseInLoginButton" Width="17" Height="17">
                             <Ellipse.Fill>
                                 <ImageBrush ImageSource="Images\loginPictures.png" Stretch="Uniform"></ImageBrush>
                             </Ellipse.Fill>
@@ -81,6 +81,6 @@
     </Controls:MetroWindow.Flyouts>
     
     <Grid Background="#200B70">
-        <Image Source="Images\milli.png"></Image>
+        <Image Source="Images\milionaireLogoBackground.png"></Image>
     </Grid>
 </Controls:MetroWindow>
