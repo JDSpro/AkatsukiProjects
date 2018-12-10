@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -87,9 +88,9 @@ namespace My_Game
             context.SaveChanges();
 
             if (OldPass == MD5Hash.GetMd5Hash(newPass))
-                return true;
+                return false;
 
-            return false;
+            return true;
         }
 
         //Добавление и Сохранение дополнительных данных
@@ -123,38 +124,52 @@ namespace My_Game
         public static byte[] ImageToByte(string path)
         {
             byte[] data;
-            using (FileStream fs = new FileStream(path, FileMode.Open))
+            Process.Start(path);
+            using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
             {
+
                 data = new byte[fs.Length];
-                fs.Write(data, 0, data.Length);
+                fs.Read(data, 0, data.Length);
             }
 
             return data;
         }
 
-        //получить картинку
-        //public static byte[] GetImage(int id)
+        public static BitmapImage ByteToImage(byte[] data)
+        {
+            MemoryStream memorystream = new MemoryStream();
+            memorystream.Write(data, 0, (int)data.Length);
+
+            BitmapImage imgsource = new BitmapImage();
+            imgsource.BeginInit();
+            imgsource.StreamSource = memorystream;
+            imgsource.EndInit();
+
+            return imgsource;
+        }
+
+        //public static Question Question(string login, string password)
         //{
-        //    //memorystreams-преобразовать из байтов в картинку
-        //    MyContext context = new MyContext();
+        //    using (var ctx = new MyContext())
+        //    {
+        //        //Выборка из базы данных, пользователя с логином, принимаемым в функции
+        //        var quest = (from s in ctx.Accounts
+        //                       where s.Login == login
+        //                       select s).FirstOrDefault<Account>();
 
-        //    var acc = context.Accounts
-        //        // Загрузить всех пользователей с Логином "login"
-        //        .Where(c => c.Id == id).First();
 
-        //    return acc.Personal.Photo;
+        //        return quest;
+        //    }
+
+        //    return null;
         //}
 
-        ////полчучить логин
-        //public static string GetLogin(int id)
-        //{
-        //    MyContext context = new MyContext();
-        //    Account account = context.Accounts.Find(id);
-        //    if (account != null)
-        //        return account.Login;
-        //    else
-        //        return "";
-        //}
+        public static bool IsTrue()
+        {
+        
 
-    }
+
+            return false;
+        }
+        }
 }

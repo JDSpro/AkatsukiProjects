@@ -147,8 +147,5 @@
   <ItemGroup>
     <Resource Include="Images\NoImage.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\CapsLockActiveIcon.jpg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

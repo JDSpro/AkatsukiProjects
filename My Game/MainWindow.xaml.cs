@@ -23,7 +23,8 @@ namespace My_Game
         public MainWindow()
         {
             InitializeComponent();
-            
+
+           
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
 
@@ -55,9 +56,9 @@ namespace My_Game
 
             if (SignUpTextBox.Text != "" && SignUpPasswordBox.Password != "")
             {
-                int res = await Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
+                Account res = Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
                 
-                if (res == -1)
+                if (res == null)
                 {
                     LabelSignUpError.Content = "Логин уже используется.";
                     LabelSignUpError.Visibility = Visibility.Visible;
