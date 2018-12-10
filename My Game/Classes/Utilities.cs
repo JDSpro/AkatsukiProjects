@@ -56,11 +56,12 @@ namespace My_Game
                                where s.Login == login
                                select s).FirstOrDefault<Account>();
 
-                if (student.Password == MD5Hash.GetMd5Hash(password))
+                if (student == null)
                     //пароль совпал
-                    return student;
+                    return null;
+                return student;
+
             }
-            return null;
         }
 
         //СМЕНА ПАРОЛЯ

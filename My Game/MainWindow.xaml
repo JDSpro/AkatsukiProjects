@@ -8,9 +8,7 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" StateChanged="MetroWindow_StateChanged">
-    <!--UseNoneWindowStyle="True"
-                      WindowState="Maximized"
-                      IgnoreTaskbarOnMaximize="True"-->
+    
     <Controls:MetroWindow.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="14"></Setter>

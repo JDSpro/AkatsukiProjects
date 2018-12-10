@@ -44,7 +44,7 @@ namespace My_Game
                 }
                 else
                 {
-                    LabelSignInError.Content = "Неверный логи или пароль!";
+                    LabelSignInError.Content = "Неверный логин или пароль!";
                     LabelSignInError.Visibility = Visibility.Visible;
                 }
             }
@@ -62,9 +62,9 @@ namespace My_Game
 
             if (SignUpTextBox.Text != "" && SignUpPasswordBox.Password != "")
             {
-                int res = await Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
+                user = Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
                 
-                if (res == -1)
+                if (user == null)
                 {
                     LabelSignUpError.Content = "Логин уже используется.";
                     LabelSignUpError.Visibility = Visibility.Visible;
