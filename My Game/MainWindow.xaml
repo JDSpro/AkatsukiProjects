@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:My_Game"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" StateChanged="MetroWindow_StateChanged">
+        Title="MainWindow" Name="MainWindow_" Height="450" Width="800" StateChanged="MetroWindow_StateChanged">
     
     <Controls:MetroWindow.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
@@ -78,7 +78,13 @@
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
     
-    <Grid Background="#200B70">
-        <Image Source="Images\milionaireLogoBackground.png"></Image>
+    <Grid Name="gridOnMain" Background="#200B70">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--<Image Grid.Column="1" Source="Images\milionaireLogoBackground.png"></Image>-->
+        <local:UserControl1 Visibility="Hidden"></local:UserControl1>
+        <local:MenuUserControl VerticalContentAlignment="Center"></local:MenuUserControl>
     </Grid>
 </Controls:MetroWindow>

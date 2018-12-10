@@ -57,9 +57,6 @@ namespace My_Game
 
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            //Готовый рабочий метод 08.12.2018
-            //var res2 = Utilities.SaveAdditionalInfo(.Id, "../../Images/milli.png", "Alexey", "Pilipenko", "Dmitrievich", "al00xey@gmail.com");
-
             if (SignUpTextBox.Text != "" && SignUpPasswordBox.Password != "")
             {
                 user = Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
@@ -205,8 +202,17 @@ namespace My_Game
                     AccPicture.Height = 150;
                     AccPicture.Margin = new Thickness(0, 0, 0, 0);
                     AccPicture.MouseDown += AccPicture_MouseDown;
-                    FileInfo fi = new FileInfo("../../Images/NoImage.png");
-                    AccPicture.Source = new BitmapImage(new Uri(fi.FullName));
+
+                    //if (user.Personal == null)
+                    //{
+                    //    var d = Utilities.ByteToImage(user.Personal.Photo);
+                    //    EllipseInLoginButton.Fill = new ImageBrush(new BitmapImage(d.UriSource));
+                    //}
+                    //else
+                    //{
+                        FileInfo fi = new FileInfo("../../Images/NoImage.png");
+                        AccPicture.Source = new BitmapImage(new Uri(fi.FullName));
+                    //}
                     #endregion
 
                     #region ButtonSaveAccChanges
@@ -229,17 +235,30 @@ namespace My_Game
                     accInfoFlyout.Width = 205;
                     accInfoFlyout.Position = Position.Left;
                     accInfoFlyout.IsVisibleChanged += AccInfoFlyout_IsVisibleChanged;
-
-                    Label lable = new Label();
-                    lable.Content = user.Login;
-                    lable.FontSize = 20;
-                    lable.Foreground = new SolidColorBrush(Colors.Pink);
-                    accInfoFlyout.Header = lable;
-
-                    //if(null)
-                    //var d = Utilities.ByteToImage(user.Personal.Photo);
-                    //EllipseInLoginButton.Fill = new ImageBrush(new BitmapImage(d.UriSource));
                     
+                    TextBlock txtBlock = new TextBlock();
+                    txtBlock.Text = user.Login;
+                    txtBlock.FontSize = 20;
+                    txtBlock.Foreground = new SolidColorBrush(Colors.Yellow);
+                    txtBlock.TextWrapping = TextWrapping.Wrap;
+                    txtBlock.FontStyle = FontStyles.Italic;
+
+                    accInfoFlyout.Header = txtBlock;
+                    
+                    if (user.Login.Length > 12)
+                    {
+                        string smallLogin = user.Login.Substring(0, 11);
+                        smallLogin += "...";
+                        txtBlock.Text = smallLogin;
+                        txtBlock.ToolTip = user.Login;
+                    }
+                    else
+                    {
+                        txtBlock.Text = user.Login;
+                    }
+
+                    LabelInLoginButton.Content = user.Login;
+
                     stack.Children.Add(AccPicture);
                     stack.Children.Add(TextBoxName);
                     stack.Children.Add(TextBoxSurname);
@@ -252,8 +271,6 @@ namespace My_Game
                     accInfoFlyout.IsOpen = true;
                 }));
             }));
-
-
         }
 
         private void AccInfoFlyout_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -273,7 +290,7 @@ namespace My_Game
             var flyout = Flyouts.Items[1] as Flyout;
             var stack = flyout.Content as StackPanel;
             var stackChildren = stack.Children;
-            var image = stackChildren[1] as Image;
+            var image = stackChildren[0] as Image;
 
             Utilities.SaveAdditionalInfo(user.Id, image.Source.ToString());
         }

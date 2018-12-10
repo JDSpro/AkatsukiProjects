@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\student\Source\Repos\JDSpro\AkatsukiProjects\My Game\obj\Debug\
+C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\obj\Debug\
 My_Game
 none
 false
 DEBUG;TRACE
-C:\Users\student\Source\Repos\JDSpro\AkatsukiProjects\My Game\App.xaml
-31939357353
+C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\App.xaml
+4-2033396031
 
-21-370579977
-22-388796862
-LoginWindow.xaml;MainWindow.xaml;UserControl1.xaml;
+228073456
+22-1873409574
+LoginWindow.xaml;MainWindow.xaml;MenuUserControl.xaml;GameUserControl.xaml;
 
-False
+True
 
