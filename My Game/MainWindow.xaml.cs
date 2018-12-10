@@ -236,7 +236,9 @@ namespace My_Game
                     lable.Foreground = new SolidColorBrush(Colors.Pink);
                     accInfoFlyout.Header = lable;
 
-                    //EllipseInLoginButton.Fill = 
+                    //if(null)
+                    //var d = Utilities.ByteToImage(user.Personal.Photo);
+                    //EllipseInLoginButton.Fill = new ImageBrush(new BitmapImage(d.UriSource));
                     
                     stack.Children.Add(AccPicture);
                     stack.Children.Add(TextBoxName);
@@ -268,7 +270,12 @@ namespace My_Game
 
         private void ButtonSaveAccChanges_Click(object sender, RoutedEventArgs e)
         {
-            //throw new NotImplementedException();
+            var flyout = Flyouts.Items[1] as Flyout;
+            var stack = flyout.Content as StackPanel;
+            var stackChildren = stack.Children;
+            var image = stackChildren[1] as Image;
+
+            Utilities.SaveAdditionalInfo(user.Id, image.Source.ToString());
         }
 
         private void MetroWindow_StateChanged(object sender, EventArgs e)
