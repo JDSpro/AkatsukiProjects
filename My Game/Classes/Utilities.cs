@@ -125,10 +125,8 @@ namespace My_Game
         public static byte[] ImageToByte(string path)
         {
             byte[] data;
-            Process.Start(path);
-            using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+            using (FileStream fs = new FileStream(new Uri(path).LocalPath, FileMode.Open, FileAccess.Read))
             {
-
                 data = new byte[fs.Length];
                 fs.Read(data, 0, data.Length);
             }
@@ -149,14 +147,14 @@ namespace My_Game
             return imgsource;
         }
 
-        //public static Question Question(string login, string password)
+        //public static Question GetRandQuestion(string login, string password)
         //{
         //    using (var ctx = new MyContext())
         //    {
         //        //Выборка из базы данных, пользователя с логином, принимаемым в функции
         //        var quest = (from s in ctx.Accounts
-        //                       where s.Login == login
-        //                       select s).FirstOrDefault<Account>();
+        //                     where s.Login == login
+        //                     select s).FirstOrDefault<Account>();
 
 
         //        return quest;

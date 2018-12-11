@@ -55,11 +55,9 @@ namespace My_Game
 
         private void LabelNewGame_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Пошла Игра...");
             UserControlMenu.Visibility = Visibility.Hidden;
             Window mainWindow = Window.GetWindow(UserControlMenu);
-            Grid cont = mainWindow.Content as Grid;
-            var child = cont.Children;
+            
         }
 
         private void LabelExit_MouseDown(object sender, MouseButtonEventArgs e)
