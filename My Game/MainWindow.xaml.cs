@@ -202,17 +202,17 @@ namespace My_Game
                     AccPicture.Height = 150;
                     AccPicture.Margin = new Thickness(0, 0, 0, 0);
                     AccPicture.MouseDown += AccPicture_MouseDown;
-
-                    //if (user.Personal == null)
-                    //{
-                    //    var d = Utilities.ByteToImage(user.Personal.Photo);
-                    //    EllipseInLoginButton.Fill = new ImageBrush(new BitmapImage(d.UriSource));
-                    //}
-                    //else
-                    //{
+                    
+                    if (user.Personal != null)
+                    {
+                        var d = Utilities.ByteToImage(user.Personal.Photo);
+                        AccPicture.Source = new BitmapImage(d.UriSource);
+                    }
+                    else
+                    {
                         FileInfo fi = new FileInfo("../../Images/NoImage.png");
                         AccPicture.Source = new BitmapImage(new Uri(fi.FullName));
-                    //}
+                    }
                     #endregion
 
                     #region ButtonSaveAccChanges
