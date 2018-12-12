@@ -16,8 +16,9 @@ namespace My_Game
         [StringLength(200)]
         public string Login { get; set; }
         public string Password { get; set; }
+        public int? Personal_Data_AccId { get; set; }
 
         [Required]
-        public Personal_Data_Acc Personal { get; set; }
+        public virtual Personal_Data_Acc Personal { get; set; }
     }
 }

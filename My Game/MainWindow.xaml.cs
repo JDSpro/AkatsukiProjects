@@ -23,7 +23,7 @@ namespace My_Game
         public MainWindow()
         {
             InitializeComponent();
-            
+
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
 
@@ -34,9 +34,10 @@ namespace My_Game
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-            if (SignInTextBox.Text != "" && SignInPasswordBox.Password != "")
+            if (IsEmptyFields(SignInTextBox, SignInPasswordBox) == false)
             {
                 user = Utilities.Enter(SignInTextBox.Text, SignInPasswordBox.Password);
+
                 if (user != null)
                 {
                     SetAccInfoFlyout();
@@ -57,10 +58,10 @@ namespace My_Game
 
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            if (SignUpTextBox.Text != "" && SignUpPasswordBox.Password != "")
+            if (IsEmptyFields(SignUpTextBox, SignUpPasswordBox) == false)
             {
                 user = Utilities.Registration(SignUpTextBox.Text, SignUpPasswordBox.Password);
-                
+
                 if (user == null)
                 {
                     LabelSignUpError.Content = "Логин уже используется.";
@@ -79,7 +80,7 @@ namespace My_Game
             }
         }
 
-        private void AccPicture_MouseDown(object sender, MouseButtonEventArgs e)
+        private void accountPicture_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Image accPicture = (Image)sender;
 
@@ -148,132 +149,57 @@ namespace My_Game
         {
             FlyoutSignInUp.IsOpen = false;
 
-            Task.Run(new Action(() =>
-            {
-                //Thread.Sleep(500);
-                Dispatcher.Invoke(new Action(() =>
-                {
-                    Flyout accInfoFlyout = new Flyout();
+            //Task.Run(new Action(() =>
+            //{
+            //    //Thread.Sleep(500);
+            //    Dispatcher.Invoke(new Action(() =>
+            //    {
+            
 
-                    #region TextBoxName
-                    TextBox TextBoxName = new TextBox();
-                    TextBoxName.Width = 125;
-                    TextBoxHelper.SetWatermark(TextBoxName, "Ваше имя");
-                    TextBoxName.CaretBrush = new SolidColorBrush(Colors.Black);
-                    TextBoxName.Background = new SolidColorBrush(Colors.White);
-                    TextBoxName.Foreground = new SolidColorBrush(Colors.Black);
-                    TextBoxName.Margin = new Thickness(0, 15, 0, 0);
-                    #endregion
 
-                    #region TextBoxSurname
-                    TextBox TextBoxSurname = new TextBox();
-                    TextBoxSurname.Width = 125;
-                    TextBoxHelper.SetWatermark(TextBoxSurname, "Ваша фамилия");
-                    TextBoxSurname.CaretBrush = new SolidColorBrush(Colors.Black);
-                    TextBoxSurname.Background = new SolidColorBrush(Colors.White);
-                    TextBoxSurname.Foreground = new SolidColorBrush(Colors.Black);
-                    TextBoxSurname.Margin = new Thickness(0, 15, 0, 0);
-                    #endregion
+            //if (user.Personal != null)
+            //{
+            //    var d = Utilities.ByteToImage(user.Personal.Photo);
+            //    accountPicture.Source = new BitmapImage(d.UriSource);
+            //}
+            //else
+            //{
+                FileInfo fi = new FileInfo("../../Images/NoImage.png");
+                accountPicture.Source = new BitmapImage(new Uri(fi.FullName));
+            //}
 
-                    #region TextBoxPatronymic
-                    TextBox TextBoxPatronymic = new TextBox();
-                    TextBoxPatronymic.Width = 125;
-                    TextBoxHelper.SetWatermark(TextBoxPatronymic, "Ваше отчество");
-                    TextBoxPatronymic.CaretBrush = new SolidColorBrush(Colors.Black);
-                    TextBoxPatronymic.Background = new SolidColorBrush(Colors.White);
-                    TextBoxPatronymic.Foreground = new SolidColorBrush(Colors.Black);
-                    TextBoxPatronymic.Margin = new Thickness(0, 15, 0, 0);
-                    #endregion
-
-                    #region TextBoxEmail
-                    TextBox TextBoxEmail = new TextBox();
-                    TextBoxEmail.Width = 125;
-                    TextBoxHelper.SetWatermark(TextBoxEmail, "Email");
-                    TextBoxEmail.CaretBrush = new SolidColorBrush(Colors.Black);
-                    TextBoxEmail.Background = new SolidColorBrush(Colors.White);
-                    TextBoxEmail.Foreground = new SolidColorBrush(Colors.Black);
-                    TextBoxEmail.Margin = new Thickness(0, 15, 0, 0);
-                    #endregion
-
-                    #region AccPicture
-                    Image AccPicture = new Image();
-
-                    AccPicture.Width = 175;
-                    AccPicture.Height = 150;
-                    AccPicture.Margin = new Thickness(0, 0, 0, 0);
-                    AccPicture.MouseDown += AccPicture_MouseDown;
-
-                    //if (user.Personal == null)
-                    //{
-                    //    var d = Utilities.ByteToImage(user.Personal.Photo);
-                    //    EllipseInLoginButton.Fill = new ImageBrush(new BitmapImage(d.UriSource));
-                    //}
-                    //else
-                    //{
-                        FileInfo fi = new FileInfo("../../Images/NoImage.png");
-                        AccPicture.Source = new BitmapImage(new Uri(fi.FullName));
-                    //}
-                    #endregion
-
-                    #region ButtonSaveAccChanges
-                    Button ButtonSaveAccChanges = new Button();
-                    ButtonSaveAccChanges.Foreground = new SolidColorBrush(Colors.Black);
-                    ButtonSaveAccChanges.Background = new SolidColorBrush(Colors.White);
-                    ButtonSaveAccChanges.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFDFD991"));
-                    ButtonSaveAccChanges.Content = "Готово";
-                    ButtonSaveAccChanges.Width = 75;
-                    ButtonSaveAccChanges.Margin = new Thickness(0, 15, 0, 0);
-                    ButtonSaveAccChanges.Click += ButtonSaveAccChanges_Click;
-                    ButtonSaveAccChanges.Style = FindResource("ButtonStyle") as Style;
-                    #endregion
-
-                    StackPanel stack = new StackPanel();
-                    stack.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#41B1E1"));
-
-                    accInfoFlyout.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#41B1E1"));
-                    accInfoFlyout.Content = stack;
-                    accInfoFlyout.Width = 205;
-                    accInfoFlyout.Position = Position.Left;
-                    accInfoFlyout.IsVisibleChanged += AccInfoFlyout_IsVisibleChanged;
-                    
-                    TextBlock txtBlock = new TextBlock();
-                    txtBlock.Text = user.Login;
-                    txtBlock.FontSize = 20;
-                    txtBlock.Foreground = new SolidColorBrush(Colors.Yellow);
-                    txtBlock.TextWrapping = TextWrapping.Wrap;
-                    txtBlock.FontStyle = FontStyles.Italic;
-
-                    accInfoFlyout.Header = txtBlock;
-                    
-                    if (user.Login.Length > 12)
-                    {
-                        string smallLogin = user.Login.Substring(0, 11);
-                        smallLogin += "...";
-                        txtBlock.Text = smallLogin;
-                        txtBlock.ToolTip = user.Login;
-                    }
-                    else
-                    {
-                        txtBlock.Text = user.Login;
-                    }
-
-                    LabelInLoginButton.Content = user.Login;
-
-                    stack.Children.Add(AccPicture);
-                    stack.Children.Add(TextBoxName);
-                    stack.Children.Add(TextBoxSurname);
-                    stack.Children.Add(TextBoxPatronymic);
-                    stack.Children.Add(TextBoxEmail);
-                    stack.Children.Add(ButtonSaveAccChanges);
-
-                    Flyouts.Items.Add(accInfoFlyout);
-
-                    accInfoFlyout.IsOpen = true;
-                }));
-            }));
+            SetUserLogin(flyoutAccountInfoHeaderTextBlock);
+            SetUserLogin(textBlockOnLabelOnButton);
+            
+            flyoutAccountInfo.IsOpen = true;
+            //    }));
+            //}));
         }
 
-        private void AccInfoFlyout_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        void SetUserLogin(TextBlock textBlockToSet)
+        {
+            if (user.Login.Length > 12)
+            {
+                string smallLogin = user.Login.Substring(0, 10);
+                smallLogin += "...";
+                textBlockToSet.Text = smallLogin;
+                textBlockToSet.ToolTip = user.Login;
+            }
+            else
+            {
+                textBlockToSet.Text = user.Login;
+            }
+        }
+
+        bool IsEmptyFields(TextBox login, PasswordBox password)
+        {
+            if (login.Text == "" || password.Password == "")
+                return true;
+            else
+                return false;
+        }
+
+        private void flyoutAccountInfo_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (loginButton.IsVisible == true)
             {
@@ -285,14 +211,9 @@ namespace My_Game
             }
         }
 
-        private void ButtonSaveAccChanges_Click(object sender, RoutedEventArgs e)
+        private void buttonSaveChanges_Click(object sender, RoutedEventArgs e)
         {
-            var flyout = Flyouts.Items[1] as Flyout;
-            var stack = flyout.Content as StackPanel;
-            var stackChildren = stack.Children;
-            var image = stackChildren[0] as Image;
-
-            Utilities.SaveAdditionalInfo(user.Id, image.Source.ToString());
+            Utilities.SaveAdditionalInfo(user.Id, accountPicture.Source.ToString(), textBoxName.Text, textBoxSurname.Text, textBoxPatronymic.Text, textBoxEmail.Text);
         }
 
         private void MetroWindow_StateChanged(object sender, EventArgs e)

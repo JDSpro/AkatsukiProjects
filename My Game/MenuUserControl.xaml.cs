@@ -57,10 +57,10 @@ namespace My_Game
         {
             UserControlMenu.Visibility = Visibility.Hidden;
             Window mainWindow = Window.GetWindow(UserControlMenu);
-            Grid grid = mainWindow.Content as Grid;
-            var children = grid.Children;
-            var us = children[0] as UserControl1;
-            us.Visibility = Visibility.Visible;
+            Grid gridOnMainWindow = mainWindow.Content as Grid;
+            var children = gridOnMainWindow.Children;
+            UserControl1 user = children[0] as UserControl1;
+            user.Visibility = Visibility.Visible;
         }
 
         private void LabelExit_MouseDown(object sender, MouseButtonEventArgs e)

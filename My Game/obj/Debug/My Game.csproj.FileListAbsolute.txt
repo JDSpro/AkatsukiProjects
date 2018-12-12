@@ -157,13 +157,11 @@ C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\bin\Debug\Enti
 C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\bin\Debug\MahApps.Metro.pdb
 C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\bin\Debug\MahApps.Metro.xml
 C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\obj\Debug\My Game.csprojResolveAssemblyReference.cache
-C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\obj\Debug\LoginWindow.g.cs
 C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\obj\Debug\MainWindow.g.cs
 C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\obj\Debug\App.g.cs
 C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\obj\Debug\My Game_MarkupCompile.cache
 C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\obj\Debug\My Game_MarkupCompile.lref
 C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\obj\Debug\App.baml
-C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\obj\Debug\LoginWindow.baml
 C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\obj\Debug\MainWindow.baml
 C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\obj\Debug\My Game.g.resources
 C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\obj\Debug\My_Game.Properties.Resources.resources
