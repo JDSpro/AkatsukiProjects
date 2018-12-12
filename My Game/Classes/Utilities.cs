@@ -16,6 +16,43 @@ namespace My_Game
 {
     public static class Utilities
     {
+        public static void Seed()
+        {
+            using (MyContext db = new MyContext())
+            {
+                try
+                {
+                    // создаю аккаунт
+                    Account JmixAcc = new Account
+                    {
+                        Login = "Игрок",
+                        //128-битный алгоритм хеширования md5
+                        Password = MD5Hash.GetMd5Hash("qwerty"),
+                        Personal = new Personal_Data_Acc
+                        {
+                            DateOfBirth = new DateTime(2000, 08, 20),
+                            Email = "email@gmail.com",
+                            Name = "Пользователь1",
+                            Patronymic = "Игоревич",
+                            Surname = "Фамилиевич",
+                            Photo = ImageToByte(@"C:\Users\student\Desktop\Luigi_5.png"),
+                        }
+                    };
+                    // добавляю в бд
+                    db.Accounts.Add(JmixAcc);
+                    // db.Entry(JmixAcc).State = EntityState.Added;
+                    db.SaveChanges();
+                }
+
+                catch (DbUpdateException ex)
+                {
+                    //WebId = Guid.Empty;
+                    return;
+                }
+
+            }
+        }
+
         //РЕГИСТРАЦИЯ
         public static Account Registration(string login, string password)
         {
@@ -60,7 +97,6 @@ namespace My_Game
                     //пароль совпал
                     return null;
                 return student;
-
             }
         }
 
@@ -165,10 +201,8 @@ namespace My_Game
 
         public static bool IsTrue()
         {
-        
-
 
             return false;
         }
-        }
+    }
 }
