@@ -35,7 +35,7 @@ namespace My_Game
         
         private void LabelNewGame_MouseEnter(object sender, MouseEventArgs e)
         {
-            labelNewGame.Foreground = new SolidColorBrush(Colors.Gray);
+            labelNewGame.Foreground = new SolidColorBrush(Colors.DarkGray);
         }
 
         private void LabelNewGame_MouseLeave(object sender, MouseEventArgs e)
@@ -45,7 +45,7 @@ namespace My_Game
         
         private void LabelExit_MouseEnter(object sender, MouseEventArgs e)
         {
-            labelExit.Foreground = new SolidColorBrush(Colors.Gray);
+            labelExit.Foreground = new SolidColorBrush(Colors.DarkGray);
         }
 
         private void LabelExit_MouseLeave(object sender, MouseEventArgs e)
@@ -59,7 +59,7 @@ namespace My_Game
             Window mainWindow = Window.GetWindow(UserControlMenu);
             Grid gridOnMainWindow = mainWindow.Content as Grid;
             var children = gridOnMainWindow.Children;
-            UserControl1 user = children[0] as UserControl1;
+            UserControl1 user = children[1] as UserControl1;
             user.Visibility = Visibility.Visible;
         }
 

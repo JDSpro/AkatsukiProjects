@@ -70,7 +70,7 @@ namespace My_Game
                             Name = "Name",
                             Patronymic = "Patronymic",
                             Surname = "Surname",
-                            Photo = ImageToByte(@"C:\Users\student\Desktop\557422.jpg")
+                            Photo = ImageToByte(@"Images\NoImage.png")
                         }
                     };
                     // добавляю в бд

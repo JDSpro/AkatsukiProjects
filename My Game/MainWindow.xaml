@@ -105,7 +105,7 @@
             <ColumnDefinition>
             </ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <!--<Image Grid.Column="1" Source="Images\milionaireLogoBackground.png"></Image>-->
+        <Image Grid.Column="1" Stretch="Fill" Source="Images\Background.jpg"></Image>
         <local:UserControl1 Visibility="Hidden"></local:UserControl1>
         <local:MenuUserControl VerticalContentAlignment="Center"></local:MenuUserControl>
     </Grid>
