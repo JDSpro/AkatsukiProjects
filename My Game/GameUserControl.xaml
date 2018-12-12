@@ -1,32 +1,70 @@
-﻿<UserControl x:Class="My_Game.UserControl1"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:My_Game"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="My_Game.UserControl1"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Name="QuestionAnswerControl">
+             d:DesignHeight="450" d:DesignWidth="800" x:Name="QuestionAnswerControl">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Button}" x:Key="CustomDarkButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Name="Panel">
+                            <Path Name="Path" Data="M160.66667,123 L186.83301,101.16667 506.17078,101.83301 532.17075,122.49999 505.50348,143.83365 186.83329,143.1673 z" Fill="#FF53498E" HorizontalAlignment="Left" Height="29.501" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="224.907" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <!--<ScaleTransform ScaleY="-1"/>-->
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Fill" TargetName="Path" Value="#ADD8E6"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Fill" TargetName="Path" Value="#6c7a89"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Fill" TargetName="Path" Value="LightGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Margin" Value="6,0,6,5"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Height" Value="75"/>
+        </Style>
+
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label VerticalAlignment="Center" TextBlock.TextAlignment="Center" Height="180" Width="700" Name="labelQuestion" Grid.ColumnSpan="2">
-            <Label.Content>
-                <TextBlock Foreground="White" TextWrapping="Wrap"></TextBlock>
-            </Label.Content>
+        <Label VerticalAlignment="Center" TextBlock.TextAlignment="Center" Height="180" Width="700" x:Name="labelQuestion" Grid.ColumnSpan="2">
+            <TextBlock Foreground="White" TextWrapping="Wrap"/>
         </Label>
         <StackPanel Grid.Row="2">
-            <Button Name="buttonAnswer1" Margin="0, 50" Height="40" Width="250">Ответ 1</Button>
-            <Button Name="buttonAnswer3" Margin="0, 0" Height="40" Width="250">Ответ 3</Button>
+            <Button x:Name="buttonAnswer1" Margin="0, 50" Height="40" Width="250" Style="{DynamicResource CustomDarkButton}" Content="Ответ 1"/>
+            <Button x:Name="buttonAnswer3" Margin="0, 0" Height="40" Width="250" Style="{DynamicResource CustomDarkButton}" Content="Ответ 3"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="2">
-            <Button Name="buttonAnswer2" Margin="0, 50" Height="40" Width="250">Ответ 2</Button>
-            <Button Name="buttonAnswer4" Margin="0, 0" Height="40" Width="250">Ответ 4</Button>
+            <Button x:Name="buttonAnswer2" Margin="0, 50" Height="40" Width="250" Style="{DynamicResource CustomDarkButton}" Content="Ответ 2"/>
+            <Button x:Name="buttonAnswer4" Margin="0, 0" Height="40" Width="250" Style="{DynamicResource CustomDarkButton}" Content="Ответ 4"/>
         </StackPanel>
     </Grid>
 </UserControl>
