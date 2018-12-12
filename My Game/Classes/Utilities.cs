@@ -46,10 +46,8 @@ namespace My_Game
 
                 catch (DbUpdateException ex)
                 {
-                    //WebId = Guid.Empty;
                     return;
                 }
-
             }
         }
 
@@ -60,24 +58,30 @@ namespace My_Game
             {
                 try
                 {
-                    // создаю аккаунт
                     Account JmixAcc = new Account
                     {
                         Login = login,
                         //128-битный алгоритм хеширования md5
                         Password = MD5Hash.GetMd5Hash(password),
-                        Personal = new Personal_Data_Acc { }
+                        Personal = new Personal_Data_Acc
+                        {
+                            DateOfBirth = DateTime.Now,
+                            Email = "you@mail.com",
+                            Name = "Name",
+                            Patronymic = "Patronymic",
+                            Surname = "Surname",
+                            Photo = ImageToByte(@"C:\Users\student\Desktop\557422.jpg")
+                        }
                     };
                     // добавляю в бд
                     db.Accounts.Add(JmixAcc);
-                    // db.Entry(JmixAcc).State = EntityState.Added;
+                    db.Entry(JmixAcc).State = EntityState.Added;
                     db.SaveChanges();
                     return JmixAcc;
                 }
 
                 catch (DbUpdateException ex)
                 {
-                    //WebId = Guid.Empty;
                     return null;
                 }
             }
@@ -86,17 +90,13 @@ namespace My_Game
         //ВХОД
         public static Account Enter(string login, string password)
         {
-            using (var ctx = new MyContext())
+            using (var context = new MyContext())
             {
-                //Выборка из базы данных, пользователя с логином, принимаемым в функции
-                var student = (from s in ctx.Accounts
-                               where s.Login == login
-                               select s).FirstOrDefault<Account>();
-
-                if (student == null)
-                    //пароль совпал
+                Account akk = context.Accounts.Include(a => a.Personal).FirstOrDefault(a => a.Login == login);
+                if ((akk != null)&& (MD5Hash.VerifyMd5Hash(password, akk.Password)))
+                    return akk;
+                else
                     return null;
-                return student;
             }
         }
 
@@ -119,7 +119,6 @@ namespace My_Game
                     return c;
                 });
             foreach (Account customer in acc)
-                // Указать, что запись изменилась
                 context.Entry(customer).State = EntityState.Modified;
 
             context.SaveChanges();
@@ -131,7 +130,7 @@ namespace My_Game
         }
 
         //Добавление и Сохранение дополнительных данных
-        public static bool SaveAdditionalInfo(int id, string path, string name = "", string surname = "", string patronymic = "", string email = "")
+        public static bool SaveAdditionalInfo(int id, string path="", string name = " ", string surname = " ", string patronymic = " ", string email = " ")
         {
             MyContext context = new MyContext();
             IEnumerable<Account> acc = context.Accounts
@@ -145,39 +144,40 @@ namespace My_Game
                     c.Personal.Surname = surname;
                     c.Personal.Patronymic = patronymic;
                     c.Personal.Email = email;
-                    c.Personal.Photo = ImageToByte(path);
+                    if (path != "")
+                    {
+                        c.Personal.Photo = ImageToByte(path);
+                    }
                     return c;
                 });
             foreach (Account customer in acc)
-                // Указать, что запись изменилась
                 context.Entry(customer).State = EntityState.Modified;
 
             context.SaveChanges();
-
-            //
+            
             return true;
         }
 
         public static byte[] ImageToByte(string path)
         {
-            byte[] data;
-            using (FileStream fs = new FileStream(new Uri(path).LocalPath, FileMode.Open, FileAccess.Read))
+            if (path != "")
             {
-                data = new byte[fs.Length];
-                fs.Read(data, 0, data.Length);
+                byte[] data;
+                using (FileStream fs = new FileStream(new Uri(path).LocalPath, FileMode.Open, FileAccess.Read))
+                {
+                    data = new byte[fs.Length];
+                    fs.Read(data, 0, data.Length);
+                }
+                return data;
             }
-
-            return data;
+            return null;
         }
 
         public static BitmapImage ByteToImage(byte[] data)
         {
-            MemoryStream memorystream = new MemoryStream();
-            memorystream.Write(data, 0, (int)data.Length);
-
             BitmapImage imgsource = new BitmapImage();
             imgsource.BeginInit();
-            imgsource.StreamSource = memorystream;
+            imgsource.StreamSource = new MemoryStream(data);
             imgsource.EndInit();
 
             return imgsource;
@@ -198,11 +198,5 @@ namespace My_Game
 
         //    return null;
         //}
-
-        public static bool IsTrue()
-        {
-
-            return false;
-        }
     }
 }

@@ -11,7 +11,7 @@ namespace My_Game
     {
         public MyContext() : base("Millioner")
         {
-            Database.SetInitializer<MyContext>(new DropCreateDatabaseAlways<MyContext>());
+            Database.SetInitializer<MyContext>(new DropCreateDatabaseIfModelChanges<MyContext>());
         }
         public DbSet<Account> Accounts{ get; set; }
         public DbSet<Personal_Data_Acc> Personal_Data_Accs{ get; set; }

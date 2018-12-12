@@ -20,7 +20,6 @@ namespace My_Game
         public string Email{ get; set; }
         public byte[] Photo { get; set; }
         public DateTime DateOfBirth { get; set; } = DateTime.Now;
-
-        public Account AccountOf { get; set; }
+        
     }
 }

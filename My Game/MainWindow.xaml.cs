@@ -157,16 +157,16 @@ namespace My_Game
             
 
 
-            //if (user.Personal != null)
-            //{
-            //    var d = Utilities.ByteToImage(user.Personal.Photo);
-            //    accountPicture.Source = new BitmapImage(d.UriSource);
-            //}
-            //else
-            //{
+            if (user?.Personal?.Photo != null)
+            {
+                var d = Utilities.ByteToImage(user.Personal.Photo);
+                accountPicture.Source = d;
+            }
+            else
+            {
                 FileInfo fi = new FileInfo("../../Images/NoImage.png");
                 accountPicture.Source = new BitmapImage(new Uri(fi.FullName));
-            //}
+            }
 
             SetUserLogin(flyoutAccountInfoHeaderTextBlock);
             SetUserLogin(textBlockOnLabelOnButton);
