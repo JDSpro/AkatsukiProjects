@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace My_Game
 {
@@ -154,21 +155,26 @@ namespace My_Game
             //    //Thread.Sleep(500);
             //    Dispatcher.Invoke(new Action(() =>
             //    {
-            
 
 
-            if (user?.Personal?.Photo != null)
-            {
-                var d = Utilities.ByteToImage(user.Personal.Photo);
-                accountPicture.Source = d;
-            }
-            else
-            {
-                FileInfo fi = new FileInfo("../../Images/NoImage.png");
-                accountPicture.Source = new BitmapImage(new Uri(fi.FullName));
-            }
+
+            //if (user?.Personal?.Photo != null)
+            //{
+            BitmapImage userImage = Utilities.ByteToImage(user.Personal.Photo);
+            accountPicture.Source = userImage;
+            textBoxName.Text = user.Personal.Name;
+            textBoxSurname.Text = user.Personal.Surname;
+            textBoxPatronymic.Text = user.Personal.Patronymic;
+            textBoxEmail.Text = user.Personal.Email;
+            //}
+            //else
+            //{
+            //    FileInfo fi = new FileInfo("../../Images/NoImage.png");
+            //    accountPicture.Source = new BitmapImage(new Uri(fi.FullName));
+            //}
 
             SetUserLogin(flyoutAccountInfoHeaderTextBlock);
+
             SetUserLogin(textBlockOnLabelOnButton);
             
             flyoutAccountInfo.IsOpen = true;
