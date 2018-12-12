@@ -11,6 +11,6 @@ namespace My_Game
         public int Id { get; set; }
         public string Text { get; set; }
         public int IssuePrice { get; set; }
-        public List<Answer> Answers { get; set; }
+        public virtual List<Answer> Answers { get; set; }
     }
 }
