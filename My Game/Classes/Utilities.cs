@@ -35,7 +35,7 @@ namespace My_Game
                             Name = "Пользователь1",
                             Patronymic = "Игоревич",
                             Surname = "Фамилиевич",
-                            Photo = ImageToByte(@"C:\Users\student\Desktop\Luigi_5.png"),
+                            Photo = ImageToByte(@"Images\milionaireLogoBackground.png"),
                         }
                     };
                     // добавляю в бд
@@ -70,7 +70,7 @@ namespace My_Game
                             Name = "Name",
                             Patronymic = "Patronymic",
                             Surname = "Surname",
-                            Photo = ImageToByte(@"Images\NoImage.png")
+                            Photo = ImageToByte(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Images\milionaireLogoBackground.png")
                         }
                     };
                     // добавляю в бд
@@ -160,10 +160,12 @@ namespace My_Game
 
         public static byte[] ImageToByte(string path)
         {
+
             if (path != "")
             {
                 byte[] data;
-                using (FileStream fs = new FileStream(new Uri(path).LocalPath, FileMode.Open, FileAccess.Read))
+
+                using (FileStream fs = new FileStream(new Uri(path, UriKind.Absolute).LocalPath, FileMode.Open, FileAccess.Read))
                 {
                     data = new byte[fs.Length];
                     fs.Read(data, 0, data.Length);
