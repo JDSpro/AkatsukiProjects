@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="My_Game.ProgressUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:My_Game"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="200">
+    <StackPanel>
+        <Grid>
+            <Label Content="1 000 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
+            <Label Content="15" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+        </Grid>
+        <Grid>
+            <Label Content="500 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
+            <Label Content="14" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+        </Grid>
+        <Grid>
+            <Label Content="250 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
+            <Label Content="13" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+        </Grid>
+        <Grid>
+            <Label Content="125 000" HorizontalContentAlignment="Center"  Foreground="Coral"/>
+            <Label Content="12" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+        </Grid>
+        <Grid>
+            <Label Content="64 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
+            <Label Content="11" HorizontalAlignment="Left"  Width="30" Foreground="Chocolate"/>
+        </Grid>
+        <Grid>
+            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
+            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+        </Grid>
+    </StackPanel>
+</UserControl>
