@@ -110,10 +110,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ProgressUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Personal_Data_Acc.cs" />
     <Compile Include="Classes\MD5Hash.cs" />
+    <Compile Include="ProgressUserControl.xaml.cs">
+      <DependentUpon>ProgressUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
