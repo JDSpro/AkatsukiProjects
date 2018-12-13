@@ -221,7 +221,7 @@ namespace My_Game
         private void buttonSaveChanges_Click(object sender, RoutedEventArgs e)
         {
             Utilities.SaveAdditionalInfo(user.Id, accountPicture.Source.ToString(), textBoxName.Text, textBoxSurname.Text, textBoxPatronymic.Text, textBoxEmail.Text);
-            EllipseInLoginButton.Fill = new ImageBrush(new BitmapImage(new Uri(accountPicture.Source.ToString())));
+            EllipseInLoginButton.Fill = new ImageBrush(accountPicture.Source);
         }
 
         private void MetroWindow_StateChanged(object sender, EventArgs e)

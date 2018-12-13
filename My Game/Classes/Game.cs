@@ -8,11 +8,11 @@ namespace My_Game.Classes
 {
     class Game
     {
-        Question question;
+        List<Question> questionList;
 
         void Question()
         {
-           // question
+            //question = Utilities.GetQuestion(100);
         }
     }
 }

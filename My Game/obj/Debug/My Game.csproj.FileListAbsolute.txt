@@ -244,3 +244,6 @@ C:\Users\alex\source\repos\course\AkatsukiProjects\My Game\obj\Debug\My Game.csp
 C:\Users\alex\source\repos\course\AkatsukiProjects\My Game\obj\Debug\My Game.csproj.CopyComplete
 C:\Users\alex\source\repos\course\AkatsukiProjects\My Game\obj\Debug\My Game.exe
 C:\Users\alex\source\repos\course\AkatsukiProjects\My Game\obj\Debug\My Game.pdb
+C:\Users\student\Source\Repos\AkatsukiProjects\My Game\obj\Debug\My Game.csprojAssemblyReference.cache
+C:\Users\student\Source\Repos\AkatsukiProjects\My Game\obj\Debug\ProgressUserControl.g.cs
+C:\Users\student\Source\Repos\AkatsukiProjects\My Game\obj\Debug\ProgressUserControl.baml
