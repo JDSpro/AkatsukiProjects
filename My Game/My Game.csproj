@@ -171,5 +171,23 @@
   <ItemGroup>
     <Resource Include="Images\milionaireLogoBackground.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Background\68622d5b-3f69-4df5-8f93-8cd867a51951.jpg" />
+    <Resource Include="Background\abstract-gradient-4s-1920x1080.jpg" />
+    <Resource Include="Background\Backgrounds_Colorful_abstraction_on_black_wallpaper_078520_.jpg" />
+    <Resource Include="Background\f2nbsPJ.jpg" />
+    <Resource Include="Background\gradients-26042-26727-hd-wallpapers.jpg" />
+    <Resource Include="Background\HeYmP7w.png" />
+    <Resource Include="Background\images %281%29.jpg" />
+    <Resource Include="Background\images %282%29.jpg" />
+    <Resource Include="Background\images.jpg" />
+    <Resource Include="Background\maxresdefault %281%29.jpg" />
+    <Resource Include="Background\maxresdefault.jpg" />
+    <Resource Include="Background\TxrBPD.jpg" />
+    <Resource Include="Background\Без названия %281%29.jpg" />
+    <Resource Include="Background\Без названия %282%29.jpg" />
+    <Resource Include="Background\Без названия %283%29.jpg" />
+    <Resource Include="Background\Без названия.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
