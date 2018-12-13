@@ -5,63 +5,67 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:My_Game"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="200">
+             d:DesignHeight="385" d:DesignWidth="200">
     <StackPanel>
         <Grid>
-            <Label Content="1 000 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
-            <Label Content="15" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+            <Label Content="1 000 000" HorizontalContentAlignment="Center" Foreground="White"/>
+            <Label Content="15" HorizontalAlignment="Left" Width="30" Foreground="White"/>
         </Grid>
         <Grid>
-            <Label Content="500 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
-            <Label Content="14" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+            <Label Content="500 000" HorizontalContentAlignment="Center" Foreground="Gold"/>
+            <Label Content="14" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <Label Content="250 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
-            <Label Content="13" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+            <Label Content="250 000" HorizontalContentAlignment="Center" Foreground="Gold"/>
+            <Label Content="13" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <Label Content="125 000" HorizontalContentAlignment="Center"  Foreground="Coral"/>
-            <Label Content="12" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+            <Label Content="125 000" HorizontalContentAlignment="Center" Foreground="Gold"/>
+            <Label Content="12" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <Label Content="64 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
-            <Label Content="11" HorizontalAlignment="Left"  Width="30" Foreground="Chocolate"/>
+            <Label Content="64 000" HorizontalContentAlignment="Center"  Foreground="Gold"/>
+            <Label Content="11" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
-            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="White"/>
+            <Label Content="10" HorizontalAlignment="Left"  Width="30" Foreground="White"/>
         </Grid>
         <Grid>
-            <Label Content="16 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
-            <Label Content="9" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+            <Label Content="16 000" HorizontalContentAlignment="Center" Foreground="Gold"/>
+            <Label Content="9" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
-            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+            <Label Content="8 000" HorizontalContentAlignment="Center" Foreground="Gold"/>
+            <Label Content="8" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
-            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+            <Label Content="4 000" HorizontalContentAlignment="Center" Foreground="Gold"/>
+            <Label Content="7" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
-            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+            <Label Content="2 000" HorizontalContentAlignment="Center" Foreground="Gold"/>
+            <Label Content="6" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
-            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+            <Label Content="1 000" HorizontalContentAlignment="Center" Foreground="White"/>
+            <Label Content="5" HorizontalAlignment="Left" Width="30" Foreground="White"/>
         </Grid>
         <Grid>
-            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
-            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+            <Label Content="500" HorizontalContentAlignment="Center" Foreground="Gold"/>
+            <Label Content="4" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
-            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+            <Label Content="300" HorizontalContentAlignment="Center" Foreground="Gold"/>
+            <Label Content="3" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
-            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+            <Label Content="200" HorizontalContentAlignment="Center" Foreground="Gold"/>
+            <Label Content="2" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
+        </Grid>
+        <Grid>
+            <Label Content="100" HorizontalContentAlignment="Center" Foreground="Gold"/>
+            <Label Content="1" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
         </Grid>
         
     </StackPanel>

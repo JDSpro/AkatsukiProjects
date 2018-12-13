@@ -101,12 +101,21 @@
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
 
-    <Grid Name="gridOnMain" Background="#200B70">
+    <Grid Name="gridOnMain">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0"
+            EndPoint="1,1">
+                <GradientStop Color="#FF111976" Offset="0" />
+                <GradientStop Color="#FF2D115D" Offset="0.803" />
+                <GradientStop Color="#FF27006C" Offset="0.345"/>
+                <GradientStop Color="#FF4D18A6" Offset="0.594"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition>
             </ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Image Grid.Column="1" Stretch="Fill" Source="Images\Background.jpg"></Image>
+        <!--<Image Name="BackgroundImage" Grid.Column="1" Stretch="Fill" Source="Images\Background.jpg"></Image>-->
         <local:UserControl1 Visibility="Hidden"></local:UserControl1>
         <local:MenuUserControl VerticalContentAlignment="Center"></local:MenuUserControl>
     </Grid>

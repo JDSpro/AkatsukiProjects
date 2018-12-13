@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,9 +58,20 @@ namespace My_Game
         {
             UserControlMenu.Visibility = Visibility.Hidden;
             Window mainWindow = Window.GetWindow(UserControlMenu);
+
             Grid gridOnMainWindow = mainWindow.Content as Grid;
             var children = gridOnMainWindow.Children;
-            UserControl1 user = children[1] as UserControl1;
+
+            
+            //gridOnMainWindow.Background = (System.Windows.Media.Brush)new BrushConverter().ConvertFrom("#200B70");
+
+            //Image img = children[0] as Image;
+
+            //FileInfo fi = new FileInfo("../../Background/A.jpg");
+
+            //img.Source = new BitmapImage(new Uri(fi.FullName));
+
+            UserControl1 user = children[0] as UserControl1;
             user.Visibility = Visibility.Visible;
         }
 

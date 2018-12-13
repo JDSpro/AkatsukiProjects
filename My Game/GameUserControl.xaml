@@ -15,34 +15,33 @@
                         <Border>
                             <Grid Name="Grid">
                                 <Path Name="Path" Data="M160.66667,123 L186.83301,101.16667 506.17078,101.83301 532.17075,122.49999 505.50348,143.83365 186.83329,143.1673 z" HorizontalAlignment="Left" Height="29.501" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="224.907" RenderTransformOrigin="0.5,0.5">
-                                <Path.Fill>
-                                    <RadialGradientBrush>
-                                        <GradientStop Color="#FF050D29" Offset="1"/>
-                                        <GradientStop Color="#FF172B70" Offset="0.474"/>
-                                        <GradientStop Color="#FF253C89"/>
-                                    </RadialGradientBrush>
-                                </Path.Fill>
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <!--<ScaleTransform ScaleY="-1"/>-->
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Path.RenderTransform>
-                            </Path>
+                                    <Path.Fill>
+                                        <RadialGradientBrush>
+                                            <GradientStop Color="#FF192E7E" Offset="1"/>
+                                            <GradientStop Color="#FF446EFF" Offset="0.474"/>
+                                            <GradientStop Color="#FF587EFF"/>
+                                        </RadialGradientBrush>
+                                    </Path.Fill>
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <!--<ScaleTransform ScaleY="-1"/>-->
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
                                 <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,10" />
-                        </Grid>
+                            </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Fill" TargetName="Path">
                                     <Setter.Value>
                                         <RadialGradientBrush>
-                                            <GradientStop Color="#FF050D29" Offset="1"/>
-                                            <GradientStop Color="#FF172B70" Offset="0.474"/>
-                                            <GradientStop Color="#FF253C89"/>
-                                            <GradientStop Color="#FF0E1D4E" Offset="0.566"/>
+                                            <GradientStop Color="#FF172A74" Offset="1"/>
+                                            <GradientStop Color="#FF375BD6" Offset="0.474"/>
+                                            <GradientStop Color="#FF4766CF"/>
                                         </RadialGradientBrush>
                                     </Setter.Value>
                                 </Setter>
@@ -69,12 +68,12 @@
                     <ControlTemplate TargetType="{x:Type Label}">
                         <Border CornerRadius="4">
                             <Grid>
-                                <Path Name="Path" Data="M160.66667,123 L186.83301,101.16667 506.17078,101.83301 532.17075,122.49999 505.50348,143.83365 186.83329,143.1673 z" HorizontalAlignment="Left" Height="100" Width="700" Stretch="Fill" Stroke="#FF78784A" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                                <Path Name="Path" Data="M160.66667,123 L186.83301,101.16667 506.17078,101.83301 532.17075,122.49999 505.50348,143.83365 186.83329,143.1673 z" HorizontalAlignment="Left" Height="100" Width="700" Stretch="Fill" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Stroke="Black">
                                     <Path.Fill>
                                         <RadialGradientBrush>
-                                            <GradientStop Color="#FF050D29" Offset="1"/>
-                                            <GradientStop Color="#FF172B70" Offset="0.474"/>
-                                            <GradientStop Color="#FF253C89"/>
+                                            <GradientStop Color="#FF192E7E" Offset="1"/>
+                                            <GradientStop Color="#FF446EFF" Offset="0.474"/>
+                                            <GradientStop Color="#FF587EFF"/>
                                         </RadialGradientBrush>
                                     </Path.Fill>
                                 </Path>
@@ -98,7 +97,7 @@
         </Grid.ColumnDefinitions>
         <Label Height="100" FontSize="15" Margin="0 120 0 0" Foreground="White" Width="700" Style="{DynamicResource CustomLabel}" x:Name="labelQuestion" Grid.ColumnSpan="2">
             <Label.Content>
-                <ScrollViewer Width="600" Height="80" Margin="0 -10 0 0" CanContentScroll="True" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
+                <ScrollViewer Width="600" Height="80" Margin="30 -10 0 0" CanContentScroll="True" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
                     <TextBlock Width="600" HorizontalAlignment="Center" Name="textBlockQuestion" TextWrapping="Wrap"></TextBlock>
                 </ScrollViewer>
             </Label.Content>
