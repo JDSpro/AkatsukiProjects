@@ -157,5 +157,11 @@
   <ItemGroup>
     <Resource Include="Images\capsLockActiveIcon.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\milionaireLogoBackground.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

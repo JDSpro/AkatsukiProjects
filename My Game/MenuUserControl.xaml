@@ -12,7 +12,7 @@
                Новая Игра
             </Label.Content>
         </Label>
-        <Label HorizontalContentAlignment="Center" Name="labelExit" Margin="0,40, 0, 0" Foreground="White" FontSize="30" Height="50" Width="100" TextBlock.FontStyle="Italic">
+        <Label HorizontalContentAlignment="Center" Name="labelExit" Margin="0,40, 0, 0" Foreground="White" FontSize="30" Height="42" Width="100" TextBlock.FontStyle="Italic">
             <Label.Content>
                 Выход
             </Label.Content>

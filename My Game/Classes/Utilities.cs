@@ -30,12 +30,7 @@ namespace My_Game
                         Password = MD5Hash.GetMd5Hash("qwerty"),
                         Personal = new Personal_Data_Acc
                         {
-                            DateOfBirth = new DateTime(2000, 08, 20),
-                            Email = "email@gmail.com",
-                            Name = "Пользователь1",
-                            Patronymic = "Игоревич",
-                            Surname = "Фамилиевич",
-                            Photo = ImageToByte(@"C:\Users\student\Desktop\Luigi_5.png"),
+                            Photo = ImageToByte(@"Images\NoImage.png"),
                         }
                     };
                     // добавляю в бд
@@ -70,7 +65,7 @@ namespace My_Game
                             Name = "Name",
                             Patronymic = "Patronymic",
                             Surname = "Surname",
-                            Photo = ImageToByte(@"C:\Users\student\Desktop\557422.jpg")
+                            Photo = ImageToByte(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Images\milionaireLogoBackground.png")
                         }
                     };
                     // добавляю в бд
@@ -130,7 +125,7 @@ namespace My_Game
         }
 
         //Добавление и Сохранение дополнительных данных
-        public static bool SaveAdditionalInfo(int id, string path="", string name = " ", string surname = " ", string patronymic = " ", string email = " ")
+        public static bool SaveAdditionalInfo(int id, string path="", string name = "", string surname = "", string patronymic = "", string email = "")
         {
             MyContext context = new MyContext();
             IEnumerable<Account> acc = context.Accounts
@@ -144,7 +139,7 @@ namespace My_Game
                     c.Personal.Surname = surname;
                     c.Personal.Patronymic = patronymic;
                     c.Personal.Email = email;
-                    if (path != "")
+                    if (path != ByteToImage(c.Personal.Photo).ToString())
                     {
                         c.Personal.Photo = ImageToByte(path);
                     }
@@ -160,10 +155,12 @@ namespace My_Game
 
         public static byte[] ImageToByte(string path)
         {
+
             if (path != "")
             {
                 byte[] data;
-                using (FileStream fs = new FileStream(new Uri(path).LocalPath, FileMode.Open, FileAccess.Read))
+
+                using (FileStream fs = new FileStream(new Uri(path, UriKind.Absolute).LocalPath, FileMode.Open, FileAccess.Read))
                 {
                     data = new byte[fs.Length];
                     fs.Read(data, 0, data.Length);
