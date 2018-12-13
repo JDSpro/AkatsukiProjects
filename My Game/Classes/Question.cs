@@ -10,7 +10,7 @@ namespace My_Game
     {
         public int Id { get; set; }
         public string Text { get; set; }
-        public int IssuePrice { get; set; }
+        public int QuestionArnest { get; set; }
         public virtual List<Answer> Answers { get; set; }
     }
 }

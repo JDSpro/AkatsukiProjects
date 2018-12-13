@@ -31,5 +31,38 @@
             <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
             <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
         </Grid>
+        <Grid>
+            <Label Content="16 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
+            <Label Content="9" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+        </Grid>
+        <Grid>
+            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
+            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+        </Grid>
+        <Grid>
+            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
+            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+        </Grid>
+        <Grid>
+            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
+            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+        </Grid>
+        <Grid>
+            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
+            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+        </Grid>
+        <Grid>
+            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
+            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+        </Grid>
+        <Grid>
+            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
+            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+        </Grid>
+        <Grid>
+            <Label Content="32 000" HorizontalContentAlignment="Center" Foreground="Coral"/>
+            <Label Content="10" HorizontalAlignment="Left" Width="30" Foreground="Chocolate"/>
+        </Grid>
+        
     </StackPanel>
 </UserControl>

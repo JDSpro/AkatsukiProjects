@@ -28,7 +28,7 @@ namespace My_Game
                     Question quest1 = new Question
                     {
                         Text = "Сколько букв в русском алфавите?",
-                        IssuePrice = 100,
+                        QuestionArnest = 1,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "32", IsCorrect = false},
@@ -40,7 +40,7 @@ namespace My_Game
                     Question quest2 = new Question
                     {
                         Text = "Операционная система от Microsoft называется...",
-                        IssuePrice = 100,
+                        QuestionArnest = 1,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Двери", IsCorrect = false},
@@ -52,7 +52,7 @@ namespace My_Game
                     Question quest3 = new Question
                     {
                         Text = "Эмблему какого учреждения украшает змея обвивающая чашу?",
-                        IssuePrice = 100,
+                        QuestionArnest = 1,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Зоопарк", IsCorrect = false},
@@ -64,7 +64,7 @@ namespace My_Game
                     Question quest4 = new Question
                     {
                         Text = "Какого моря не существует?",
-                        IssuePrice = 100,
+                        QuestionArnest = 1,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Красного моря", IsCorrect = false},
@@ -76,7 +76,7 @@ namespace My_Game
                     Question quest5 = new Question
                     {
                         Text = "С какого расстояния назначают пенальти в футболе?",
-                        IssuePrice = 100,
+                        QuestionArnest = 1,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "12 метров", IsCorrect = false},
@@ -88,7 +88,7 @@ namespace My_Game
                     Question quest6 = new Question
                     {
                         Text = "Как в математике называется верное равенство двух отношений?",
-                        IssuePrice = 100,
+                        QuestionArnest = 1,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Уравнение", IsCorrect = false},
@@ -102,7 +102,7 @@ namespace My_Game
                     Question quest7 = new Question
                     {
                         Text = "В каком году был выпущен первый прототип портативного сотового телефона(Motorola DynaTAC)?",
-                        IssuePrice = 200,
+                        QuestionArnest = 2,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "1964", IsCorrect = false},
@@ -114,7 +114,7 @@ namespace My_Game
                     Question quest8 = new Question
                     {
                         Text = "В каком месяце в США традиционно начинаются президентские выборы?",
-                        IssuePrice = 200,
+                        QuestionArnest = 2,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Август", IsCorrect = false},
@@ -126,7 +126,7 @@ namespace My_Game
                     Question quest9 = new Question
                     {
                         Text = "Какого персонажа не было среди Бременских музыкантов??",
-                        IssuePrice = 200,
+                        QuestionArnest = 2,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Кот", IsCorrect = false},
@@ -138,7 +138,7 @@ namespace My_Game
                     Question quest10 = new Question
                     {
                         Text = "В какое время года сутки короче?",
-                        IssuePrice = 200,
+                        QuestionArnest = 2,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Летом", IsCorrect = false},
@@ -150,7 +150,7 @@ namespace My_Game
                     Question quest11 = new Question
                     {
                         Text = "Сколько государств участвовало во Второй мировой войне?",
-                        IssuePrice = 200,
+                        QuestionArnest = 2,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "53", IsCorrect = false},
@@ -162,7 +162,7 @@ namespace My_Game
                     Question quest12 = new Question
                     {
                         Text = "Самая крупная рыба",
-                        IssuePrice = 200,
+                        QuestionArnest = 2,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Белая акула", IsCorrect = false},
@@ -171,6 +171,19 @@ namespace My_Game
                          new Answer{ Text = "Синий кит", IsCorrect = false}
                      }
                     };
+                    Question quest30 = new Question
+                    {
+                        Text = "Какая планета Солнечной системы самая большая?",
+                        QuestionArnest = 3,
+                        Answers = new List<Answer>
+                     {
+                         new Answer{ Text = "Земля", IsCorrect = false},
+                         new Answer{ Text = "Юпитер", IsCorrect = true},
+                         new Answer{ Text = "Венера", IsCorrect = false},
+                         new Answer{ Text = "Плутон", IsCorrect = false}
+                     }
+                    };
+
                     #endregion
                     #region Add & Save
                     context.Questions.Add(quest1);
@@ -185,6 +198,7 @@ namespace My_Game
                     context.Questions.Add(quest10);
                     context.Questions.Add(quest11);
                     context.Questions.Add(quest12);
+                    context.Questions.Add(quest30);
                     #endregion
 
 
@@ -345,14 +359,16 @@ namespace My_Game
         }
 
         //Получить случайный вопрос цены price (внутри вопроса есть 4 ответа)
-        public static Question GetQuestion(int price)
+        public static Question GetQuestion()
         {
-            if (price >= 100)
+            List<Question> QstnList = new List<Question>();
+            int i = 1;
+            using (var context = new MyContext())
             {
-                using (var context = new MyContext())
+                while(QstnList.Capacity == 15)
                 {
                     int min = 0, max = 0;
-                    var question = context.Questions.Where(c => c.IssuePrice == price);
+                    var question = context.Questions.Where(c => c.QuestionArnest == i);
                     foreach (var qst in question)
                     {
                         if (max == 0)
@@ -360,11 +376,11 @@ namespace My_Game
                         max = qst.Id;
                     }
                     return context.Questions.Find(Rand(min, max));
+                    i++;
                 }
-            }
-
-            else
-                return null;
+                    
+                }
+            return null;
         }
 
         private static int Rand(int min, int max)
