@@ -188,7 +188,6 @@ C:\Users\student\Source\Repos\AkatsukiProjects\My Game\bin\Debug\EntityFramework
 C:\Users\student\Source\Repos\AkatsukiProjects\My Game\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\student\Source\Repos\AkatsukiProjects\My Game\bin\Debug\MahApps.Metro.pdb
 C:\Users\student\Source\Repos\AkatsukiProjects\My Game\bin\Debug\MahApps.Metro.xml
-C:\Users\student\Source\Repos\AkatsukiProjects\My Game\obj\Debug\My Game.csprojAssemblyReference.cache
 C:\Users\student\Source\Repos\AkatsukiProjects\My Game\obj\Debug\MainWindow.g.cs
 C:\Users\student\Source\Repos\AkatsukiProjects\My Game\obj\Debug\MenuUserControl.g.cs
 C:\Users\student\Source\Repos\AkatsukiProjects\My Game\obj\Debug\GameUserControl.g.cs
@@ -245,5 +244,6 @@ C:\Users\alex\source\repos\course\AkatsukiProjects\My Game\obj\Debug\My Game.csp
 C:\Users\alex\source\repos\course\AkatsukiProjects\My Game\obj\Debug\My Game.csproj.CopyComplete
 C:\Users\alex\source\repos\course\AkatsukiProjects\My Game\obj\Debug\My Game.exe
 C:\Users\alex\source\repos\course\AkatsukiProjects\My Game\obj\Debug\My Game.pdb
-C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\ProgressUserControl.g.cs
-C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\ProgressUserControl.baml
+C:\Users\student\Source\Repos\AkatsukiProjects\My Game\obj\Debug\My Game.csprojAssemblyReference.cache
+C:\Users\student\Source\Repos\AkatsukiProjects\My Game\obj\Debug\ProgressUserControl.g.cs
+C:\Users\student\Source\Repos\AkatsukiProjects\My Game\obj\Debug\ProgressUserControl.baml

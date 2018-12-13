@@ -24,7 +24,6 @@ namespace My_Game
         public MainWindow()
         {
             InitializeComponent();
-
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
 
@@ -176,6 +175,8 @@ namespace My_Game
             SetUserLogin(flyoutAccountInfoHeaderTextBlock);
 
             SetUserLogin(textBlockOnLabelOnButton);
+
+            EllipseInLoginButton.Fill = new ImageBrush(userImage);
             
             flyoutAccountInfo.IsOpen = true;
             //    }));
@@ -220,6 +221,7 @@ namespace My_Game
         private void buttonSaveChanges_Click(object sender, RoutedEventArgs e)
         {
             Utilities.SaveAdditionalInfo(user.Id, accountPicture.Source.ToString(), textBoxName.Text, textBoxSurname.Text, textBoxPatronymic.Text, textBoxEmail.Text);
+            EllipseInLoginButton.Fill = new ImageBrush(accountPicture.Source);
         }
 
         private void MetroWindow_StateChanged(object sender, EventArgs e)
