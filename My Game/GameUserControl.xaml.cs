@@ -25,7 +25,7 @@ namespace My_Game
         {
             InitializeComponent();
             
-            textBlockQuestion.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis tempus lacus, id tincidunt tellus. Ut accumsan lorem non efficitur viverra. Aliquam erat volutpat. Mauris laoreet augue quis diam iaculis, gravida rutrum libero faucibus. Quisque pellentesque libero massa, eget congue odio semper ut. Sed cursus consequat augue vel consectetur. Integer a libero congue, efficitur est eu, semper arcu. Fusce ut massa laoreet, tincidunt nisi sit amet, dignissim elit. Donec dictum suscipit nisl a porta. Morbi suscipit mi sit amet diam ultrices, id volutpat felis lacinia. Sed placerat turpis ante, a dapibus odio porta at.";
+            textBlockQuestion.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis tempus lacus, id tincidunt tellus.";
         }
     }
 }

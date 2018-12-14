@@ -236,5 +236,10 @@ namespace My_Game
             //        FlayoutSignInUp.Height = 450;
             //    }
         }
+        
+        private void mainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            //mainWindow.
+        }
     }
 }

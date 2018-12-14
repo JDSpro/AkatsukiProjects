@@ -7,8 +7,8 @@
         xmlns:local="clr-namespace:My_Game"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="MainWindow" Name="MainWindow_" Height="450" Width="800" StateChanged="MetroWindow_StateChanged"
-        Icon="Images\milionaireLogoBackground.ico">
+        Title="MainWindow" Name="mainWindow" Height="500" Width="800" StateChanged="MetroWindow_StateChanged"
+        Icon="Images\milionaireLogoBackground.ico" SizeChanged="mainWindow_SizeChanged">
 
     <Controls:MetroWindow.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
@@ -113,11 +113,16 @@
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition>
+
+            </ColumnDefinition>
+            <ColumnDefinition Width="125">
+
             </ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <!--<Image Name="BackgroundImage" Grid.Column="1" Stretch="Fill" Source="Images\Background.jpg"></Image>-->
-        <local:UserControl1 Visibility="Hidden"></local:UserControl1>
-        <local:MenuUserControl VerticalContentAlignment="Center"></local:MenuUserControl>
+        <!--<Image Name="BackgroundImage" Stretch="Fill" Source="Images\Background.jpg"></Image>-->
+        <local:UserControl1 Margin="0,200,0,0" Visibility="Visible"></local:UserControl1>
+        <local:MenuUserControl VerticalContentAlignment="Center" Visibility="Hidden"></local:MenuUserControl>
+        <local:ProgressUserControl Margin="0, 0, 0, 0" Grid.Column="2"/>
     </Grid>
 
 </Controls:MetroWindow>
