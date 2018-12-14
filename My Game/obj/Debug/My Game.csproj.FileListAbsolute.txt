@@ -247,5 +247,5 @@ C:\Users\alex\source\repos\course\AkatsukiProjects\My Game\obj\Debug\My Game.pdb
 C:\Users\student\Source\Repos\AkatsukiProjects\My Game\obj\Debug\My Game.csprojAssemblyReference.cache
 C:\Users\student\Source\Repos\AkatsukiProjects\My Game\obj\Debug\ProgressUserControl.g.cs
 C:\Users\student\Source\Repos\AkatsukiProjects\My Game\obj\Debug\ProgressUserControl.baml
-C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\obj\Debug\ProgressUserControl.g.cs
-C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\obj\Debug\ProgressUserControl.baml
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\ProgressUserControl.g.cs
+C:\Users\student\Desktop\Course\AkatsukiProjects\My Game\obj\Debug\ProgressUserControl.baml
