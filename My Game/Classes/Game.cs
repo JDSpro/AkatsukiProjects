@@ -4,15 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace My_Game.Classes
+namespace My_Game
 {
-    class Game
+    public class Game
     {
         List<Question> questionList;
+        int currentStage = 0;
 
-        void Question()
+        private Game()
         {
-            //questionList = Utilities.GetQuestion();
+            questionList = Utilities.GetQuestions();
         }
+
+        public Question GetQuestion()
+        {
+            return questionList[currentStage++];
+        }
+
+        public void GameOver()
+        {
+            currentStage = 0;
+            questionList = null;
+        }
+
+
     }
 }
