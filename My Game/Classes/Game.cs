@@ -12,7 +12,7 @@ namespace My_Game.Classes
 
         void Question()
         {
-            //question = Utilities.GetQuestion(100);
+            //questionList = Utilities.GetQuestion();
         }
     }
 }
