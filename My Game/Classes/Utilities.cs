@@ -261,6 +261,13 @@ namespace My_Game
             }
         }
 
+
+        public static void FirstConnection()
+        {
+            using (var context = new MyContext())
+                context.Accounts.First();
+        }
+
         //РЕГИСТРАЦИЯ
         public static Account Registration(string login, string password)
         {
