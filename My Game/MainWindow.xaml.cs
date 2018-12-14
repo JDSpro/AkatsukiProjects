@@ -24,6 +24,9 @@ namespace My_Game
         public MainWindow()
         {
             InitializeComponent();
+            
+            var d =Utilities.GetQuestion();
+            ;
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
 

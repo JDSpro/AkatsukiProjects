@@ -16,6 +16,7 @@ namespace My_Game
 {
     public static class Utilities
     {
+        private static Random Rand = new Random();
         //Загрузка данных, для разработки(до релиза)
         public static void Seed()
         {
@@ -98,8 +99,8 @@ namespace My_Game
                      }
                     };
                     #endregion
-                    #region 200 (6 вопросов)
-                    Question quest7 = new Question
+                    #region 2 (6 вопросов)
+                    Question quest20 = new Question
                     {
                         Text = "В каком году был выпущен первый прототип портативного сотового телефона(Motorola DynaTAC)?",
                         QuestionArnest = 2,
@@ -111,7 +112,7 @@ namespace My_Game
                          new Answer{ Text = "1987", IsCorrect = false},
                      }
                     };
-                    Question quest8 = new Question
+                    Question quest21 = new Question
                     {
                         Text = "В каком месяце в США традиционно начинаются президентские выборы?",
                         QuestionArnest = 2,
@@ -123,7 +124,7 @@ namespace My_Game
                          new Answer{ Text = "Февраль", IsCorrect = false}
                      }
                     };
-                    Question quest9 = new Question
+                    Question quest22 = new Question
                     {
                         Text = "Какого персонажа не было среди Бременских музыкантов??",
                         QuestionArnest = 2,
@@ -135,7 +136,7 @@ namespace My_Game
                          new Answer{ Text = "Осел", IsCorrect = false}
                      }
                     };
-                    Question quest10 = new Question
+                    Question quest23 = new Question
                     {
                         Text = "В какое время года сутки короче?",
                         QuestionArnest = 2,
@@ -147,7 +148,7 @@ namespace My_Game
                          new Answer{ Text = "Одинаковые", IsCorrect = true}
                      }
                     };
-                    Question quest11 = new Question
+                    Question quest24 = new Question
                     {
                         Text = "Сколько государств участвовало во Второй мировой войне?",
                         QuestionArnest = 2,
@@ -159,7 +160,7 @@ namespace My_Game
                          new Answer{ Text = "75", IsCorrect = false}
                      }
                     };
-                    Question quest12 = new Question
+                    Question quest25 = new Question
                     {
                         Text = "Самая крупная рыба",
                         QuestionArnest = 2,
@@ -171,10 +172,40 @@ namespace My_Game
                          new Answer{ Text = "Синий кит", IsCorrect = false}
                      }
                     };
+                    #endregion
+                    #region 3
                     Question quest30 = new Question
                     {
-                        Text = "Какая планета Солнечной системы самая большая?",
+                        Text = "Какая планета Солнечной системы самая большая? 3",
                         QuestionArnest = 3,
+                        Answers = new List<Answer>
+                     {
+                         new Answer{ Text = "Земля", IsCorrect = false},
+                         new Answer{ Text = "Юпитер", IsCorrect = true},
+                         new Answer{ Text = "Венера", IsCorrect = false},
+                         new Answer{ Text = "Плутон", IsCorrect = false}
+                     }
+                    };
+                    #endregion
+                    #region 4
+                    Question quest40 = new Question
+                    {
+                        Text = "Какая планета? 4",
+                        QuestionArnest = 4,
+                        Answers = new List<Answer>
+                     {
+                         new Answer{ Text = "Земля", IsCorrect = false},
+                         new Answer{ Text = "Юпитер", IsCorrect = true},
+                         new Answer{ Text = "Венера", IsCorrect = false},
+                         new Answer{ Text = "Плутон", IsCorrect = false}
+                     }
+                    };
+                    #endregion
+                    #region 5
+                    Question quest50 = new Question
+                    {
+                        Text = "Какая? 5",
+                        QuestionArnest = 5,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Земля", IsCorrect = false},
@@ -192,13 +223,15 @@ namespace My_Game
                     context.Questions.Add(quest4);
                     context.Questions.Add(quest5);
                     context.Questions.Add(quest6);
-                    context.Questions.Add(quest7);
-                    context.Questions.Add(quest8);
-                    context.Questions.Add(quest9);
-                    context.Questions.Add(quest10);
-                    context.Questions.Add(quest11);
-                    context.Questions.Add(quest12);
+                    context.Questions.Add(quest20);
+                    context.Questions.Add(quest21);
+                    context.Questions.Add(quest22);
+                    context.Questions.Add(quest23);
+                    context.Questions.Add(quest24);
+                    context.Questions.Add(quest25);
                     context.Questions.Add(quest30);
+                    context.Questions.Add(quest40);
+                    context.Questions.Add(quest50);
                     #endregion
 
 
@@ -241,10 +274,10 @@ namespace My_Game
                         Password = MD5Hash.GetMd5Hash(password),
                         Personal = new Personal_Data_Acc
                         {
-                            Name="",
+                            Name = "",
                             Surname = "",
-                            Patronymic ="",
-                            Email ="",
+                            Patronymic = "",
+                            Email = "",
                             Photo = ImageToByte(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Images\NoImage.png")
                         }
                     };
@@ -359,36 +392,39 @@ namespace My_Game
         }
 
         //Получить случайный вопрос цены price (внутри вопроса есть 4 ответа)
-        public static Question GetQuestion()
+        public static IList<Question> GetQuestion()
         {
             List<Question> QstnList = new List<Question>();
             int i = 1;
+
             using (var context = new MyContext())
             {
-                while(QstnList.Capacity == 15)
+                while (QstnList.Count < 5)
                 {
-                    int min = 0, max = 0;
-                    var question = context.Questions.Where(c => c.QuestionArnest == i);
-                    foreach (var qst in question)
-                    {
-                        if (max == 0)
-                            min = qst.Id;
-                        max = qst.Id;
-                    }
-                    return context.Questions.Find(Rand(min, max));
+                    var test = context.Questions.Where(c => c.QuestionArnest == i).ToList();
+                    int n = Rand.Next(0, test.Count);
+
+                    QstnList.Add(test[n]);
                     i++;
                 }
-                    
-                }
-            return null;
-        }
+                //question = context.Questions.Where(c => c.QuestionArnest == i);
 
-        private static int Rand(int min, int max)
-        {
-            Random rnd = new Random();
-            lock (rnd)
-                return rnd.Next(min, max + 1);
-        }
+                //foreach (var qst in question)
+                //{
+                //    if (max == 0)
+                //        min = qst.Id;
+                //    max = qst.Id;
+                //}
 
+                //lock (Rand)
+                //    QstnList.Add(context.Questions.Find(Rand.Next(min, max + 1)));
+
+                ////QstnList.Add(context.Questions.Find(Rand(min, max)));
+                //max = 0;
+                //min = 0;
+                //i++;
+            }
+            return QstnList;
+        }
     }
 }
