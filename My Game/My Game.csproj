@@ -81,11 +81,15 @@
     <Compile Include="Classes\GameHistory.cs" />
     <Compile Include="Classes\MyContext.cs" />
     <Compile Include="Classes\Question.cs" />
+    <Compile Include="Classes\Utilities.cs" />
     <Compile Include="MenuUserControl.xaml.cs">
       <DependentUpon>MenuUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameUserControl.xaml.cs">
       <DependentUpon>GameUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window_For_Fill_Questions.xaml.cs">
+      <DependentUpon>Window_For_Fill_Questions.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProgressUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window_For_Fill_Questions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

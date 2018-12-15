@@ -372,7 +372,6 @@ namespace My_Game
         //Конвертер из картинки в байты
         public static byte[] ImageToByte(string path)
         {
-
             if (path != "")
             {
                 byte[] data;
@@ -398,40 +397,118 @@ namespace My_Game
             return imgsource;
         }
 
-        //Получить случайный вопрос цены price (внутри вопроса есть 4 ответа)
-        public static IList<Question> GetQuestion()
+        //Получить случайный список 15-сложностей вопросов (внутри вопроса есть 4 ответа)
+        public static List<Question> GetQuestions()
         {
-            List<Question> QstnList = new List<Question>();
             int i = 1;
-
             using (var context = new MyContext())
             {
+                List<Question> QstnList = new List<Question>();
                 while (QstnList.Count < 5)
                 {
-                    var test = context.Questions.Where(c => c.QuestionArnest == i).ToList();
-                    int n = Rand.Next(0, test.Count);
-
-                    QstnList.Add(test[n]);
+                    var qsn = context.Questions.Include(t => t.Answers).ToList();
+                    int nomber = Rand.Next(0, qsn.Count);
+                    QstnList.Add(qsn[nomber]);
                     i++;
                 }
-                //question = context.Questions.Where(c => c.QuestionArnest == i);
-
-                //foreach (var qst in question)
-                //{
-                //    if (max == 0)
-                //        min = qst.Id;
-                //    max = qst.Id;
-                //}
-
-                //lock (Rand)
-                //    QstnList.Add(context.Questions.Find(Rand.Next(min, max + 1)));
-
-                ////QstnList.Add(context.Questions.Find(Rand(min, max)));
-                //max = 0;
-                //min = 0;
-                //i++;
+                return QstnList.ToList<Question>();
             }
-            return QstnList;
+        }
+
+        //public static List<Question> GetQuestions()
+        //{
+        //    int i = 1;
+
+        //    using (var context = new MyContext())
+        //    {
+        //        List<Question> QstnList = new List<Question>();
+        //        while (QstnList.Count < 5)
+        //        {
+        //            var test = context.Questions.Where(c => c.QuestionArnest == i).ToList();
+
+        //            int n = Rand.Next(0, test.Count);
+        //            QstnList.Add(test[n]);
+        //            i++;
+        //        }
+        //        return QstnList.ToList<Question>();
+        //    }
+        //}
+
+
+        public static void NewQuestion(string Qtext, int QArnest, string Answer1, string Answer2, string Answer3, string Answer4, int Correct)
+        {
+            using (var context = new MyContext())
+            {
+                if (Correct == 1)
+                {
+                    Question question = new Question
+                    {
+                        Text = Qtext,
+                        QuestionArnest = QArnest,
+                        Answers = new List<Answer>
+                     {
+                         new Answer{ Text = Answer1, IsCorrect = true},
+                         new Answer{ Text = Answer2, IsCorrect = false},
+                         new Answer{ Text = Answer3, IsCorrect = false},
+                         new Answer{ Text = Answer4, IsCorrect = false}
+                     }
+                    };
+                    
+                    context.Questions.Add(question);
+                    context.SaveChanges();
+                }
+                else if (Correct == 2)
+                {
+                    Question question = new Question
+                    {
+                        Text = Qtext,
+                        QuestionArnest = QArnest,
+                        Answers = new List<Answer>
+                     {
+                         new Answer{ Text = Answer1, IsCorrect = false},
+                         new Answer{ Text = Answer2, IsCorrect = true},
+                         new Answer{ Text = Answer3, IsCorrect = false},
+                         new Answer{ Text = Answer4, IsCorrect = false}
+                     }
+                    };
+                    context.Questions.Add(question);
+                    context.SaveChanges();
+                }
+                else if (Correct == 3)
+                {
+                    Question question = new Question
+                    {
+                        Text = Qtext,
+                        QuestionArnest = QArnest,
+                        Answers = new List<Answer>
+                     {
+                         new Answer{ Text = Answer1, IsCorrect = false},
+                         new Answer{ Text = Answer2, IsCorrect = false},
+                         new Answer{ Text = Answer3, IsCorrect = true},
+                         new Answer{ Text = Answer4, IsCorrect = false}
+                     }
+                    };
+                    context.Questions.Add(question);
+                    context.SaveChanges();
+                }
+                else if (Correct == 4)
+                {
+                    Question question = new Question
+                    {
+                        Text = Qtext,
+                        QuestionArnest = QArnest,
+                        Answers = new List<Answer>
+                     {
+                         new Answer{ Text = Answer1, IsCorrect = false},
+                         new Answer{ Text = Answer2, IsCorrect = false},
+                         new Answer{ Text = Answer3, IsCorrect = false},
+                         new Answer{ Text = Answer4, IsCorrect = true}
+                     }
+                    };
+                    context.Questions.Add(question);
+                    context.SaveChanges();
+                }
+            }
         }
     }
 }

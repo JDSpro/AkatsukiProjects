@@ -9,12 +9,12 @@ My_Game
 none
 false
 DEBUG;TRACE
-C:\Users\Kirill\Desktop\AkatsukiProjects\AkatsukiProjects\My Game\App.xaml
-31375336321
+C:\Users\alex\source\repos\course\AkatsukiProjects\My Game\App.xaml
+51678346109
 
-21-2020719849
-22-1873409574
-MainWindow.xaml;MenuUserControl.xaml;GameUserControl.xaml;
+24-1411932487
+22328929720
+MainWindow.xaml;MenuUserControl.xaml;GameUserControl.xaml;ProgressUserControl.xaml;Window_For_Fill_Questions.xaml;
 
-True
+False
 
