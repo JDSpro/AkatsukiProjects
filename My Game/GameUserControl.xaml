@@ -6,40 +6,42 @@
              xmlns:local="clr-namespace:My_Game"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="My_Game.UserControl1"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" x:Name="QuestionAnswerControl">
+             d:DesignHeight="250" d:DesignWidth="675" x:Name="QuestionAnswerControl">
     <UserControl.Resources>
         <Style TargetType="{x:Type Button}" x:Key="CustomButton">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Grid Name="Grid">
-                            <Path Name="Path" Data="M160.66667,123 L186.83301,101.16667 506.17078,101.83301 532.17075,122.49999 505.50348,143.83365 186.83329,143.1673 z" HorizontalAlignment="Left" Height="29.501" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="224.907" RenderTransformOrigin="0.5,0.5">
-                                <Path.Fill>
-                                    <RadialGradientBrush>
-                                        <GradientStop Color="#FF050D29" Offset="1"/>
-                                        <GradientStop Color="#FF172B70" Offset="0.474"/>
-                                        <GradientStop Color="#FF253C89"/>
-                                    </RadialGradientBrush>
-                                </Path.Fill>
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <!--<ScaleTransform ScaleY="-1"/>-->
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Path.RenderTransform>
-                            </Path>
-                        </Grid>
+                        <Border>
+                            <Grid Name="Grid">
+                                <Path Name="Path" Data="M160.66667,123 L186.83301,101.16667 506.17078,101.83301 532.17075,122.49999 505.50348,143.83365 186.83329,143.1673 z" HorizontalAlignment="Left" Height="29.501" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="224.907" RenderTransformOrigin="0.5,0.5">
+                                    <Path.Fill>
+                                        <RadialGradientBrush>
+                                            <GradientStop Color="#7F192E7E" Offset="1"/>
+                                            <GradientStop Color="#7F446EFF" Offset="0.474"/>
+                                            <GradientStop Color="#7F587EFF"/>
+                                        </RadialGradientBrush>
+                                    </Path.Fill>
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <!--<ScaleTransform ScaleY="-1"/>-->
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                                <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,10" />
+                            </Grid>
+                        </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Fill" TargetName="Path">
                                     <Setter.Value>
                                         <RadialGradientBrush>
-                                            <GradientStop Color="#FF050D29" Offset="1"/>
-                                            <GradientStop Color="#FF172B70" Offset="0.474"/>
-                                            <GradientStop Color="#FF253C89"/>
-                                            <GradientStop Color="#FF0E1D4E" Offset="0.566"/>
+                                            <GradientStop Color="#FF172A74" Offset="1"/>
+                                            <GradientStop Color="#FF375BD6" Offset="0.474"/>
+                                            <GradientStop Color="#FF4766CF"/>
                                         </RadialGradientBrush>
                                     </Setter.Value>
                                 </Setter>
@@ -64,25 +66,20 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Label}">
-                        <Grid Name="Panel">
-                            <Path Name="Path" Data="M160.66667,123 L186.83301,101.16667 506.17078,101.83301 532.17075,122.49999 505.50348,143.83365 186.83329,143.1673 z" HorizontalAlignment="Left" Height="100" Width="700" Stretch="Fill" Stroke="#FF78784A" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-                                <Path.Fill>
-                                    <RadialGradientBrush>
-                                        <GradientStop Color="#FF050D29" Offset="1"/>
-                                        <GradientStop Color="#FF172B70" Offset="0.474"/>
-                                        <GradientStop Color="#FF253C89"/>
-                                    </RadialGradientBrush>
-                                </Path.Fill>
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <!--<ScaleTransform ScaleY="-1"/>-->
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Path.RenderTransform>
-                            </Path>
-                        </Grid>
+                        <Border CornerRadius="4">
+                            <Grid>
+                                <Path Name="Path" Data="M160.66667,123 L186.83301,101.16667 506.17078,101.83301 532.17075,122.49999 505.50348,143.83365 186.83329,143.1673 z" HorizontalAlignment="Left" Height="75" Width="500" Stretch="Fill" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" StrokeThickness="1" Stroke="Black">
+                                    <Path.Fill>
+                                        <RadialGradientBrush>
+                                            <GradientStop Color="#4C192E7E" Offset="1"/>
+                                            <GradientStop Color="#4C446EFF" Offset="0.474"/>
+                                            <GradientStop Color="#4C587EFF"/>
+                                        </RadialGradientBrush>
+                                    </Path.Fill>
+                                </Path>
+                                <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                            </Grid>
+                        </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -98,16 +95,18 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label VerticalAlignment="Center" TextBlock.TextAlignment="Center" Height="100" Width="700" Style="{DynamicResource CustomLabel}" x:Name="labelQuestion" Grid.ColumnSpan="2">
-            <TextBlock Foreground="White" TextWrapping="Wrap"/>
+        <Label Height="75" FontSize="15" Margin="0, 0, 0, 0" Foreground="White" Width="500" Style="{DynamicResource CustomLabel}" x:Name="labelQuestion" Grid.ColumnSpan="2">
+            <Label.Content>
+                <TextBlock Margin="20, 0, 0, 0" Width="400" VerticalAlignment="Center" HorizontalAlignment="Center" Name="textBlockQuestion" TextWrapping="Wrap"></TextBlock>
+            </Label.Content>
         </Label>
         <StackPanel Grid.Row="2">
-            <Button x:Name="buttonAnswer1" Margin="0, 50" Height="40" Width="250" Style="{DynamicResource CustomButton}" Content="Ответ 1"/>
-            <Button x:Name="buttonAnswer3" Margin="0, 0" Height="40" Width="250" Style="{DynamicResource CustomButton}" Content="Ответ 3"/>
+            <Button x:Name="buttonAnswer1" Margin="110, 30, 0, 0" Height="40" Width="250" Style="{DynamicResource CustomButton}" Content="Ответ 1"/>
+            <Button x:Name="buttonAnswer3" Margin="110, -3, 0, 0" Height="40" Width="250" Style="{DynamicResource CustomButton}" Content="Ответ 3"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="2">
-            <Button x:Name="buttonAnswer2" Margin="0, 50" Height="40" Width="250" Style="{DynamicResource CustomButton}" Content="Ответ 2"/>
-            <Button x:Name="buttonAnswer4" Margin="0, 0" Height="40" Width="250" Style="{DynamicResource CustomButton}" Content="Ответ 4"/>
+            <Button x:Name="buttonAnswer2" Margin="-80, 30, 0, 0" Height="40" Width="250" Style="{DynamicResource CustomButton}" Content="Ответ 2"/>
+            <Button x:Name="buttonAnswer4" Margin="-80, -3, 0, 0" Height="40" Width="250" Style="{DynamicResource CustomButton}" Content="Ответ 4"/>
         </StackPanel>
     </Grid>
 </UserControl>

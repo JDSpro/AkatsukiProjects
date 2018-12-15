@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace My_Game
 {
@@ -23,7 +24,6 @@ namespace My_Game
         public MainWindow()
         {
             InitializeComponent();
-
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
 
@@ -154,22 +154,29 @@ namespace My_Game
             //    //Thread.Sleep(500);
             //    Dispatcher.Invoke(new Action(() =>
             //    {
-            
 
 
-            if (user?.Personal?.Photo != null)
-            {
-                var d = Utilities.ByteToImage(user.Personal.Photo);
-                accountPicture.Source = d;
-            }
-            else
-            {
-                FileInfo fi = new FileInfo("../../Images/NoImage.png");
-                accountPicture.Source = new BitmapImage(new Uri(fi.FullName));
-            }
+
+            //if (user?.Personal?.Photo != null)
+            //{
+            BitmapImage userImage = Utilities.ByteToImage(user.Personal.Photo);
+            accountPicture.Source = userImage;
+            textBoxName.Text = user.Personal.Name;
+            textBoxSurname.Text = user.Personal.Surname;
+            textBoxPatronymic.Text = user.Personal.Patronymic;
+            textBoxEmail.Text = user.Personal.Email;
+            //}
+            //else
+            //{
+            //    FileInfo fi = new FileInfo("../../Images/NoImage.png");
+            //    accountPicture.Source = new BitmapImage(new Uri(fi.FullName));
+            //}
 
             SetUserLogin(flyoutAccountInfoHeaderTextBlock);
+
             SetUserLogin(textBlockOnLabelOnButton);
+
+            EllipseInLoginButton.Fill = new ImageBrush(userImage);
             
             flyoutAccountInfo.IsOpen = true;
             //    }));
@@ -214,6 +221,7 @@ namespace My_Game
         private void buttonSaveChanges_Click(object sender, RoutedEventArgs e)
         {
             Utilities.SaveAdditionalInfo(user.Id, accountPicture.Source.ToString(), textBoxName.Text, textBoxSurname.Text, textBoxPatronymic.Text, textBoxEmail.Text);
+            EllipseInLoginButton.Fill = new ImageBrush(accountPicture.Source);
         }
 
         private void MetroWindow_StateChanged(object sender, EventArgs e)
@@ -227,6 +235,11 @@ namespace My_Game
             //        FlayoutSignInUp.Width = 350;
             //        FlayoutSignInUp.Height = 450;
             //    }
+        }
+        
+        private void mainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            //mainWindow.
         }
     }
 }

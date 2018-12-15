@@ -16,16 +16,13 @@ using System.Windows.Shapes;
 namespace My_Game
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for ProgressUserControl.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class ProgressUserControl : UserControl
     {
-
-        public UserControl1()
+        public ProgressUserControl()
         {
             InitializeComponent();
-            
-            textBlockQuestion.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis tempus lacus, id tincidunt tellus.";
         }
     }
 }

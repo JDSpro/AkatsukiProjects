@@ -7,7 +7,8 @@
         xmlns:local="clr-namespace:My_Game"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="MainWindow" Name="MainWindow_" Height="450" Width="800" StateChanged="MetroWindow_StateChanged">
+        Title="MainWindow" Name="mainWindow" Height="500" Width="800" StateChanged="MetroWindow_StateChanged"
+        Icon="Images\milionaireLogoBackground.ico" SizeChanged="mainWindow_SizeChanged">
 
     <Controls:MetroWindow.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
@@ -100,13 +101,29 @@
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
 
-    <Grid Name="gridOnMain" Background="#200B70">
+    <Grid Name="gridOnMain">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0"
+            EndPoint="1,1">
+                <GradientStop Color="#FF111976" Offset="0" />
+                <GradientStop Color="#FF2D115D" Offset="0.803" />
+                <GradientStop Color="#FF27006C" Offset="0.345"/>
+                <GradientStop Color="#FF4D18A6" Offset="0.594"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition>
+
+            </ColumnDefinition>
+            <ColumnDefinition Width="125">
+
             </ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Image Grid.Column="1" Stretch="Fill" Source="Images\Background.jpg"></Image>
-        <local:UserControl1 Visibility="Hidden"></local:UserControl1>
-        <local:MenuUserControl VerticalContentAlignment="Center"></local:MenuUserControl>
+        <!--<Image Name="BackgroundImage" Stretch="Fill" Source="Images\Background.jpg"></Image>-->
+        <local:UserControl1 Margin="0,200,0,0" Visibility="Visible"></local:UserControl1>
+        <local:MenuUserControl VerticalContentAlignment="Center" Visibility="Hidden"></local:MenuUserControl>
+        <local:ProgressUserControl Margin="0, 0, 0, 0" Grid.Column="2"/>
     </Grid>
+
 </Controls:MetroWindow>
+    
