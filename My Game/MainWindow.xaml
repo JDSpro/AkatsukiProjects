@@ -125,7 +125,7 @@
         <Label Name="labelExit" Height="65" Margin="0, 100, 0, 0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" FontSize="50" FontStyle="Italic" Foreground="White">Выход</Label>
 
         <local:UserControl1 x:Name="questionAnswer" Margin="0,200,0,0" Visibility="Hidden"></local:UserControl1>
-        <local:ProgressUserControl x:Name="progressBar" Margin="0, 0, 0, 0" Grid.Column="2" Visibility="Hidden"/>
+        <local:ProgressUserControl x:Name="progressBar" Margin="0, 10, 0, 0" Grid.Column="2" Visibility="Hidden"/>
     </Grid>
 
 </Controls:MetroWindow>

@@ -24,6 +24,8 @@ namespace My_Game
 
         public MainWindow MainWindow { get; set; }
 
+        //public ProgressUserControl Progress { get; set; }
+
         public UserControl1()
         {
             InitializeComponent();

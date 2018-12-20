@@ -5,81 +5,86 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:My_Game"
              mc:Ignorable="d" 
-             d:DesignHeight="470" d:DesignWidth="125">
-    <!--<UserControl.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="Black" Offset="0"/>
-            <GradientStop Color="#FF8F1F1F" Offset="1"/>
-        </LinearGradientBrush>
-    </UserControl.Background>-->
-    <StackPanel>
-        <StackPanel.Resources>
-            <Style TargetType="TextBlock">
-                <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="FontSize" Value="15"/>
-                <Setter Property="Margin" Value="0, 10.6, 0, 0"/>
+             d:DesignHeight="470" d:DesignWidth="125" Name="progress">
+
+
+
+    <UserControl.Resources>
+        <Style TargetType="Label" x:Key="Normal">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="0, 10.6, 0, 0"/>
+         </Style>
+        
+        <Style TargetType="{x:Type Label}" x:Key="CustomLabel">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Label}">
+                            <Border CornerRadius="4">
+                                <Grid>
+                                    <Path Name="Path" Data="M160.66667,123 L186.83301,101.16667 506.17078,101.83301 532.17075,122.49999 505.50348,143.83365 186.83329,143.1673 z" HorizontalAlignment="Left" Height="35" Width="140" Stretch="Fill" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" StrokeThickness="1" Stroke="Black">
+                                        <Path.Fill>
+                                            <RadialGradientBrush>
+                                                <GradientStop Color="#4C192E7E" Offset="1"/>
+                                                <GradientStop Color="#4C446EFF" Offset="0.474"/>
+                                                <GradientStop Color="#4C587EFF"/>
+                                            </RadialGradientBrush>
+                                        </Path.Fill>
+                                    </Path>
+                                    <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
-        </StackPanel.Resources>
+    </UserControl.Resources>
+
+    <StackPanel Name="progressStackPanel">
         <Grid>
-            
-            <TextBlock Text="1 000 000" HorizontalAlignment="Center" Foreground="White"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="15" HorizontalAlignment="Left" Width="30" Foreground="White"/>
+            <Label Style="{DynamicResource Normal}" Margin="0, 0, 0, 0" Content="15   1 000 000" HorizontalAlignment="Center" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <TextBlock Text="500 000" HorizontalAlignment="Center" Foreground="Gold"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="14" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
+            <Label Style="{DynamicResource Normal}"  Margin="0, 0, 0, 0" Content="14   500 000" HorizontalAlignment="Center" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <TextBlock Text="250 000" HorizontalAlignment="Center" Foreground="Gold"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="13" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
+            <Label Style="{DynamicResource Normal}" Margin="0, 0, 0, 0" Content="13   250 000" HorizontalAlignment="Center" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <TextBlock Text="125 000" HorizontalAlignment="Center" Foreground="Gold"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="12" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
+            <Label Style="{DynamicResource Normal}" Margin="0, 0, 0, 0" Content="12   125 000" HorizontalAlignment="Center" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <TextBlock Text="64 000" HorizontalAlignment="Center"  Foreground="Gold"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="11" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
+            <Label Style="{DynamicResource Normal}" Margin="0, 0, 0, 0" Content="11    64 000" HorizontalAlignment="Center"  Foreground="Gold"/>
         </Grid>
         <Grid>
-            <TextBlock Text="32 000" HorizontalAlignment="Center" Foreground="White"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="10" HorizontalAlignment="Left"  Width="30" Foreground="White"/>
+            <Label Style="{DynamicResource Normal}" Margin="0, 0, 0, 0" Content="10    32 000" HorizontalAlignment="Center" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <TextBlock Text="16 000" HorizontalAlignment="Center" Foreground="Gold"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="9" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
+            <Label Style="{DynamicResource Normal}" Margin="0, 0, 0, 0" Content="9    16 000" HorizontalAlignment="Center" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <TextBlock Text="8 000" HorizontalAlignment="Center" Foreground="Gold"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="8" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
+            <Label Style="{DynamicResource Normal}" Margin="0, 0, 0, 0" Content="8      8 000" HorizontalAlignment="Center" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <TextBlock Text="4 000" HorizontalAlignment="Center" Foreground="Gold"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="7" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
+            <Label Style="{DynamicResource Normal}" Margin="0, 0, 0, 0" Content="7      4 000" HorizontalAlignment="Center" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <TextBlock Text="2 000" HorizontalAlignment="Center" Foreground="Gold"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="6" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
+            <Label Style="{DynamicResource Normal}" Margin="0, 0, 0, 0" Content="6      2 000" HorizontalAlignment="Center" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <TextBlock Text="1 000" HorizontalAlignment="Center" Foreground="White"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="5" HorizontalAlignment="Left" Width="30" Foreground="White"/>
+            <Label Style="{DynamicResource Normal}" Margin="0, 0, 0, 0" Content="5      1 000" HorizontalAlignment="Center" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <TextBlock Text="500" HorizontalAlignment="Center" Foreground="Gold"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="4" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
+            <Label Style="{DynamicResource Normal}" Margin="0, 0, 0, 0" Content="4        500 " HorizontalAlignment="Center" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <TextBlock Text="300" HorizontalAlignment="Center" Foreground="Gold"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="3" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
+            <Label Style="{DynamicResource Normal}" Margin="0, 0, 0, 0" Content="3        300 " HorizontalAlignment="Center" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <TextBlock Text="200" HorizontalAlignment="Center" Foreground="Gold"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="2" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
+            <Label Style="{DynamicResource Normal}" Margin="0, 0, 0, 0" Content="2        200 " HorizontalAlignment="Center" Foreground="Gold"/>
         </Grid>
         <Grid>
-            <TextBlock Text="100" HorizontalAlignment="Center" Foreground="Gold"/>
-            <TextBlock Margin="10, 11, 0, 0" Text="1" HorizontalAlignment="Left" Width="30" Foreground="Gold"/>
+            <Label Style="{DynamicResource Normal}" Margin="0, 0, 0, 0" Content="1        100 " HorizontalAlignment="Center" Foreground="Gold"/>
         </Grid>
 
     </StackPanel>

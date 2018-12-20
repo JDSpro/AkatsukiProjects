@@ -273,6 +273,11 @@ namespace My_Game
             labelExit.Foreground = new SolidColorBrush(Colors.White);
         }
 
+        private void LabelExit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Close();
+        }
+
         private void LabelNewGame_MouseDown(object sender, MouseButtonEventArgs e)
         {
             labelExit.Visibility = Visibility.Hidden;
@@ -289,6 +294,7 @@ namespace My_Game
             game = new Game();
 
             questionAnswer.MainWindow = this;
+            //questionAnswer.Progress = progressBar;
             
             NextQuestion();
         }
@@ -296,22 +302,19 @@ namespace My_Game
         public void NextQuestion()
         {
             questionAnswer.SetQuestion(game.GetQuestion());
+            progressBar.NextStage();
         }
 
         public void GameOver()
         {
             game = null;
+            progressBar.EndGame();
 
             questionAnswer.Visibility = Visibility.Hidden;
             progressBar.Visibility = Visibility.Hidden;
 
             labelExit.Visibility = Visibility.Visible;
             labelNewGame.Visibility = Visibility.Visible;
-        }
-
-        private void LabelExit_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Close();
         }
     }
 }
