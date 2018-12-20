@@ -103,26 +103,29 @@
 
     <Grid Name="gridOnMain">
         <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0"
+            <SolidColorBrush>black</SolidColorBrush>
+            <!--<LinearGradientBrush StartPoint="0,0"
             EndPoint="1,1">
                 <GradientStop Color="#FF111976" Offset="0" />
                 <GradientStop Color="#FF2D115D" Offset="0.803" />
                 <GradientStop Color="#FF27006C" Offset="0.345"/>
                 <GradientStop Color="#FF4D18A6" Offset="0.594"/>
-            </LinearGradientBrush>
+            </LinearGradientBrush>-->
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition>
 
             </ColumnDefinition>
-            <ColumnDefinition Width="125">
+            <ColumnDefinition Width="150">
 
             </ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <!--<Image Name="BackgroundImage" Stretch="Fill" Source="Images\Background.jpg"></Image>-->
-        <local:UserControl1 Margin="0,200,0,0" Visibility="Visible"></local:UserControl1>
-        <local:MenuUserControl VerticalContentAlignment="Center" Visibility="Hidden"></local:MenuUserControl>
-        <local:ProgressUserControl Margin="0, 0, 0, 0" Grid.Column="2"/>
+        <Image Name="BackgroundImage" Grid.ColumnSpan="2" Stretch="Fill" Source="Images\Background.jpg" ></Image>
+        <Label Name="labelNewGame" Height="75" Margin="0, -100, 0, 0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" FontSize="50" FontStyle="Italic" Foreground="White">Новая игра</Label>
+        <Label Name="labelExit" Height="65" Margin="0, 100, 0, 0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" FontSize="50" FontStyle="Italic" Foreground="White">Выход</Label>
+
+        <!--<local:UserControl1 x:Name="questionAnswer" Margin="0,200,0,0" Visibility="Hidden"></local:UserControl1>-->
+        <local:ProgressUserControl x:Name="progressBar" Margin="0, 0, 0, 0" Grid.Column="2" Visibility="Hidden"/>
     </Grid>
 
 </Controls:MetroWindow>

@@ -26,7 +26,7 @@ namespace My_Game
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (RB1.IsChecked==true)
+            if (RB1.IsChecked == true)
                 Utilities.NewQuestion(TBox_TextQuestion.Text, Convert.ToInt16(TBox_Complexityes.Text), TBox_Answer1.Text, TBox_Answer2.Text, TBox_Answer3.Text, TBox_Answer4.Text, 1);
             else if (RB2.IsChecked == true)
                 Utilities.NewQuestion(TBox_TextQuestion.Text, Convert.ToInt16(TBox_Complexityes.Text), TBox_Answer1.Text, TBox_Answer2.Text, TBox_Answer3.Text, TBox_Answer4.Text, 2);

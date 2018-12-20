@@ -21,15 +21,26 @@ namespace My_Game
     {
         Account user;
 
+        Game game;
+
         public MainWindow()
         {
             InitializeComponent();
+
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
 
             TabCotrol.SelectionChanged += FlayoutTabCotrol_SelectionChanged;
 
             FlyoutSignInUp.IsOpenChanged += FlayoutSignInUp_IsOpenChanged;
+
+            labelExit.MouseDown += LabelExit_MouseDown;
+            labelExit.MouseLeave += LabelExit_MouseLeave;
+            labelExit.MouseEnter += LabelExit_MouseEnter;
+
+            labelNewGame.MouseDown += LabelNewGame_MouseDown;
+            labelNewGame.MouseLeave += LabelNewGame_MouseLeave;
+            labelNewGame.MouseEnter += LabelNewGame_MouseEnter;
         }
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
@@ -38,15 +49,15 @@ namespace My_Game
             {
                 user = Utilities.Enter(SignInTextBox.Text, SignInPasswordBox.Password);
 
-                if (user != null)
-                {
-                    SetAccInfoFlyout();
-                    LabelSignInError.Visibility = Visibility.Hidden;
-                }
-                else
+                if (user == null)
                 {
                     LabelSignInError.Content = "Неверный логин или пароль!";
                     LabelSignInError.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    SetAccInfoFlyout();
+                    LabelSignInError.Visibility = Visibility.Hidden;
                 }
             }
             else
@@ -71,6 +82,7 @@ namespace My_Game
                 {
                     SetAccInfoFlyout();
                     LabelSignUpError.Visibility = Visibility.Hidden;
+                    flyoutAccountInfo.IsOpen = true;
                 }
             }
             else
@@ -177,8 +189,6 @@ namespace My_Game
             SetUserLogin(textBlockOnLabelOnButton);
 
             EllipseInLoginButton.Fill = new ImageBrush(userImage);
-            
-            flyoutAccountInfo.IsOpen = true;
             //    }));
             //}));
         }
@@ -222,6 +232,7 @@ namespace My_Game
         {
             Utilities.SaveAdditionalInfo(user.Id, accountPicture.Source.ToString(), textBoxName.Text, textBoxSurname.Text, textBoxPatronymic.Text, textBoxEmail.Text);
             EllipseInLoginButton.Fill = new ImageBrush(accountPicture.Source);
+            flyoutAccountInfo.IsOpen = false;
         }
 
         private void MetroWindow_StateChanged(object sender, EventArgs e)
@@ -240,6 +251,54 @@ namespace My_Game
         private void mainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             //mainWindow.
+        }
+
+        private void LabelNewGame_MouseEnter(object sender, MouseEventArgs e)
+        {
+            labelNewGame.Foreground = new SolidColorBrush(Colors.DarkGray);
+        }
+
+        private void LabelNewGame_MouseLeave(object sender, MouseEventArgs e)
+        {
+            labelNewGame.Foreground = new SolidColorBrush(Colors.White);
+        }
+
+        private void LabelExit_MouseEnter(object sender, MouseEventArgs e)
+        {
+            labelExit.Foreground = new SolidColorBrush(Colors.DarkGray);
+        }
+
+        private void LabelExit_MouseLeave(object sender, MouseEventArgs e)
+        {
+            labelExit.Foreground = new SolidColorBrush(Colors.White);
+        }
+
+        private void LabelNewGame_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            labelExit.Visibility = Visibility.Hidden;
+            labelNewGame.Visibility = Visibility.Hidden;
+            
+            progressBar.Visibility = Visibility.Visible;
+
+            NewGame();
+        }
+
+        void NewGame()
+        {
+            game = new Game();
+            NextQuestion();
+        }
+
+        public void NextQuestion()
+        {
+            UserControl1 questionAnswer = new UserControl1(game.GetQuestion());
+            questionAnswer.Margin = new Thickness(0, 200, 0, 0);
+            gridOnMain.Children.Add(questionAnswer);
+        }
+
+        private void LabelExit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Close();
         }
     }
 }

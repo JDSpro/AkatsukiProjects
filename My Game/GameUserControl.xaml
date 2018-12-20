@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:My_Game"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="My_Game.UserControl1"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="675" x:Name="QuestionAnswerControl">
+             d:DesignHeight="250" d:DesignWidth="675" Name="questionAnswer">
     <UserControl.Resources>
         <Style TargetType="{x:Type Button}" x:Key="CustomButton">
             <Setter Property="Template">
@@ -101,8 +101,8 @@
             </Label.Content>
         </Label>
         <StackPanel Grid.Row="2">
-            <Button x:Name="buttonAnswer1" Margin="110, 30, 0, 0" Height="40" Width="250" Style="{DynamicResource CustomButton}" Content="Ответ 1"/>
-            <Button x:Name="buttonAnswer3" Margin="110, -3, 0, 0" Height="40" Width="250" Style="{DynamicResource CustomButton}" Content="Ответ 3"/>
+            <Button x:Name="buttonAnswer1" Margin="90, 30, 0, 0" Height="40" Width="250" Style="{DynamicResource CustomButton}" Content="Ответ 1"/>
+            <Button x:Name="buttonAnswer3" Margin="90, -3, 0, 0" Height="40" Width="250" Style="{DynamicResource CustomButton}" Content="Ответ 3"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="2">
             <Button x:Name="buttonAnswer2" Margin="-80, 30, 0, 0" Height="40" Width="250" Style="{DynamicResource CustomButton}" Content="Ответ 2"/>

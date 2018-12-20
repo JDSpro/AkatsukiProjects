@@ -20,12 +20,54 @@ namespace My_Game
     /// </summary>
     public partial class UserControl1 : UserControl
     {
+        Question question;
 
-        public UserControl1()
+        public UserControl1(Question qst)
         {
             InitializeComponent();
+
+            question = qst;
+
+            textBlockQuestion.Text = qst.Text;
+
+            buttonAnswer1.Content = qst.Answers[0].Text;
+            buttonAnswer2.Content = qst.Answers[1].Text;
+            buttonAnswer3.Content = qst.Answers[2].Text;
+            buttonAnswer4.Content = qst.Answers[3].Text;
+
+            buttonAnswer1.Click += ButtonAnswer1_Click;
+            buttonAnswer2.Click += ButtonAnswer2_Click;
+            buttonAnswer3.Click += ButtonAnswer3_Click;
+            buttonAnswer4.Click += ButtonAnswer4_Click;
+        }
+
+        private void ButtonAnswer1_Click(object sender, RoutedEventArgs e)
+        {
+            if(question.Answers[0].IsCorrect == true)
+            {
+                MainWindow yourParentWindow = (MainWindow)Window.GetWindow(questionAnswer);
+                //yourParentWindow.
+            }
+            else
+            {
+                Window yourParentWindow = Window.GetWindow(questionAnswer);
+                ;
+            }
+        }
+        
+        private void ButtonAnswer2_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ButtonAnswer3_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ButtonAnswer4_Click(object sender, RoutedEventArgs e)
+        {
             
-            textBlockQuestion.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis tempus lacus, id tincidunt tellus.";
         }
     }
 }

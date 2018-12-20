@@ -11,13 +11,16 @@ namespace My_Game
         List<Question> questionList;
         int currentStage = 0;
 
-        private Game()
+        public Game()
         {
+            Utilities.Seed();
             questionList = Utilities.GetQuestions();
         }
 
         public Question GetQuestion()
         {
+            if (currentStage >= questionList.Count)
+                return null;
             return questionList[currentStage++];
         }
 
@@ -26,7 +29,14 @@ namespace My_Game
             currentStage = 0;
             questionList = null;
         }
+        public bool IsTrue(int num)
+        {
+            if (questionList[currentStage].Answers[num].IsCorrect)
+            {
+                return true;
+            }
 
-
+            return false;
+        }
     }
 }
