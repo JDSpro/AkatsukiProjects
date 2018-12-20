@@ -29,7 +29,6 @@ namespace My_Game
                     Question quest1 = new Question
                     {
                         Text = "Сколько букв в русском алфавите?",
-                        QuestionArnest = 1,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "32", IsCorrect = false},
@@ -41,7 +40,6 @@ namespace My_Game
                     Question quest2 = new Question
                     {
                         Text = "Операционная система от Microsoft называется...",
-                        QuestionArnest = 1,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Двери", IsCorrect = false},
@@ -53,7 +51,6 @@ namespace My_Game
                     Question quest3 = new Question
                     {
                         Text = "Эмблему какого учреждения украшает змея обвивающая чашу?",
-                        QuestionArnest = 1,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Зоопарк", IsCorrect = false},
@@ -65,7 +62,6 @@ namespace My_Game
                     Question quest4 = new Question
                     {
                         Text = "Какого моря не существует?",
-                        QuestionArnest = 1,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Красного моря", IsCorrect = false},
@@ -77,7 +73,6 @@ namespace My_Game
                     Question quest5 = new Question
                     {
                         Text = "С какого расстояния назначают пенальти в футболе?",
-                        QuestionArnest = 1,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "12 метров", IsCorrect = false},
@@ -89,7 +84,6 @@ namespace My_Game
                     Question quest6 = new Question
                     {
                         Text = "Как в математике называется верное равенство двух отношений?",
-                        QuestionArnest = 1,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Уравнение", IsCorrect = false},
@@ -100,10 +94,9 @@ namespace My_Game
                     };
                     #endregion
                     #region 2 (6 вопросов)
-                    Question quest20 = new Question
+                    Question quest7 = new Question
                     {
                         Text = "В каком году был выпущен первый прототип портативного сотового телефона(Motorola DynaTAC)?",
-                        QuestionArnest = 2,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "1964", IsCorrect = false},
@@ -112,10 +105,9 @@ namespace My_Game
                          new Answer{ Text = "1987", IsCorrect = false},
                      }
                     };
-                    Question quest21 = new Question
+                    Question quest8 = new Question
                     {
                         Text = "В каком месяце в США традиционно начинаются президентские выборы?",
-                        QuestionArnest = 2,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Август", IsCorrect = false},
@@ -124,10 +116,9 @@ namespace My_Game
                          new Answer{ Text = "Февраль", IsCorrect = false}
                      }
                     };
-                    Question quest22 = new Question
+                    Question quest9 = new Question
                     {
                         Text = "Какого персонажа не было среди Бременских музыкантов??",
-                        QuestionArnest = 2,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Кот", IsCorrect = false},
@@ -136,10 +127,9 @@ namespace My_Game
                          new Answer{ Text = "Осел", IsCorrect = false}
                      }
                     };
-                    Question quest23 = new Question
+                    Question quest10 = new Question
                     {
                         Text = "В какое время года сутки короче?",
-                        QuestionArnest = 2,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Летом", IsCorrect = false},
@@ -148,10 +138,9 @@ namespace My_Game
                          new Answer{ Text = "Одинаковые", IsCorrect = true}
                      }
                     };
-                    Question quest24 = new Question
+                    Question quest11 = new Question
                     {
                         Text = "Сколько государств участвовало во Второй мировой войне?",
-                        QuestionArnest = 2,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "53", IsCorrect = false},
@@ -160,10 +149,9 @@ namespace My_Game
                          new Answer{ Text = "75", IsCorrect = false}
                      }
                     };
-                    Question quest25 = new Question
+                    Question quest12 = new Question
                     {
-                        Text = "Самая крупная рыба",
-                        QuestionArnest = 2,
+                        Text = "Самая крупная рыба12",
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Белая акула", IsCorrect = false},
@@ -174,10 +162,9 @@ namespace My_Game
                     };
                     #endregion
                     #region 3
-                    Question quest30 = new Question
+                    Question quest13 = new Question
                     {
-                        Text = "Какая планета Солнечной системы самая большая? 3",
-                        QuestionArnest = 3,
+                        Text = "Какая планета Солнечной системы самая большая?13",
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Земля", IsCorrect = false},
@@ -188,10 +175,9 @@ namespace My_Game
                     };
                     #endregion
                     #region 4
-                    Question quest40 = new Question
+                    Question quest14 = new Question
                     {
-                        Text = "Какая планета? 4",
-                        QuestionArnest = 4,
+                        Text = "Какая планета?14",
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Земля", IsCorrect = false},
@@ -202,10 +188,31 @@ namespace My_Game
                     };
                     #endregion
                     #region 5
-                    Question quest50 = new Question
+                    Question quest15 = new Question
                     {
-                        Text = "Какая? 5",
-                        QuestionArnest = 5,
+                        Text = "Какая?15",
+                        Answers = new List<Answer>
+                     {
+                         new Answer{ Text = "Земля", IsCorrect = false},
+                         new Answer{ Text = "Юпитер", IsCorrect = true},
+                         new Answer{ Text = "Венера", IsCorrect = false},
+                         new Answer{ Text = "Плутон", IsCorrect = false}
+                     }
+                    };
+                    Question quest16 = new Question
+                    {
+                        Text = "Какая?16",
+                        Answers = new List<Answer>
+                     {
+                         new Answer{ Text = "Земля", IsCorrect = false},
+                         new Answer{ Text = "Юпитер", IsCorrect = true},
+                         new Answer{ Text = "Венера", IsCorrect = false},
+                         new Answer{ Text = "Плутон", IsCorrect = false}
+                     }
+                    };
+                    Question quest17 = new Question
+                    {
+                        Text = "Какая?17",
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Земля", IsCorrect = false},
@@ -223,15 +230,15 @@ namespace My_Game
                     context.Questions.Add(quest4);
                     context.Questions.Add(quest5);
                     context.Questions.Add(quest6);
-                    context.Questions.Add(quest20);
-                    context.Questions.Add(quest21);
-                    context.Questions.Add(quest22);
-                    context.Questions.Add(quest23);
-                    context.Questions.Add(quest24);
-                    context.Questions.Add(quest25);
-                    context.Questions.Add(quest30);
-                    context.Questions.Add(quest40);
-                    context.Questions.Add(quest50);
+                    context.Questions.Add(quest7);
+                    context.Questions.Add(quest8);
+                    context.Questions.Add(quest9);
+                    context.Questions.Add(quest10);
+                    context.Questions.Add(quest11);
+                    context.Questions.Add(quest12);
+                    context.Questions.Add(quest13);
+                    context.Questions.Add(quest14);
+                    context.Questions.Add(quest15);
                     #endregion
 
 
@@ -400,16 +407,23 @@ namespace My_Game
         //Получить случайный список 15-сложностей вопросов (внутри вопроса есть 4 ответа)
         public static List<Question> GetQuestions()
         {
-            int i = 1;
+            int nomber = 0;
             using (var context = new MyContext())
             {
                 List<Question> QstnList = new List<Question>();
-                while (QstnList.Count < 5)
+                while (QstnList.Count < 15)
                 {
-                    var qsn = context.Questions.Include(t => t.Answers).ToList();
-                    int nomber = Rand.Next(0, qsn.Count);
-                    QstnList.Add(qsn[nomber]);
-                    i++;
+                  var question = context.Questions.Include(t => t.Answers).ToList();
+                    nomber = Rand.Next(0, question.Count);
+                    if (QstnList.Find(item => item.Text == question[nomber].Text)==null)
+                    {
+                        QstnList.Add(question[nomber]);
+                    }
+                    //else if ((question[nomber].Text) == QstnList.Find(item => item.Text == question[nomber].Text).ToString())
+                    //{
+                    //    QstnList.Add(question[nomber]);
+                    //}
+                   
                 }
                 return QstnList.ToList<Question>();
             }
@@ -444,7 +458,6 @@ namespace My_Game
                     Question question = new Question
                     {
                         Text = Qtext,
-                        QuestionArnest = QArnest,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = Answer1, IsCorrect = true},
@@ -462,7 +475,6 @@ namespace My_Game
                     Question question = new Question
                     {
                         Text = Qtext,
-                        QuestionArnest = QArnest,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = Answer1, IsCorrect = false},
@@ -479,7 +491,6 @@ namespace My_Game
                     Question question = new Question
                     {
                         Text = Qtext,
-                        QuestionArnest = QArnest,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = Answer1, IsCorrect = false},
@@ -496,7 +507,6 @@ namespace My_Game
                     Question question = new Question
                     {
                         Text = Qtext,
-                        QuestionArnest = QArnest,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = Answer1, IsCorrect = false},
