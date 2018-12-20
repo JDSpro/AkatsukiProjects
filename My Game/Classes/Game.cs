@@ -23,20 +23,5 @@ namespace My_Game
                 return null;
             return questionList[currentStage++];
         }
-
-        public void GameOver()
-        {
-            currentStage = 0;
-            questionList = null;
-        }
-        public bool IsTrue(int num)
-        {
-            if (questionList[currentStage].Answers[num].IsCorrect)
-            {
-                return true;
-            }
-
-            return false;
-        }
     }
 }

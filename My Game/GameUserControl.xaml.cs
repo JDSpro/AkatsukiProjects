@@ -22,19 +22,12 @@ namespace My_Game
     {
         Question question;
 
-        public UserControl1(Question qst)
+        public MainWindow MainWindow { get; set; }
+
+        public UserControl1()
         {
             InitializeComponent();
-
-            question = qst;
-
-            textBlockQuestion.Text = qst.Text;
-
-            buttonAnswer1.Content = qst.Answers[0].Text;
-            buttonAnswer2.Content = qst.Answers[1].Text;
-            buttonAnswer3.Content = qst.Answers[2].Text;
-            buttonAnswer4.Content = qst.Answers[3].Text;
-
+            
             buttonAnswer1.Click += ButtonAnswer1_Click;
             buttonAnswer2.Click += ButtonAnswer2_Click;
             buttonAnswer3.Click += ButtonAnswer3_Click;
@@ -45,29 +38,60 @@ namespace My_Game
         {
             if(question.Answers[0].IsCorrect == true)
             {
-                MainWindow yourParentWindow = (MainWindow)Window.GetWindow(questionAnswer);
-                //yourParentWindow.
+                MainWindow.NextQuestion();
             }
             else
             {
-                Window yourParentWindow = Window.GetWindow(questionAnswer);
-                ;
+                MainWindow.GameOver();
             }
         }
         
         private void ButtonAnswer2_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            if (question.Answers[1].IsCorrect == true)
+            {
+                MainWindow.NextQuestion();
+            }
+            else
+            {
+                MainWindow.GameOver();
+            }
         }
 
         private void ButtonAnswer3_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            if (question.Answers[2].IsCorrect == true)
+            {
+                MainWindow.NextQuestion();
+            }
+            else
+            {
+                MainWindow.GameOver();
+            }
         }
 
         private void ButtonAnswer4_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (question.Answers[3].IsCorrect == true)
+            {
+                MainWindow.NextQuestion();
+            }
+            else
+            {
+                MainWindow.GameOver();
+            }
+        }
+
+        public void SetQuestion(Question qst)
+        {
+            question = qst;
+
+            textBlockQuestion.Text = qst.Text;
+
+            buttonAnswer1.Content = qst.Answers[0].Text;
+            buttonAnswer2.Content = qst.Answers[1].Text;
+            buttonAnswer3.Content = qst.Answers[2].Text;
+            buttonAnswer4.Content = qst.Answers[3].Text;
         }
     }
 }

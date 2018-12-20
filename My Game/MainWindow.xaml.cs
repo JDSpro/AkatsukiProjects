@@ -279,6 +279,7 @@ namespace My_Game
             labelNewGame.Visibility = Visibility.Hidden;
             
             progressBar.Visibility = Visibility.Visible;
+            questionAnswer.Visibility = Visibility.Visible;
 
             NewGame();
         }
@@ -286,14 +287,26 @@ namespace My_Game
         void NewGame()
         {
             game = new Game();
+
+            questionAnswer.MainWindow = this;
+            
             NextQuestion();
         }
 
         public void NextQuestion()
         {
-            UserControl1 questionAnswer = new UserControl1(game.GetQuestion());
-            questionAnswer.Margin = new Thickness(0, 200, 0, 0);
-            gridOnMain.Children.Add(questionAnswer);
+            questionAnswer.SetQuestion(game.GetQuestion());
+        }
+
+        public void GameOver()
+        {
+            game = null;
+
+            questionAnswer.Visibility = Visibility.Hidden;
+            progressBar.Visibility = Visibility.Hidden;
+
+            labelExit.Visibility = Visibility.Visible;
+            labelNewGame.Visibility = Visibility.Visible;
         }
 
         private void LabelExit_MouseDown(object sender, MouseButtonEventArgs e)
