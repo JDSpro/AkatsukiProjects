@@ -44,7 +44,7 @@ namespace My_Game
             }
             else
             {
-                MainWindow.GameOver();
+                MainWindow.Lose();
             }
         }
         
@@ -56,7 +56,7 @@ namespace My_Game
             }
             else
             {
-                MainWindow.GameOver();
+                MainWindow.Lose();
             }
         }
 
@@ -68,7 +68,7 @@ namespace My_Game
             }
             else
             {
-                MainWindow.GameOver();
+                MainWindow.Lose();
             }
         }
 
@@ -80,12 +80,16 @@ namespace My_Game
             }
             else
             {
-                MainWindow.GameOver();
+                MainWindow.Lose();
             }
         }
 
-        public void SetQuestion(Question qst)
+        public bool SetQuestion(Question qst)
         {
+            if(qst == null)
+            {
+                return false;
+            }
             question = qst;
 
             textBlockQuestion.Text = qst.Text;
@@ -94,6 +98,8 @@ namespace My_Game
             buttonAnswer2.Content = qst.Answers[1].Text;
             buttonAnswer3.Content = qst.Answers[2].Text;
             buttonAnswer4.Content = qst.Answers[3].Text;
+
+            return true;
         }
     }
 }

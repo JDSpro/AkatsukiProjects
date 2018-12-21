@@ -20,38 +20,40 @@ namespace My_Game
     /// </summary>
     public partial class ProgressUserControl : UserControl
     {
-        int currentStage = 1;
+        public int CurrentStage { get; set; }
 
         public ProgressUserControl()
         {
             InitializeComponent();
+
+            CurrentStage = 1;
         }
 
         public void NextStage()
         {
-            if((progressStackPanel.Children.Count - currentStage) == 14)
+            if ((progressStackPanel.Children.Count - CurrentStage) == 14)
             {
-                
+
             }
             else
             {
-                int pos1 = (progressStackPanel.Children.Count - currentStage) + 1;
+                int pos1 = (progressStackPanel.Children.Count - CurrentStage) + 1;
                 Grid grid1 = (Grid)progressStackPanel.Children[pos1];
                 Label lbl1 = (Label)grid1.Children[0];
                 lbl1.Style = FindResource("Normal") as Style;
                 lbl1.Foreground = new SolidColorBrush(Colors.White);
                 lbl1.FontSize = 15;
-               
+
             }
 
-            int pos = progressStackPanel.Children.Count - currentStage;
+            int pos = progressStackPanel.Children.Count - CurrentStage;
             Grid grid = (Grid)progressStackPanel.Children[pos];
             Label lbl = (Label)grid.Children[0];
             lbl.Style = FindResource("CustomLabel") as Style;
             lbl.FontSize = 20;
             lbl.FontWeight = FontWeights.Bold;
 
-            currentStage++;
+            CurrentStage++;
         }
 
         public void EndGame()
@@ -63,9 +65,9 @@ namespace My_Game
                 lbl.FontSize = 15;
                 lbl.Foreground = new SolidColorBrush(Colors.Gold);
             }
-
-
-            currentStage = 1;
+            
+            CurrentStage = 1;
+            ;
         }
     }
 }

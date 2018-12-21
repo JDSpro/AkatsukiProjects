@@ -247,7 +247,7 @@ namespace My_Game
             //        FlayoutSignInUp.Height = 450;
             //    }
         }
-        
+
         private void mainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             //mainWindow.
@@ -282,7 +282,7 @@ namespace My_Game
         {
             labelExit.Visibility = Visibility.Hidden;
             labelNewGame.Visibility = Visibility.Hidden;
-            
+
             progressBar.Visibility = Visibility.Visible;
             questionAnswer.Visibility = Visibility.Visible;
 
@@ -295,14 +295,46 @@ namespace My_Game
 
             questionAnswer.MainWindow = this;
             //questionAnswer.Progress = progressBar;
-            
+
             NextQuestion();
         }
 
         public void NextQuestion()
         {
-            questionAnswer.SetQuestion(game.GetQuestion());
-            progressBar.NextStage();
+            if (questionAnswer.SetQuestion(game.GetQuestion()) == false && progressBar.CurrentStage >= 16)
+            {
+                Win();
+                return;
+            }
+            else
+            {
+                progressBar.NextStage();
+            }
+        }
+
+        public void Win()
+        {
+            if (user == null)
+            {
+                var res = MessageBox.Show("Вы выиграли! Желаете войти в аккаунт для обновления статистики?", "Выберите", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (res == MessageBoxResult.Yes)
+                {
+                    FlyoutSignInUp.IsOpen = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Вы выиграли! Статистика была обновлена.");
+            }
+
+            GameOver();
+        }
+
+        public void Lose()
+        {
+            MessageBox.Show("Вы проиграли! Статистика была обновлена.");
+            GameOver();
         }
 
         public void GameOver()
