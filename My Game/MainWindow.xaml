@@ -92,14 +92,14 @@
                 <StackPanel Background="#41B1E1" Name="stackPanelWinLose" HorizontalAlignment="Center">
                     <StackPanel Orientation="Horizontal">
                         <Label>Победы:</Label>
-                        <Label Name="winCount" Margin="-6.5, 0, 0, 0" Foreground="Yellow">100</Label>
+                        <Label Name="winCount" Margin="-6.5, 0, 0, 0" Foreground="Yellow"></Label>
                         <Label>Поражения:</Label>
-                        <Label Name="loseCount" Margin="-6.5, 0, 0, 0" Foreground="Yellow">101</Label>
+                        <Label Name="loseCount" Margin="-6.5, 0, 0, 0" Foreground="Yellow"></Label>
                     </StackPanel>
                     
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Label>Баланс:</Label>
-                        <Label Name="Balance" Margin="0, 0, 0, 0" Foreground="Yellow">1 000 000 000$</Label>
+                        <Label Name="balance" Margin="0, 0, 0, 0" Foreground="Yellow"></Label>
                     </StackPanel>
                     
                     <Image Name="accountPicture" Width="175" Height="150" Margin="0, 0, 0, 0" MouseDown="accountPicture_MouseDown"></Image>

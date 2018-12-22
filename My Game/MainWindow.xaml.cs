@@ -169,7 +169,12 @@ namespace My_Game
             textBoxSurname.Text = user.Personal.Surname;
             textBoxPatronymic.Text = user.Personal.Patronymic;
             textBoxEmail.Text = user.Personal.Email;
-           
+            balance.Content = user.Score.Balanse;
+            winCount.Content = user.Score.Wins;
+            loseCount.Content = user.Score.Loses;
+
+            stackPanelWinLose.ToolTip = "Процент побед: " + user.Score.WinningPercentage.ToString() + "%";
+
             SetUserLogin(flyoutAccountInfoHeaderTextBlock);
 
             SetUserLogin(textBlockOnLabelOnButton);
@@ -270,7 +275,7 @@ namespace My_Game
             progressBar.Visibility = Visibility.Visible;
             questionAnswer.Visibility = Visibility.Visible;
 
-            FileInfo fi = new FileInfo("../../Images/superDarkBlack.jpg");
+            FileInfo fi = new FileInfo("../../Images/EndBackground.jpg");
             backgroundImage.Source = new BitmapImage(new Uri(fi.FullName));
 
             //backgroundImage.Visibility = Visibility.Hidden;
@@ -315,6 +320,7 @@ namespace My_Game
             else
             {
                 MessageBox.Show("Вы выиграли! Статистика была обновлена.");
+                Utilities.Win(user);
             }
 
             GameOver();
@@ -322,7 +328,21 @@ namespace My_Game
 
         public void Lose()
         {
-            MessageBox.Show("Вы проиграли! Статистика была обновлена.");
+            if (user == null)
+            {
+                var res = MessageBox.Show("Вы Проиграли! Желаете войти в аккаунт для обновления статистики?", "Выберите", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (res == MessageBoxResult.Yes)
+                {
+                    FlyoutSignInUp.IsOpen = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Вы проиграли! Статистика была обновлена.");
+                Utilities.Lose(user);
+            }
+           
             GameOver();
         }
 
