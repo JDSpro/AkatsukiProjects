@@ -41,6 +41,8 @@ namespace My_Game
             labelNewGame.MouseDown += LabelNewGame_MouseDown;
             labelNewGame.MouseLeave += LabelNewGame_MouseLeave;
             labelNewGame.MouseEnter += LabelNewGame_MouseEnter;
+
+            //WindowTitle = "Миллионер";
         }
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
@@ -160,37 +162,19 @@ namespace My_Game
         private void SetAccInfoFlyout()
         {
             FlyoutSignInUp.IsOpen = false;
-
-            //Task.Run(new Action(() =>
-            //{
-            //    //Thread.Sleep(500);
-            //    Dispatcher.Invoke(new Action(() =>
-            //    {
-
-
-
-            //if (user?.Personal?.Photo != null)
-            //{
+            
             BitmapImage userImage = Utilities.ByteToImage(user.Personal.Photo);
             accountPicture.Source = userImage;
             textBoxName.Text = user.Personal.Name;
             textBoxSurname.Text = user.Personal.Surname;
             textBoxPatronymic.Text = user.Personal.Patronymic;
             textBoxEmail.Text = user.Personal.Email;
-            //}
-            //else
-            //{
-            //    FileInfo fi = new FileInfo("../../Images/NoImage.png");
-            //    accountPicture.Source = new BitmapImage(new Uri(fi.FullName));
-            //}
-
+           
             SetUserLogin(flyoutAccountInfoHeaderTextBlock);
 
             SetUserLogin(textBlockOnLabelOnButton);
 
             EllipseInLoginButton.Fill = new ImageBrush(userImage);
-            //    }));
-            //}));
         }
 
         void SetUserLogin(TextBlock textBlockToSet)
@@ -285,6 +269,11 @@ namespace My_Game
 
             progressBar.Visibility = Visibility.Visible;
             questionAnswer.Visibility = Visibility.Visible;
+
+            FileInfo fi = new FileInfo("../../Images/superDarkBlack.jpg");
+            backgroundImage.Source = new BitmapImage(new Uri(fi.FullName));
+
+            //backgroundImage.Visibility = Visibility.Hidden;
 
             NewGame();
         }

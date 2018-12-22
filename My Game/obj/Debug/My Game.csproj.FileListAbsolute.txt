@@ -320,37 +320,3 @@ C:\Users\Kirill\Desktop\228\AkatsukiProjects\My Game\obj\Debug\My Game.csproj.Co
 C:\Users\Kirill\Desktop\228\AkatsukiProjects\My Game\obj\Debug\My Game.exe
 C:\Users\Kirill\Desktop\228\AkatsukiProjects\My Game\obj\Debug\My Game.pdb
 C:\Users\Kirill\Desktop\228\AkatsukiProjects\My Game\obj\Debug\My Game.csprojResolveAssemblyReference.cache
-C:\Users\student\Desktop\akatsuki\My Game\bin\Debug\My Game.exe.config
-C:\Users\student\Desktop\akatsuki\My Game\bin\Debug\My Game.exe
-C:\Users\student\Desktop\akatsuki\My Game\bin\Debug\My Game.pdb
-C:\Users\student\Desktop\akatsuki\My Game\bin\Debug\ControlzEx.dll
-C:\Users\student\Desktop\akatsuki\My Game\bin\Debug\EntityFramework.dll
-C:\Users\student\Desktop\akatsuki\My Game\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\student\Desktop\akatsuki\My Game\bin\Debug\MahApps.Extra.dll
-C:\Users\student\Desktop\akatsuki\My Game\bin\Debug\MahApps.Metro.dll
-C:\Users\student\Desktop\akatsuki\My Game\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\student\Desktop\akatsuki\My Game\bin\Debug\ControlzEx.pdb
-C:\Users\student\Desktop\akatsuki\My Game\bin\Debug\EntityFramework.xml
-C:\Users\student\Desktop\akatsuki\My Game\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\student\Desktop\akatsuki\My Game\bin\Debug\MahApps.Metro.pdb
-C:\Users\student\Desktop\akatsuki\My Game\bin\Debug\MahApps.Metro.xml
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\MainWindow.g.cs
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\GameUserControl.g.cs
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\ProgressUserControl.g.cs
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\Window_For_Fill_Questions.g.cs
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\App.g.cs
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\My Game_MarkupCompile.cache
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\My Game_MarkupCompile.lref
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\App.baml
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\MainWindow.baml
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\GameUserControl.baml
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\ProgressUserControl.baml
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\Window_For_Fill_Questions.baml
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\My Game.g.resources
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\My_Game.Properties.Resources.resources
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\My Game.csproj.GenerateResource.Cache
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\My Game.csproj.CoreCompileInputs.cache
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\My Game.exe
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\My Game.pdb
-C:\Users\student\Desktop\akatsuki\My Game\obj\Debug\My Game.csprojResolveAssemblyReference.cache
