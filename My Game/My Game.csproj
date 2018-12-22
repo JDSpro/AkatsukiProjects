@@ -81,6 +81,7 @@
     <Compile Include="Classes\GameHistory.cs" />
     <Compile Include="Classes\MyContext.cs" />
     <Compile Include="Classes\Question.cs" />
+    <Compile Include="Classes\Score.cs" />
     <Compile Include="Classes\Utilities.cs" />
     <Compile Include="GameUserControl.xaml.cs">
       <DependentUpon>GameUserControl.xaml</DependentUpon>

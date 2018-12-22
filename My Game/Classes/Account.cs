@@ -20,5 +20,6 @@ namespace My_Game
 
         [Required]
         public virtual Personal_Data_Acc Personal { get; set; }
+        public virtual Score Score { get; set; }
     }
 }

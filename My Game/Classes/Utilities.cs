@@ -11,6 +11,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 
 namespace My_Game
 {
@@ -25,7 +26,7 @@ namespace My_Game
                 try
                 {
 
-                    #region 100 (6 вопросов)
+                    #region вопросы
                     Question quest1 = new Question
                     {
                         Text = "Сколько букв в русском алфавите?",
@@ -92,8 +93,6 @@ namespace My_Game
                          new Answer{ Text = "Тождество", IsCorrect = false}
                      }
                     };
-                    #endregion
-                    #region 2 (6 вопросов)
                     Question quest7 = new Question
                     {
                         Text = "В каком году был выпущен первый прототип портативного сотового телефона(Motorola DynaTAC)?",
@@ -151,7 +150,7 @@ namespace My_Game
                     };
                     Question quest12 = new Question
                     {
-                        Text = "Самая крупная рыба12",
+                        Text = "Самая крупная рыба?",
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Белая акула", IsCorrect = false},
@@ -160,11 +159,9 @@ namespace My_Game
                          new Answer{ Text = "Синий кит", IsCorrect = false}
                      }
                     };
-                    #endregion
-                    #region 3
                     Question quest13 = new Question
                     {
-                        Text = "Какая планета Солнечной системы самая большая?13",
+                        Text = "Какая планета Солнечной системы самая большая?",
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "Земля", IsCorrect = false},
@@ -173,54 +170,98 @@ namespace My_Game
                          new Answer{ Text = "Плутон", IsCorrect = false}
                      }
                     };
-                    #endregion
-                    #region 4
                     Question quest14 = new Question
                     {
-                        Text = "Какая планета?14",
+                        Text = "Что говорит человек, когда замечает нечто необычное?",
                         Answers = new List<Answer>
                      {
-                         new Answer{ Text = "Земля", IsCorrect = false},
-                         new Answer{ Text = "Юпитер", IsCorrect = true},
-                         new Answer{ Text = "Венера", IsCorrect = false},
-                         new Answer{ Text = "Плутон", IsCorrect = false}
+                         new Answer{ Text = "бросилось в глаза", IsCorrect = true},
+                         new Answer{ Text = "накапало в уши", IsCorrect = false},
+                         new Answer{ Text = "попало в лоб", IsCorrect = false},
+                         new Answer{ Text = "залетело в рот", IsCorrect = false}
                      }
                     };
-                    #endregion
-                    #region 5
                     Question quest15 = new Question
                     {
-                        Text = "Какая?15",
+                        Text = "Какой элемент есть в конструкции башенного крана?",
                         Answers = new List<Answer>
                      {
-                         new Answer{ Text = "Земля", IsCorrect = false},
-                         new Answer{ Text = "Юпитер", IsCorrect = true},
-                         new Answer{ Text = "Венера", IsCorrect = false},
-                         new Answer{ Text = "Плутон", IsCorrect = false}
+                         new Answer{ Text = "стрела", IsCorrect = true},
+                         new Answer{ Text = "копьё", IsCorrect = false},
+                         new Answer{ Text = "дротик", IsCorrect = false},
+                         new Answer{ Text = "бумеранг", IsCorrect = false}
                      }
                     };
                     Question quest16 = new Question
                     {
-                        Text = "Какая?16",
+                        Text = "Какой клетки нет на шахматной доске?",
                         Answers = new List<Answer>
                      {
-                         new Answer{ Text = "Земля", IsCorrect = false},
-                         new Answer{ Text = "Юпитер", IsCorrect = true},
-                         new Answer{ Text = "Венера", IsCorrect = false},
-                         new Answer{ Text = "Плутон", IsCorrect = false}
+                         new Answer{ Text = "h8", IsCorrect = false},
+                         new Answer{ Text = "b7", IsCorrect = false},
+                         new Answer{ Text = "k6", IsCorrect = true},
+                         new Answer{ Text = "g5", IsCorrect = false}
                      }
                     };
                     Question quest17 = new Question
                     {
-                        Text = "Какая?17",
+                        Text = "Какой обряд перед свадьбой назывался рукобитьем?",
                         Answers = new List<Answer>
                      {
-                         new Answer{ Text = "Земля", IsCorrect = false},
-                         new Answer{ Text = "Юпитер", IsCorrect = true},
-                         new Answer{ Text = "Венера", IsCorrect = false},
-                         new Answer{ Text = "Плутон", IsCorrect = false}
+                         new Answer{ Text = "выяснение, кто сильнее", IsCorrect = false},
+                         new Answer{ Text = "праздник друзей жениха", IsCorrect = false},
+                         new Answer{ Text = "одевание невесты", IsCorrect = false},
+                         new Answer{ Text = "скрепление договора", IsCorrect = true}
                      }
                     };
+                    Question quest18 = new Question
+                    {
+                        Text = "Кто занимается незаконным копированием программного обеспечения?",
+                        Answers = new List<Answer>
+                     {
+                         new Answer{ Text = "разбойник", IsCorrect = false},
+                         new Answer{ Text = "налетчик", IsCorrect = false},
+                         new Answer{ Text = "флибустьер", IsCorrect = false},
+                         new Answer{ Text = "пират", IsCorrect = true}
+                     }
+                    };
+                    Question quest19 = new Question
+                    {
+                        Text = "Что стало символом гостеприимства и радушия?",
+                        Answers = new List<Answer>
+                     {
+                         new Answer{ Text = "чай-сахар", IsCorrect = false},
+                         new Answer{ Text = "холодец-горчица", IsCorrect = false},
+                         new Answer{ Text = "борщ-пампушки", IsCorrect = false},
+                         new Answer{ Text = "хлеб-соль", IsCorrect = true}
+                     }
+                    };
+
+                         Question quest20 = new Question
+                         {
+                             Text = "Что не предназначено для общественного питания?",
+                             Answers = new List<Answer>
+                     {
+                         new Answer{ Text = "хостел", IsCorrect = false},
+                         new Answer{ Text = "траттория", IsCorrect = false},
+                         new Answer{ Text = "харчевня", IsCorrect = false},
+                         new Answer{ Text = "бистро", IsCorrect = false}
+                     }
+                         };
+
+                    
+
+                        Question quest21 = new Question
+                        {
+                            Text = "Для какого развлечения традиционно не требуется карандаш или ручка?",
+                            Answers = new List<Answer>
+                     {
+                         new Answer{ Text = "крестики-нолики", IsCorrect = false},
+                         new Answer{ Text = "судоку", IsCorrect = false},
+                         new Answer{ Text = "сканворд", IsCorrect = false},
+                         new Answer{ Text = "оригами", IsCorrect = false}
+                     }
+                        };
 
                     #endregion
                     #region Add & Save
@@ -239,6 +280,12 @@ namespace My_Game
                     context.Questions.Add(quest13);
                     context.Questions.Add(quest14);
                     context.Questions.Add(quest15);
+                    context.Questions.Add(quest16);
+                    context.Questions.Add(quest17);
+                    context.Questions.Add(quest18);
+                    context.Questions.Add(quest19);
+                    context.Questions.Add(quest20);
+                    context.Questions.Add(quest21);
                     #endregion
 
 
@@ -246,7 +293,6 @@ namespace My_Game
                     Question quest = new Question
                     {
                         Text = "",
-                        IssuePrice = 200,
                         Answers = new List<Answer>
                      {
                          new Answer{ Text = "", IsCorrect = false},
@@ -269,10 +315,30 @@ namespace My_Game
         }
 
 
-        public static void FirstConnection()
+        public static async void FirstConnectionAsync()
         {
-            using (var context = new MyContext())
-                context.Accounts.First();
+            await Task.Run(() => FirstConnection());
+
+
+            //Task.Run(new Action(() =>
+            //{
+            //    using (var context = new MyContext())
+            //        context.Accounts.First();
+            //    Dispatcher.Invoke(new Action(() =>
+            //    {
+                    
+            //    }));
+            //}));
+        }
+
+        //            using (var context = new MyContext())
+        //        context.Accounts.First();
+        //}
+
+        private static void FirstConnection()
+        {
+           using (var context = new MyContext())
+                context.Answers.First();
         }
 
         //РЕГИСТРАЦИЯ
@@ -286,6 +352,12 @@ namespace My_Game
                     {
                         Login = login,
                         Password = MD5Hash.GetMd5Hash(password),
+                        Score = new Score
+                        {
+                            Wins=0,
+                            Loses=0,
+                            Balanse=0,
+                        },
                         Personal = new Personal_Data_Acc
                         {
                             Name = "",
@@ -294,6 +366,7 @@ namespace My_Game
                             Email = "",
                             Photo = ImageToByte(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Images\NoImage.png")
                         }
+                        
                     };
                     context.Accounts.Add(newAkk);
                     context.SaveChanges();
@@ -403,6 +476,27 @@ namespace My_Game
 
             return imgsource;
         }
+
+        public static void Win(Account akk)
+        {
+            using (var context = new MyContext())
+            {
+                akk.Score.Wins++;
+                akk.Score.Balanse = akk.Score.Balanse + 1000000;
+                akk.Score.WinningPercentage = akk.Score.Wins / (akk.Score.Wins = akk.Score.Loses); 
+                context.SaveChanges();
+            }
+        }
+
+        public static void Lose(Account akk)
+        {
+            using (var context = new MyContext())
+            {
+                akk.Score.Loses++;
+                context.SaveChanges();
+            }
+        }
+       
 
         //Получить случайный список 15-сложностей вопросов (внутри вопроса есть 4 ответа)
         public static List<Question> GetQuestions()
