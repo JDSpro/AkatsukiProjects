@@ -73,7 +73,7 @@
                                         <RadialGradientBrush>
                                             <GradientStop Color="#4C192E7E" Offset="1"/>
                                             <GradientStop Color="#4C446EFF" Offset="0.474"/>
-                                            <GradientStop Color="#4C587EFF"/>
+                                            <GradientStop Color="#A5587EFF"/>
                                         </RadialGradientBrush>
                                     </Path.Fill>
                                 </Path>
