@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-G:\Akatsuki\My Game\obj\Debug\
+D:\Akatsuki\My Game\obj\Debug\
 My_Game
 none
 false
 DEBUG;TRACE
-G:\Akatsuki\My Game\App.xaml
+D:\Akatsuki\My Game\App.xaml
 4-919495949
 
-23-1275935212
-22-341427101
+23-2119817228
+22-975334549
 MainWindow.xaml;GameUserControl.xaml;ProgressUserControl.xaml;Window_For_Fill_Questions.xaml;
 
 True
