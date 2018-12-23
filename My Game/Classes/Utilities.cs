@@ -305,7 +305,7 @@ namespace My_Game
         private static void FirstConnection()
         {
             using (var context = new MyContext())
-                context.Answers.First();
+                context.Accounts.FirstAsync();
         }
 
         //РЕГИСТРАЦИЯ

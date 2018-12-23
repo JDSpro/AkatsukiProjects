@@ -78,7 +78,6 @@
     <Compile Include="Classes\Answer.cs" />
     <Compile Include="Classes\DBHelper.cs" />
     <Compile Include="Classes\Game.cs" />
-    <Compile Include="Classes\GameHistory.cs" />
     <Compile Include="Classes\MyContext.cs" />
     <Compile Include="Classes\Question.cs" />
     <Compile Include="Classes\Score.cs" />
@@ -138,6 +137,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Classes\ClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

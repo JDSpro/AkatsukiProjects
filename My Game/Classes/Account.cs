@@ -13,12 +13,9 @@ namespace My_Game
     {
         public int Id { get; set; }
         [Index(IsUnique = true)]
-        [StringLength(200)]
+        [StringLength(25)]
         public string Login { get; set; }
         public string Password { get; set; }
-        //public int? Personal_Data_AccId { get; set; }
-
-        [Required]
         public virtual Personal_Data_Acc Personal { get; set; }
         public virtual Score Score { get; set; }
     }

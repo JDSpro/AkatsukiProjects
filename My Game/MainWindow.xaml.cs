@@ -45,8 +45,6 @@ namespace My_Game
             labelNewGame.MouseDown += LabelNewGame_MouseDown;
             labelNewGame.MouseLeave += LabelNewGame_MouseLeave;
             labelNewGame.MouseEnter += LabelNewGame_MouseEnter;
-
-            //WindowTitle = "Миллионер";
         }
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
@@ -201,8 +199,12 @@ namespace My_Game
             winCount.Content = Utilities.GetScore(user).Wins;
             loseCount.Content = Utilities.GetScore(user).Loses;
 
-            wins.ToolTip = "Процент побед: " + Utilities.GetScore(user).WinningPercentage.ToString() + "%";
-            loses.ToolTip = "Процент побед: " + Utilities.GetScore(user).WinningPercentage.ToString() + "%";
+            string percent = "Процент побед: " + Utilities.GetScore(user).WinningPercentage.ToString() + "%";
+
+            wins.ToolTip = percent;
+            winCount.ToolTip = percent;
+            loses.ToolTip = percent;
+            loseCount.ToolTip = percent;
         }
 
         void SetUserLogin(TextBlock textBlockToSet)
