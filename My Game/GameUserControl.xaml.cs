@@ -23,9 +23,7 @@ namespace My_Game
         Question question;
 
         public MainWindow MainWindow { get; set; }
-
-        //public ProgressUserControl Progress { get; set; }
-
+        
         public UserControl1()
         {
             InitializeComponent();

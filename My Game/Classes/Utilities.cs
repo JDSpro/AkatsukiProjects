@@ -290,7 +290,7 @@ namespace My_Game
                     context.SaveChanges();
                 }
 
-                catch (DbUpdateException ex)
+                catch (DbUpdateException)
                 {
                     return;
                 }
@@ -340,7 +340,7 @@ namespace My_Game
                     return newAkk;
                 }
 
-                catch (DbUpdateException ex)
+                catch (DbUpdateException)
                 {
                     return null;
                 }
