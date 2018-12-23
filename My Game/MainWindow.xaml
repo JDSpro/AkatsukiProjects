@@ -7,8 +7,9 @@
         xmlns:local="clr-namespace:My_Game"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="Миллионер" Name="mainWindow" Height="500" Width="800" StateChanged="MetroWindow_StateChanged"
-        Icon="Images\milionaireLogoBackground.ico" SizeChanged="mainWindow_SizeChanged">
+        Title="Миллионер" Name="mainWindow" Height="500" Width="800"
+        Icon="Images\milionaireLogoBackground.ico" 
+        ResizeMode="CanMinimize">
 
     <Controls:MetroWindow.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
@@ -80,7 +81,7 @@
                 </TabControl>
 
             </Controls:Flyout>
-            <Controls:Flyout Name="flyoutAccountInfo" Background="#41B1E1" Width="205" Position="Left" IsVisibleChanged="flyoutAccountInfo_IsVisibleChanged">
+            <Controls:Flyout Name="flyoutAccountInfo" Background="#41B1E1" Width="205" Position="Left" IsVisibleChanged="FlyoutAccountInfo_IsVisibleChanged">
                 <Controls:Flyout.Header>
                     <Label>
                         <Label.Content>
@@ -91,23 +92,23 @@
 
                 <StackPanel Background="#41B1E1" Name="stackPanelWinLose" HorizontalAlignment="Center">
                     <StackPanel Orientation="Horizontal">
-                        <Label>Победы:</Label>
+                        <Label Name="wins">Победы:</Label>
                         <Label Name="winCount" Margin="-6.5, 0, 0, 0" Foreground="Yellow"></Label>
-                        <Label>Поражения:</Label>
+                        <Label Name="loses">Поражения:</Label>
                         <Label Name="loseCount" Margin="-6.5, 0, 0, 0" Foreground="Yellow"></Label>
                     </StackPanel>
-                    
+
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Label>Баланс:</Label>
                         <Label Name="balance" Margin="0, 0, 0, 0" Foreground="Yellow"></Label>
                     </StackPanel>
-                    
-                    <Image Name="accountPicture" Width="175" Height="150" Margin="0, 0, 0, 0" MouseDown="accountPicture_MouseDown"></Image>
+
+                    <Image Name="accountPicture" Width="175" Height="150" Margin="0, 0, 0, 0" MouseDown="AccountPicture_MouseDown"></Image>
                     <TextBox Name="textBoxName" Margin="0, 15, 0, 0" Width="125" Controls:TextBoxHelper.Watermark="Ваше имя" CaretBrush="Black" Background="White" Foreground="Black"></TextBox>
                     <TextBox Name="textBoxSurname" Margin="0, 15, 0, 0" Width="125" Controls:TextBoxHelper.Watermark="Ваша фамилия" CaretBrush="Black" Background="White" Foreground="Black"></TextBox>
                     <TextBox Name="textBoxPatronymic" Margin="0, 15, 0, 0" Width="125" Controls:TextBoxHelper.Watermark="Ваше отчество" CaretBrush="Black" Background="White" Foreground="Black"></TextBox>
                     <TextBox Name="textBoxEmail" Margin="0, 15, 0, 0" Width="125" Controls:TextBoxHelper.Watermark="Ваш email" CaretBrush="Black" Background="White" Foreground="Black"></TextBox>
-                    <Button Style="{StaticResource ButtonStyle}" Name="buttonSaveChanges" Margin="0, 15, 0, 0" Width="75" Background="White" Foreground="Black" BorderBrush="#FFDFD991" Click="buttonSaveChanges_Click">Готово</Button>
+                    <Button Style="{StaticResource ButtonStyle}" Name="buttonSaveChanges" Margin="0, 15, 0, 0" Width="75" Background="White" Foreground="Black" BorderBrush="#FFDFD991" Click="ButtonSaveChanges_Click">Готово</Button>
                 </StackPanel>
             </Controls:Flyout>
         </Controls:FlyoutsControl>

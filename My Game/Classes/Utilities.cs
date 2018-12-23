@@ -237,31 +237,31 @@ namespace My_Game
                      }
                     };
 
-                         Question quest20 = new Question
-                         {
-                             Text = "Что не предназначено для общественного питания?",
-                             Answers = new List<Answer>
+                    Question quest20 = new Question
+                    {
+                        Text = "Что не предназначено для общественного питания?",
+                        Answers = new List<Answer>
                      {
-                         new Answer{ Text = "хостел", IsCorrect = false},
+                         new Answer{ Text = "хостел", IsCorrect = true},
                          new Answer{ Text = "траттория", IsCorrect = false},
                          new Answer{ Text = "харчевня", IsCorrect = false},
                          new Answer{ Text = "бистро", IsCorrect = false}
                      }
-                         };
+                    };
 
-                    
 
-                        Question quest21 = new Question
-                        {
-                            Text = "Для какого развлечения традиционно не требуется карандаш или ручка?",
-                            Answers = new List<Answer>
+
+                    Question quest21 = new Question
+                    {
+                        Text = "Для какого развлечения традиционно не требуется карандаш или ручка?",
+                        Answers = new List<Answer>
                      {
                          new Answer{ Text = "крестики-нолики", IsCorrect = false},
                          new Answer{ Text = "судоку", IsCorrect = false},
                          new Answer{ Text = "сканворд", IsCorrect = false},
-                         new Answer{ Text = "оригами", IsCorrect = false}
+                         new Answer{ Text = "оригами", IsCorrect = true}
                      }
-                        };
+                    };
 
                     #endregion
                     #region Add & Save
@@ -287,23 +287,6 @@ namespace My_Game
                     context.Questions.Add(quest20);
                     context.Questions.Add(quest21);
                     #endregion
-
-
-                    /*
-                    Question quest = new Question
-                    {
-                        Text = "",
-                        Answers = new List<Answer>
-                     {
-                         new Answer{ Text = "", IsCorrect = false},
-                         new Answer{ Text = "", IsCorrect = false},
-                         new Answer{ Text = "", IsCorrect = false},
-                         new Answer{ Text = "", IsCorrect = false}
-                     }
-                    };
-                    context.Questions.Add(quest);
-                    
-                     */
                     context.SaveChanges();
                 }
 
@@ -314,30 +297,14 @@ namespace My_Game
             }
         }
 
-
         public static async void FirstConnectionAsync()
         {
             await Task.Run(() => FirstConnection());
-
-
-            //Task.Run(new Action(() =>
-            //{
-            //    using (var context = new MyContext())
-            //        context.Accounts.First();
-            //    Dispatcher.Invoke(new Action(() =>
-            //    {
-                    
-            //    }));
-            //}));
         }
-
-        //            using (var context = new MyContext())
-        //        context.Accounts.First();
-        //}
 
         private static void FirstConnection()
         {
-           using (var context = new MyContext())
+            using (var context = new MyContext())
                 context.Answers.First();
         }
 
@@ -354,9 +321,9 @@ namespace My_Game
                         Password = MD5Hash.GetMd5Hash(password),
                         Score = new Score
                         {
-                            Wins=0,
-                            Loses=0,
-                            Balanse=0,
+                            Wins = 0,
+                            Loses = 0,
+                            Balanse = 0,
                         },
                         Personal = new Personal_Data_Acc
                         {
@@ -366,7 +333,7 @@ namespace My_Game
                             Email = "",
                             Photo = ImageToByte(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Images\NoImage.png")
                         }
-                        
+
                     };
                     context.Accounts.Add(newAkk);
                     context.SaveChanges();
@@ -443,9 +410,7 @@ namespace My_Game
                 });
             foreach (Account customer in acc)
                 context.Entry(customer).State = EntityState.Modified;
-
             context.SaveChanges();
-
             return true;
         }
 
@@ -455,7 +420,6 @@ namespace My_Game
             if (path != "")
             {
                 byte[] data;
-
                 using (FileStream fs = new FileStream(new Uri(path, UriKind.Absolute).LocalPath, FileMode.Open, FileAccess.Read))
                 {
                     data = new byte[fs.Length];
@@ -473,30 +437,45 @@ namespace My_Game
             imgsource.BeginInit();
             imgsource.StreamSource = new MemoryStream(data);
             imgsource.EndInit();
-
             return imgsource;
         }
 
-        public static void Win(Account akk)
+        public static Score GetScore(Account account)
         {
             using (var context = new MyContext())
             {
-                akk.Score.Wins++;
-                akk.Score.Balanse = akk.Score.Balanse + 1000000;
-                akk.Score.WinningPercentage = akk.Score.Wins / (akk.Score.Wins = akk.Score.Loses); 
+                Account akk = context.Accounts.Include(a => a.Score).FirstOrDefault(a => a.Id == account.Id);
+                return akk.Score;
+            }
+        }
+
+
+
+        public static void Win(Account account)
+        {
+            using (var context = new MyContext())
+            {
+                var akk = GetScore(account);
+                akk.Wins++;
+                akk.Balanse = akk.Balanse + 1000000;
+                akk.WinningPercentage = ((float)akk.Wins / (akk.Wins + akk.Loses) * 100);
+                context.Entry(akk).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }
 
-        public static void Lose(Account akk)
+        public static void Lose(Account account)
         {
             using (var context = new MyContext())
             {
-                akk.Score.Loses++;
+                var akk = GetScore(account);
+                akk.Loses++;
+                akk.WinningPercentage = ((float)akk.Wins / (akk.Wins + akk.Loses) * 100);
+                context.Entry(akk).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }
-       
+
 
         //Получить случайный список 15-сложностей вопросов (внутри вопроса есть 4 ответа)
         public static List<Question> GetQuestions()
@@ -507,41 +486,16 @@ namespace My_Game
                 List<Question> QstnList = new List<Question>();
                 while (QstnList.Count < 15)
                 {
-                  var question = context.Questions.Include(t => t.Answers).ToList();
+                    var question = context.Questions.Include(t => t.Answers).ToList();
                     nomber = Rand.Next(0, question.Count);
-                    if (QstnList.Find(item => item.Text == question[nomber].Text)==null)
+                    if (QstnList.Find(item => item.Text == question[nomber].Text) == null)
                     {
                         QstnList.Add(question[nomber]);
                     }
-                    //else if ((question[nomber].Text) == QstnList.Find(item => item.Text == question[nomber].Text).ToString())
-                    //{
-                    //    QstnList.Add(question[nomber]);
-                    //}
-                   
                 }
                 return QstnList.ToList<Question>();
             }
         }
-
-        //public static List<Question> GetQuestions()
-        //{
-        //    int i = 1;
-
-        //    using (var context = new MyContext())
-        //    {
-        //        List<Question> QstnList = new List<Question>();
-        //        while (QstnList.Count < 5)
-        //        {
-        //            var test = context.Questions.Where(c => c.QuestionArnest == i).ToList();
-
-        //            int n = Rand.Next(0, test.Count);
-        //            QstnList.Add(test[n]);
-        //            i++;
-        //        }
-        //        return QstnList.ToList<Question>();
-        //    }
-        //}
-
 
         public static void NewQuestion(string Qtext, int QArnest, string Answer1, string Answer2, string Answer3, string Answer4, int Correct)
         {
@@ -560,7 +514,7 @@ namespace My_Game
                          new Answer{ Text = Answer4, IsCorrect = false}
                      }
                     };
-                    
+
                     context.Questions.Add(question);
                     context.SaveChanges();
                 }

@@ -23,9 +23,13 @@ namespace My_Game
 
         Game game;
 
+        bool isWin = false;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            Utilities.FirstConnectionAsync();
 
             SignInButton.Click += SignInButton_Click;
             SignUpButton.Click += SignUpButton_Click;
@@ -58,6 +62,13 @@ namespace My_Game
                 }
                 else
                 {
+                    if (isWin == true)
+                    {
+                        Utilities.Win(user);
+                        UpadateStats();
+                        isWin = false;
+                    }
+
                     SetAccInfoFlyout();
                     LabelSignInError.Visibility = Visibility.Hidden;
                 }
@@ -82,6 +93,13 @@ namespace My_Game
                 }
                 else
                 {
+                    if (isWin == true)
+                    {
+                        Utilities.Win(user);
+                        UpadateStats();
+                        isWin = false;
+                    }
+
                     SetAccInfoFlyout();
                     LabelSignUpError.Visibility = Visibility.Hidden;
                     flyoutAccountInfo.IsOpen = true;
@@ -94,7 +112,7 @@ namespace My_Game
             }
         }
 
-        private void accountPicture_MouseDown(object sender, MouseButtonEventArgs e)
+        private void AccountPicture_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Image accPicture = (Image)sender;
 
@@ -143,8 +161,6 @@ namespace My_Game
                 var flyout = Flyouts.Items[1] as Flyout;
                 flyout.IsOpen = true;
             }
-
-            //DialogManager.ShowLoginAsync(this, "", "");
         }
 
         private void FlayoutSignInUp_IsOpenChanged(object sender, RoutedEventArgs e)
@@ -169,17 +185,24 @@ namespace My_Game
             textBoxSurname.Text = user.Personal.Surname;
             textBoxPatronymic.Text = user.Personal.Patronymic;
             textBoxEmail.Text = user.Personal.Email;
-            balance.Content = user.Score.Balanse;
-            winCount.Content = user.Score.Wins;
-            loseCount.Content = user.Score.Loses;
 
-            stackPanelWinLose.ToolTip = "Процент побед: " + user.Score.WinningPercentage.ToString() + "%";
-
+            UpadateStats();
+            
             SetUserLogin(flyoutAccountInfoHeaderTextBlock);
 
             SetUserLogin(textBlockOnLabelOnButton);
 
             EllipseInLoginButton.Fill = new ImageBrush(userImage);
+        }
+
+        void UpadateStats()
+        {
+            balance.Content = Utilities.GetScore(user).Balanse.ToString() + " $";
+            winCount.Content = Utilities.GetScore(user).Wins;
+            loseCount.Content = Utilities.GetScore(user).Loses;
+
+            wins.ToolTip = "Процент побед: " + Utilities.GetScore(user).WinningPercentage.ToString() + "%";
+            loses.ToolTip = "Процент побед: " + Utilities.GetScore(user).WinningPercentage.ToString() + "%";
         }
 
         void SetUserLogin(TextBlock textBlockToSet)
@@ -205,7 +228,7 @@ namespace My_Game
                 return false;
         }
 
-        private void flyoutAccountInfo_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void FlyoutAccountInfo_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (loginButton.IsVisible == true)
             {
@@ -217,31 +240,13 @@ namespace My_Game
             }
         }
 
-        private void buttonSaveChanges_Click(object sender, RoutedEventArgs e)
+        private void ButtonSaveChanges_Click(object sender, RoutedEventArgs e)
         {
             Utilities.SaveAdditionalInfo(user.Id, accountPicture.Source.ToString(), textBoxName.Text, textBoxSurname.Text, textBoxPatronymic.Text, textBoxEmail.Text);
             EllipseInLoginButton.Fill = new ImageBrush(accountPicture.Source);
             flyoutAccountInfo.IsOpen = false;
         }
-
-        private void MetroWindow_StateChanged(object sender, EventArgs e)
-        {
-            //    if(WindowState == WindowState.Normal)
-            //    {
-            //        FlayoutSignInUp.Width = 205;
-            //    }
-            //    else if(WindowState == WindowState.Maximized)
-            //    {
-            //        FlayoutSignInUp.Width = 350;
-            //        FlayoutSignInUp.Height = 450;
-            //    }
-        }
-
-        private void mainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            //mainWindow.
-        }
-
+        
         private void LabelNewGame_MouseEnter(object sender, MouseEventArgs e)
         {
             labelNewGame.Foreground = new SolidColorBrush(Colors.DarkGray);
@@ -315,12 +320,14 @@ namespace My_Game
                 if (res == MessageBoxResult.Yes)
                 {
                     FlyoutSignInUp.IsOpen = true;
+                    isWin = true;
                 }
             }
             else
             {
                 MessageBox.Show("Вы выиграли! Статистика была обновлена.");
                 Utilities.Win(user);
+                UpadateStats();
             }
 
             GameOver();
@@ -330,17 +337,13 @@ namespace My_Game
         {
             if (user == null)
             {
-                var res = MessageBox.Show("Вы Проиграли! Желаете войти в аккаунт для обновления статистики?", "Выберите", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-                if (res == MessageBoxResult.Yes)
-                {
-                    FlyoutSignInUp.IsOpen = true;
-                }
+                MessageBox.Show("Вы Проиграли!");
             }
             else
             {
                 MessageBox.Show("Вы проиграли! Статистика была обновлена.");
                 Utilities.Lose(user);
+                UpadateStats();
             }
            
             GameOver();
@@ -353,6 +356,9 @@ namespace My_Game
 
             questionAnswer.Visibility = Visibility.Hidden;
             progressBar.Visibility = Visibility.Hidden;
+
+            FileInfo fi = new FileInfo("../../Images/Background.jpg");
+            backgroundImage.Source = new BitmapImage(new Uri(fi.FullName));
 
             labelExit.Visibility = Visibility.Visible;
             labelNewGame.Visibility = Visibility.Visible;
